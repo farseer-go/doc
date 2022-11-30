@@ -1,0 +1,13 @@
+- 开源项目
+  - [x] fss.go上线
+  - [ ] fops.go上线
+- 开源组件
+  - [x] async组件实现
+  - [x] webapi组件实现
+  - [x] mapper组件实现（移除第三方组件依赖）
+  - [ ] redis组件百分百覆盖测试
+  - [ ] es组件百分百覆盖测试
+  - [ ] linkTrack组件实现
+  - [ ] rabbit组件实现
+  - [ ] redisStream组件实现
+  - [ ] container组件实现（移除第三方组件依赖）
