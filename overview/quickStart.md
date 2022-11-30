@@ -1,3 +1,4 @@
+# 快速开始
 ## fs.Initialize 初始化
 _main.go_
 ```go
