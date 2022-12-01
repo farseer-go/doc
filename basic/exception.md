@@ -1,4 +1,4 @@
-# 异常处理
+# exception异常处理
 > 包：`"github.com/farseer-go/fs/exception"`
 
 在go中`不建议使用panic来抛出异常`，建议使用`多参数返回值`来达到类似的效果。

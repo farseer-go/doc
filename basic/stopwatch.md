@@ -1,4 +1,4 @@
-# 时间统计
+# stopwatch时间统计
 > 包：`"github.com/farseer-go/fs/stopwatch"`
 
 很多时候，我们需要知道一个函数`执行了多长时间`，那么就可以使用stopwatch来`统计时间消耗`。

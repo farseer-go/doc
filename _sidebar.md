@@ -31,7 +31,10 @@
   * [redisStream](mq/redisStream.md "redisStream")
   * [rabbit](mq/rabbit.md "rabbit")
 * **数据结构**
-  * [collections集合](dataStructure/collections.md "集合")
+  * [list集合](dataStructure/list.md "list集合")
+  * [listAny集合](dataStructure/listAny.md "listAny集合")
+  * [dictionary字典](dataStructure/dictionary.md "字典")
+  * [pageList分页集合](dataStructure/pageList.md "pageList分页集合")
   * [dateTime时间类型](dataStructure/dateTime.md "时间类型")
   * [apiResponse数据包裹](dataStructure/apiResponse.md "Api类型")
 * **其它**

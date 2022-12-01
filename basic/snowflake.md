@@ -1,4 +1,4 @@
-# 雪花算法
+# snowflake雪花算法
 > 包：`"github.com/farseer-go/fs/snowflake"`
 
 ```go
