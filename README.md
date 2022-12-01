@@ -37,3 +37,80 @@
 如果您使用我们提供的Orm、Redis、Http、Grpc、Elasticsearch、MQ(Rabbit、RedisStream、Rocker、本地Queue)、EventBus、Task、FSS等等，您什么都不需要做，系统将隐式为您实现链路追踪，并提供API请求日志、慢查询（前面提到的都会记录）。
 
 > 结合[FOPS](https://github.com/FarseerNet/FOPS) 项目（自动构建、链路追踪控制台、K8S集群日志收集）支持代码无侵入的全链路实时监控。
+
+## 如何开始
+
+_main.go_
+```go
+package main
+import "github.com/farseer-go/fs"
+
+func main() {
+	fs.Initialize[StartupModule]("your project Name")
+}
+```
+
+?> 只需要在main函数第一行，执行`fs.Initialize`，即可初始化框架
+
+运行后，会在控制台打印加载信息：
+
+```
+2022-12-01 17:07:24 应用名称： your project Name
+2022-12-01 17:07:24 主机名称： MacBook-Pro.local
+2022-12-01 17:07:24 系统时间： 2022-12-01 17:07:24
+2022-12-01 17:07:24   进程ID： 6123
+2022-12-01 17:07:24   应用ID： 193337022963818496
+2022-12-01 17:07:24   应用IP： 192.168.1.4
+2022-12-01 17:07:24 日志开关： 
+2022-12-01 17:07:24 ---------------------------------------
+2022-12-01 17:07:24 加载模块...
+2022-12-01 17:07:24 加载模块：webapi.Module
+2022-12-01 17:07:24 加载模块：domain.Module
+2022-12-01 17:07:24 加载模块：application.Module
+2022-12-01 17:07:24 加载模块：interfaces.Module
+2022-12-01 17:07:24 加载模块：data.Module
+2022-12-01 17:07:24 加载模块：eventBus.Module
+2022-12-01 17:07:24 加载模块：queue.Module
+2022-12-01 17:07:24 加载模块：infrastructure.Module
+2022-12-01 17:07:24 加载模块：main.StartupModule
+2022-12-01 17:07:24 加载完毕，共加载 10 个模块
+2022-12-01 17:07:24 ---------------------------------------
+2022-12-01 17:07:24 Modules模块初始化...
+2022-12-01 17:07:24 耗时：0 ms modules.FarseerKernelModule.PreInitialize()
+2022-12-01 17:07:24 耗时：0 ms webapi.Module.PreInitialize()
+2022-12-01 17:07:24 耗时：0 ms domain.Module.PreInitialize()
+2022-12-01 17:07:24 耗时：0 ms application.Module.PreInitialize()
+2022-12-01 17:07:24 耗时：0 ms interfaces.Module.PreInitialize()
+2022-12-01 17:07:24 耗时：0 ms data.Module.PreInitialize()
+2022-12-01 17:07:24 耗时：0 ms eventBus.Module.PreInitialize()
+2022-12-01 17:07:24 耗时：0 ms queue.Module.PreInitialize()
+2022-12-01 17:07:24 耗时：0 ms infrastructure.Module.PreInitialize()
+2022-12-01 17:07:24 耗时：0 ms main.StartupModule.PreInitialize()
+2022-12-01 17:07:24 ---------------------------------------
+2022-12-01 17:07:24 耗时：0 ms modules.FarseerKernelModule.Initialize()
+2022-12-01 17:07:24 耗时：0 ms webapi.Module.Initialize()
+2022-12-01 17:07:24 耗时：0 ms domain.Module.Initialize()
+2022-12-01 17:07:24 耗时：0 ms application.Module.Initialize()
+2022-12-01 17:07:24 耗时：0 ms interfaces.Module.Initialize()
+2022-12-01 17:07:24 耗时：0 ms data.Module.Initialize()
+2022-12-01 17:07:24 耗时：0 ms eventBus.Module.Initialize()
+2022-12-01 17:07:24 耗时：0 ms queue.Module.Initialize()
+2022-12-01 17:07:24 耗时：0 ms infrastructure.Module.Initialize()
+2022-12-01 17:07:24 耗时：0 ms main.StartupModule.Initialize()
+2022-12-01 17:07:24 ---------------------------------------
+2022-12-01 17:07:24 耗时：0 ms modules.FarseerKernelModule.PostInitialize()
+2022-12-01 17:07:24 耗时：0 ms webapi.Module.PostInitialize()
+2022-12-01 17:07:24 耗时：0 ms domain.Module.PostInitialize()
+2022-12-01 17:07:24 耗时：0 ms application.Module.PostInitialize()
+2022-12-01 17:07:24 耗时：0 ms interfaces.Module.PostInitialize()
+2022-12-01 17:07:24 耗时：0 ms data.Module.PostInitialize()
+2022-12-01 17:07:24 耗时：0 ms eventBus.Module.PostInitialize()
+2022-12-01 17:07:24 耗时：0 ms queue.Module.PostInitialize()
+2022-12-01 17:07:24 耗时：0 ms infrastructure.Module.PostInitialize()
+2022-12-01 17:07:24 耗时：0 ms main.StartupModule.PostInitialize()
+2022-12-01 17:07:24 基础组件初始化完成
+2022-12-01 17:07:24 初始化完毕，共耗时：1 ms 
+2022-12-01 17:07:24 ---------------------------------------
+2022-12-01 17:07:24 [Info] Web服务已启动：http://localhost:8888/
+
+```
