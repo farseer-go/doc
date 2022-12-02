@@ -13,8 +13,18 @@
   * [stopwatch时间统计](basic/stopwatch.md "时间统计")
   * [mapper对象转换](basic/mapper.md "对象转换")
   * [async异步并行](basic/async.md "异步并行")
-* **Web**
-  * [webapi](web/webapi.md "webapi")
+* **webapi**
+  * [启动](web/webapi/statup.md "启动")
+  * **MinimalApi**
+    * [概述](web/webapi/minimalApi/overview.md "概述")
+    * [路由](web/webapi/minimalApi/route.md "MinimalApi")
+  * **Mvc**
+    * [概述](web/webapi/mvc/overview.md "概述")
+    * [路由](web/webapi/mvc/route.md "路由")
+  * [中间件](web/webapi/middleware.md "中间件")
+  * [静态资源](web/webapi/staticFile.md "静态资源")
+  * [CORS跨域](web/webapi/cors.md "CORS跨域")
+  * [Area](web/webapi/area.md "Area")
 * **缓存**
   * [cacheMemory进程缓存](cache/cacheMemory.md "进程缓存")
   * [redis缓存](cache/redis.md "Redis缓存")

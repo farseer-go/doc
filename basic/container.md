@@ -1,7 +1,7 @@
 # container容器
 > 包：`"github.com/farseer-go/fs/container"`
 
-在使用前，我们先定义一个接口、以及实现该接口的结构体
+在使用容器时，先定义一个interface、以及实现该接口的struct
 
 _ITest.go 接口_
 ```go
@@ -26,7 +26,7 @@ container.Register(func() ITest {
 	return testStruct{}
 })
 ```
-`container.Register`函数 要求传入一个`func函数`，该函数要求`返回接口类型`（这里是ITest）。函数体就是你如何实例化这个对象
+`container.Register`函数 要求传入一个`func函数`，该函数要求`返回interface类型`（示例中的是ITest）。函数体就是你如何实例化这个对象
 
 这样我们就注册了一个`单例`ITest接口的容器
 

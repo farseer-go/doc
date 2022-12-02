@@ -59,16 +59,30 @@ func GetSubNodes(key string) map[string]string
 // SetDefault 设置配置的默认值
 func SetDefault(key string, value interface{}) 
 ```
-如读取数据库的default配置：
+## 读取配置
+读取数据库的default配置：
 ```go
-configure.GetString("Database.default") // 返回字符串配置
-configure.GetInt("FSS.ReservedTaskCount") // 返回20（int类型）
+configure.GetString("Database.default")
 ```
+_运行结果：_
+
+?> "DataType=mysql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fss_demo?charset=utf8&parseTime=True&loc=Local"
+
+读取FSS.ReservedTaskCount配置：
+```go
+configure.GetInt("FSS.ReservedTaskCount")
+```
+_运行结果：_
+
+?> 20
 
 ## 设置默认值
 有时候，在我们没有对配置文件进行配置时，我们需要一些初始默认值，则可以使用`SetDefault`函数，如：
 ```go
-configure.SetDefault("myConfig.name","steden")  // 设置myConfig.name的默认值为steden
-configure.GetString("myConfig.name") // 返回 "steden"
+configure.SetDefault("myConfig.name","steden")
+configure.GetString("myConfig.name")
 ```
+_运行结果：_
+
+?> "steden"
 > 有时候，在配置文件没有这些配置时，设置默认值很有必要的
