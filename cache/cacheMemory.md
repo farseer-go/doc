@@ -82,6 +82,7 @@ func (receiver CacheManage[TEntity]) Clear()
 ```go
 fs.Initialize[cacheMemory.Module]("进程缓存演示")
 cache.SetProfilesInMemory[po]("test", "Name", 0)
+cacheManage := cache.GetCacheManage[po]("test")
 
 // 缓存了2项数据
 cacheManage.Set(po{Name: "steden", Age: 18}, po{Name: "steden2", Age: 19})
