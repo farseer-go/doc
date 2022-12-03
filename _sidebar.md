@@ -31,7 +31,11 @@
   * [redis缓存](cache/redis.md "Redis缓存")
   * [二级缓存](cache/level2Cache.md "二级缓存")
 * **存储**
-  * [data数据库ORM](store/data.md "数据库ORM")
+  * **data数据库ORM**
+    * [概述](store/data/overview.md "概述")
+    * [配置](store/data/config.md "配置")
+    * [上下文](store/data/context.md "上下文")
+    * [CURD](store/data/curd.md "插入记录")
   * [elasticSearch](store/elasticSearch.md "elasticSearch")
   * [redis](store/redis.md "redis")
 * **任务**
