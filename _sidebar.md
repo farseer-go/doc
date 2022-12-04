@@ -55,7 +55,13 @@
 * **其它**
   * [linkTrack链路追踪](other/linkTrack.md "链路追踪")
   * [eventBus事件总线](other/eventBus.md "事件总线")
-  * [utils工具集合](other/utils.md "工具集合")
+  * **utils工具集合**
+    * [encrypt加密](other/utils/encrypt.md "encrypt加密")
+    * [exec执行shell](other/utils/exec.md "exec执行shell")
+    * [file文件管理](other/utils/file.md "file文件管理")
+    * [http客户端](other/utils/http.md "http客户端")
+    * [str字符串处理](other/utils/str.md "str字符串处理")
+    * [times时间处理](other/utils/times.md "times时间处理")
 * **开源项目**
   * FOPS自动构建系统
   * FSS分布试调度中心
