@@ -1,6 +1,8 @@
 # pageList分页
 > 包：`"github.com/farseer-go/collections"`
 
+PageList实质就是在List的基础上，增加了一个`RecordCount`字段，在`分页数据`的场景下一般都会使用`PageList类型`来返回
+
 ## 数据结构定义
 ```go
 type PageList[TData any] struct {
@@ -10,8 +12,6 @@ type PageList[TData any] struct {
     List List[TData]
 }
 ```
-
-可以看到，PageList实质就是在List的基础上，增加了一个`RecordCount`字段，在`分页数据`的场景下一般都会使用`PageList类型`来返回
 
 ## 初始化
 ```go
