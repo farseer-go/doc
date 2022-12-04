@@ -1,4 +1,4 @@
-# tasks 本地任务
+# tasks 本地调度
 > 包：`"github.com/farseer-go/tasks"`
 
 tasks组件可以帮助我们快速编写一个`定时任务`，使用非常简单。
