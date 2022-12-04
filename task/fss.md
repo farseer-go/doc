@@ -3,6 +3,22 @@
 
 > 模块：`fss.Module`
 
+## 概述
+FSS是一款跨语言分布式的调度中心
+
+- `高可用（HA）`：多实例的job客户端。同一个任务、同一个job实例只会被调度一次 
+- `快速搭建`：服务端可运行于docker或k8s下，1分钟即可把服务部署到您的生产环境中 
+- `轻量级`：低内存（没有客户端连接的时候130m，有任务的时候250m）、低CPU消耗，依赖少。 
+- `动态执行`：可定时、间隔时间、Cron、或由业务方job动态设定下次执行时间。 
+- `快速上手`：Farseer.Net.Job（.NET CORE)、`farseer-go.fss(golang)`，可以快速实现一个job 
+- `可视化`：使用[FOPS](https://github.com/FarseerNet/fops.go)，可以维护任务组，查看任务进度、耗时、日志。
+
+FSS服务端：
+- [https://github.com/FarseerNet/fss.go](https://github.com/FarseerNet/fss.go) （go版本，持续更新中）
+- [https://github.com/FarseerNet/fss.net](https://github.com/FarseerNet/fss.net)（.net core版本，不再更新）
+
+?> 这个是FSS服务端的`客户端组件`，使得接入服务端变得非常简单。
+
 ## 配置
 _./farseer.yaml_
 ```yaml
@@ -60,7 +76,7 @@ main () {
 	
 	// 任务ClearHisTask的处理逻辑
 	func clearHisTaskJob(context fss.IFssContext) bool {
-		// doing....
+        flog.Info("doing...")
 		return true
 	}
 }

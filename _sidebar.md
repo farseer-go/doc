@@ -38,9 +38,9 @@
     * [CURD](store/data/curd.md "插入记录")
   * [elasticSearch](store/elasticSearch.md "elasticSearch")
   * [redis](store/redis.md "redis")
-* **任务**
-  * [fss任务调度](task/fss.md "任务调度")
-  * [tasks本地任务](task/tasks.md "本地任务")
+* **任务调度**
+  * [fss分布式调度](task/fss.md "分布式调度")
+  * [tasks本地调度](task/tasks.md "本地调度")
 * **消息队列**
   * [queue本地队列](mq/queue.md "本地队列")
   * [redisStream](mq/redisStream.md "redisStream")
