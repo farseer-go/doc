@@ -1,8 +1,6 @@
 # async异步并行
 > 包：`"github.com/farseer-go/async"`
->
-> 模块：`async.run`
-!> 
+
 
 ## 概述
 当我们需要并行执行部分函数且阻塞等待这些方法执行完成后再继续往下执行，
