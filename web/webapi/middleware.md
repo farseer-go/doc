@@ -54,7 +54,7 @@ _运行结果：_
 }
 ```
 
-## 加载内置中间件
+## 加载中间件
 要加载Cors、apiResponse、或自定义的中间件，很简单。
 ```go
 webapi.RegisterPOST("/projectgroup/tolist", projectGroupApp.ToPageList, "pageSize", "pageIndex")
