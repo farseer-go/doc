@@ -64,7 +64,8 @@
     * [str字符串处理](other/utils/str.md "str字符串处理")
     * [times时间处理](other/utils/times.md "times时间处理")
 * **部署**
-  * [docker](deploy/docker.md "docker部署")
+  * **docker**
+    * [web应用](deploy/docker.web.md "web应用")
 * **开源项目**
   * [FOPS自动构建系统](https://github.com/FarseerNet/fops.go)
   * [FSS分布试调度中心](https://github.com/FarseerNet/fss.go)

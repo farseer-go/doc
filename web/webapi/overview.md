@@ -3,6 +3,14 @@
 
 > 模块：`webapi.Module`
 
+![](https://img.shields.io/github/stars/farseer-go?style=social)
+![](https://img.shields.io/github/license/farseer-go/webapi)
+![](https://img.shields.io/github/go-mod/go-version/farseer-go/webapi)
+![](https://img.shields.io/github/v/release/farseer-go/webapi)
+![](https://img.shields.io/github/languages/code-size/farseer-go/webapi)
+![](https://img.shields.io/github/directory-file-count/farseer-go/webapi)
+![](https://img.shields.io/github/last-commit/farseer-go/webapi)
+
 ?> 用于快速构建api服务，带来极简、优雅的开发体验。编写api服务时，不需要使用httpRequest、httpResponse等数据结构。
 
 webapi使用了中间件的管道模型编写，让我们加入非业务逻辑时非常简单。

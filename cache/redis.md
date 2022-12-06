@@ -3,6 +3,14 @@
 >
 > 模块：`redis.Module`
 
+![](https://img.shields.io/github/stars/farseer-go?style=social)
+![](https://img.shields.io/github/license/farseer-go/redis)
+![](https://img.shields.io/github/go-mod/go-version/farseer-go/redis)
+![](https://img.shields.io/github/v/release/farseer-go/redis)
+![](https://img.shields.io/github/languages/code-size/farseer-go/redis)
+![](https://img.shields.io/github/directory-file-count/farseer-go/redis)
+![](https://img.shields.io/github/last-commit/farseer-go/redis)
+
 redis缓存与进程缓存操作方式类似（他们使用同一个CacheManage对象来管理缓存）
 
 redis缓存是把数据集合缓存到redis hash结构中，集合中的数据`需要有唯一标识`。

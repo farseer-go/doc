@@ -3,6 +3,14 @@
 >
 > 模块：`queue.Module`
 
+![](https://img.shields.io/github/stars/farseer-go?style=social)
+![](https://img.shields.io/github/license/farseer-go/queue)
+![](https://img.shields.io/github/go-mod/go-version/farseer-go/queue)
+![](https://img.shields.io/github/v/release/farseer-go/queue)
+![](https://img.shields.io/github/languages/code-size/farseer-go/queue)
+![](https://img.shields.io/github/directory-file-count/farseer-go/queue)
+![](https://img.shields.io/github/last-commit/farseer-go/queue)
+
 ## 概述
 在我们的生产环境中，我们每秒钟、每分钟都会产生非常多的执行日志。
 

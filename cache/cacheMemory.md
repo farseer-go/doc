@@ -3,6 +3,14 @@
 
 > 模块：`cacheMemory.Module`
 
+![](https://img.shields.io/github/stars/farseer-go?style=social)
+![](https://img.shields.io/github/license/farseer-go/cacheMemory)
+![](https://img.shields.io/github/go-mod/go-version/farseer-go/cacheMemory)
+![](https://img.shields.io/github/v/release/farseer-go/cacheMemory)
+![](https://img.shields.io/github/languages/code-size/farseer-go/cacheMemory)
+![](https://img.shields.io/github/directory-file-count/farseer-go/cacheMemory)
+![](https://img.shields.io/github/last-commit/farseer-go/cacheMemory)
+
 进程缓存支持`将数据集合缓存到本地`，集合中的数据`需要有唯一标识`。
 
 在使用之前，需要先对这个集合做初始化操作，在这里，我们以一个PO结构体来演示：

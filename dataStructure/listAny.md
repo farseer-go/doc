@@ -1,6 +1,14 @@
 # ListAny集合
 > 包：`"github.com/farseer-go/collections"`
 
+![](https://img.shields.io/github/stars/farseer-go?style=social)
+![](https://img.shields.io/github/license/farseer-go/collections)
+![](https://img.shields.io/github/go-mod/go-version/farseer-go/collections)
+![](https://img.shields.io/github/v/release/farseer-go/collections)
+![](https://img.shields.io/github/languages/code-size/farseer-go/collections)
+![](https://img.shields.io/github/directory-file-count/farseer-go/collections)
+![](https://img.shields.io/github/last-commit/farseer-go/collections)
+
 `collections.ListAny`实际就是`collections.List[any]`，从它的定义就能看出来：
 ```go
 type ListAny struct {
