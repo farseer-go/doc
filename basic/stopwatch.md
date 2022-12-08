@@ -3,7 +3,7 @@
 
 很多时候，我们需要知道一个函数`执行了多长时间`，那么就可以使用stopwatch来`统计时间消耗`。
 
-## StartNew 创建实例
+## 1、StartNew 创建实例
 ```go
 // new
 sw := stopwatch.StartNew()
@@ -34,13 +34,13 @@ sw.Stop()
 sw.ElapsedMilliseconds()
 ```
 
-## New()
+## 2、New()
 只实例化对象，但不统计时间消耗（状态：未开始）。
-## Start()
+## 3、Start()
 开始统计时间消耗。
-## Restart()
+## 4、Restart()
 重置之前的统计，并重新开始统计。
-## Stop()
+## 5、Stop()
 暂停统计。
 
 ?> 暂停后，可以再次调用`Start()`来继续统计，时间将会把暂停前的时间统计在内。

@@ -5,21 +5,28 @@
 
 !> 但有时候，使用类似.net core 、java这种异常机制来处理，反而会使得逻辑更加通顺
 
-## Exception异常
+exception包，提供了3种异常类型：
+- `exception.Exception`
+- `exception.RefuseException`
+- `exception.WebException`
+
+提供了捕获异常函数：`exception.Try`
+
+## 抛出Exception异常
 ```go
 exception.ThrowException(err string)
 exception.ThrowExceptionf(format string, a ...any)
 ```
 这个异常只是对`panic(err)`的一个包装，一般用于不需要捕获时使用
 
-## RefuseException异常
+## 抛出RefuseException异常
 ```go
 exception.ThrowRefuseException(err string)
 exception.ThrowRefuseExceptionf(format string, a ...any)
 ```
 `RefuseException异常`，一般是用于`业务上作为拒绝而抛出`的。通常`需要上层捕获并处理自己的逻辑`。
 
-## WebException异常
+## 抛出WebException异常
 ```go
 exception.ThrowWebException(statusCode int, err string)
 exception.ThrowWebExceptionf(statusCode int, format string, a ...any)
@@ -27,7 +34,7 @@ exception.ThrowWebExceptionf(statusCode int, format string, a ...any)
 
 在`webapi`组件中，使用`minimalApi`时，由于我们的函数不会依赖任何的web组件，而又希望对接口返回错误，并`标记statusCode`时，则可以使用`WebException`异常，`webapi会对此异常捕获并设置http statusCode`
 
-## 异常捕获
+## 捕获异常
 ```go
 func Run() {
     try := exception.Try(func() {

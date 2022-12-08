@@ -1,13 +1,13 @@
 # minimalApi 概述
 
 ## 介绍
-> minimalApi是一种`极简`、`优雅`的风格，`不需要依赖任何参数`，完全就是你自身的应用代码
+> minimalApi是一种`极简`、`优雅`的风格，`不需要依赖任何参数`，它看起来就是一个普通的函数
 
-只需要在`webapi.Run()`启动前注册就可以运行了，不需要你特意去依赖`http.Request`、`http.Response`，极大的简化了应用代码。
+只需要在`webapi.Run()`启动前注册就可以运行了，不需要特意去依赖`http.Request`、`http.Response`，极大简化了应用代码。
 
 _最佳实践_
 
-?> `minimalApi`是作者推荐的方式，因为它不需要依赖`web.Controller`，也就不需要专门建一个UI层。是一种`动态api方案`。
+?> `minimalApi`是作者推荐的方式，因为它不需要依赖`controller.BaseController`，也就不需要专门建一个UI层。是一种`动态api方案`。
 
 ## 注册动态Api
 使用`minimalApi`非常简单，只需要在`web.Run()`执行前调用`webapi.RegisterXXX`，注册有以下几种：
