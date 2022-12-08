@@ -26,6 +26,10 @@ lst = collections.NewList[int](1, 2, 3, 4, 5, 6)
 
 // 第二种
 lst2 := collections.NewList[string]("a", "b", "c", "d")
+
+// 第三种
+var arr:=[]int{4, 1, 5, 3, 4, 1}
+lst3 := collections.NewList(arr)
 ```
 
 ## 2、添加元素
@@ -157,15 +161,17 @@ lst.OrderByDescending(func(item int) any {  // return 8, 7, 6, 5, 4, 3, 2, 1
 }).ToArray()
 ```
 
-## 10、并集、并集、差集
+## 10、并集、并集、差集、去重
 ```go
 lst1 := collections.NewList(1, 2, 3)
 lst2 := collections.NewList(3, 4, 5)
 lst1.Intersect(lst2)                    // return NewList(3)
 lst1.Concat(lst2)                       // return NewList(1, 2, 3, 3, 4, 5)
 lst1.Union(lst2)                        // return NewList(1, 2, 3, 4, 5)
-NewList(1, 2, 3, 3, 4, 5).Distinct()    // return NewList(1, 2, 3, 4, 5)
 lst1.Except(lst2)                       // return NewList(1, 2)
+
+// 去重
+collections.NewList(1, 2, 3, 3, 4, 5).Distinct()    // return NewList(1, 2, 3, 4, 5)
 ```
 
 ## 11、Select投影

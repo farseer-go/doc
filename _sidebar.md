@@ -66,6 +66,8 @@
 * **部署**
   * **docker**
     * [web应用](deploy/docker.web.md "web应用")
+* **最佳实践**
+  * [linq在go中的使用](practices/list.md "linq在go中的使用")
 * **开源项目**
   * [FOPS自动构建系统](https://github.com/FarseerNet/fops.go)
   * [FSS分布试调度中心](https://github.com/FarseerNet/fss.go)

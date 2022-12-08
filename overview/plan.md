@@ -13,3 +13,4 @@
   - [ ] rabbit组件实现
   - [ ] redisStream组件实现
   - [ ] container组件实现（移除第三方组件依赖）
+  - [ ] configure组件实现（移除第三方组件依赖）
