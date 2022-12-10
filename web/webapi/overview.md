@@ -27,7 +27,7 @@ webapi使用了中间件的管道模型编写，让我们加入非业务逻辑�
 func main() {
 	fs.Initialize[webapi.Module]("FOPS")
 	webapi.RegisterPOST("/mini/hello1", Hello1)
-	webapi.RegisterPOST("/mini/hello3", testMiniapi.Hello3, "pageSize", "pageIndex")
+	webapi.RegisterPOST("/mini/hello3", Hello3, "pageSize", "pageIndex")
 	webapi.Run()
 }
 
