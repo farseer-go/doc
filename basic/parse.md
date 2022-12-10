@@ -44,5 +44,24 @@ result := parse.Convert("true", false)
 result := parse.Convert("123", 0)
 ```
 
-
 ?> 这让我们在日常处理这些`基本类型之间的转换`时，会容易很多
+
+## string转[]string
+```go
+// result = [0]="a"，[0]="b"，[0]="c"，[0]="d"
+result := parse.Convert("a,b,c,d", []string{})
+```
+类似strings.Join操作
+
+## 支持reflect.Type转换
+```go
+func ConvertValue(source any, defValType reflect.Type) reflect.Value
+```
+这在反射时特别有用，比如：
+```go
+headerVal := httpContext.Header.GetValue(headerName)
+headerFieldType := headerFieldVal.Type()
+
+headerValue := parse.ConvertValue(headerVal, headerFieldType)
+headerFieldVal.Set(headerValue)
+```

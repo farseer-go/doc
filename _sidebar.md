@@ -22,11 +22,13 @@
   * **Mvc**
     * [概述](web/webapi/mvc/overview.md "概述")
     * [路由](web/webapi/mvc/route.md "路由")
+    * [Method](web/webapi/mvc/method.md "Method")
   * [中间件](web/webapi/middleware.md "中间件")
   * [静态资源](web/webapi/staticFile.md "静态资源")
   * [ActionResult](web/webapi/actionResult.md "ActionResult")
   * [CORS跨域](web/webapi/cors.md "CORS跨域")
   * [Area](web/webapi/area.md "Area")
+  * [使用哪种模式](web/webapi/useMode.md "使用哪种模式")
 * **集合缓存**
   * [cacheMemory进程缓存](cache/cacheMemory.md "进程缓存")
   * [redis缓存](cache/redis.md "Redis缓存")
