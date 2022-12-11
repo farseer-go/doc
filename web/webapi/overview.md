@@ -52,8 +52,13 @@ type pageSizeRequest struct {
     PageIndex int
 }
 ```
+发起请求：
+![img_3.png](images/img_3.png)
 
-在Hello1、Hello3两个函数中，`出入参都会自动绑定数据`
+收到请求：
+![img.png](images/img.png)
+
+函数中，`出入参都会自动绑定数据`
 
 ?> 如果是`application/json`，则会自动被反序列化成model，如果是`x-www-form-urlencoded`，则会将每一项的key/value匹配到model字段中
 

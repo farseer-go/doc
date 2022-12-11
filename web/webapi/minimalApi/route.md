@@ -1,32 +1,67 @@
 # minimalApi 路由
 
-minimalApi的路由非常简单，注册有以下几种：
+使用`minimalApi`非常简单，只需要在`web.Run()`执行前调用`webapi.RegisterXXX`，注册有以下几种：
 - webapi.`RegisterPOST`
 - webapi.`RegisterGET`
 - webapi.`RegisterPUT`
 - webapi.`RegisterDELETE`
 
 ```go
-// route参数：注册的路由地址
 func RegisterPOST(route string, actionFunc any, params ...string)
 func RegisterGET(route string, actionFunc any, params ...string)
 func RegisterPUT(route string, actionFunc any, params ...string)
 func RegisterDELETE(route string, actionFunc any, params ...string)
 ```
+- route：路由url
+- actionFunc：可以传入任意函数，为Api的逻辑。
+- params：对入参为多参数时的一种命名补充（详细后面会说到）
 
-## 注册POST路由
+**POST路由：**
 ```go
-webapi.RegisterPOST("/mini/hello1", testMiniapi.Hello1)
-```
-完整URL为：`POST` http://localhost:8888/mini/hello1
+webapi.RegisterPOST("/mini/hello1", Hello1)
 
-## 注册GET路由
+func Hello1(req pageSizeRequest) string {
+    return fmt.Sprintf("hello world pageSize=%d，pageIndex=%d", req.PageSize, req.PageIndex)
+}
+```
+?> 完整URL为：`POST` http://localhost:8888/mini/hello1
+
+**GET路由：**
 
 ```go
-webapi.RegisterPOST("/projectgroup/tolist", projectGroupApp.ToPageList, "pageSize", "pageIndex")
+webapi.RegisterGET("/projectgroup/tolist", projectGroupApp.ToPageList, "pageSize", "pageIndex")
 ```
 
-完整URL为：`GET` http://localhost:8888/projectgroup/tolist
+?> 完整URL为：`GET` http://localhost:8888/projectgroup/tolist
+
+## params参数
+当Api函数的入参不是DTO模型时，需要显示传入参数的名称，参数的顺序应与Api函数一致
+
+```go
+func main() {
+	fs.Initialize[webapi.Module]("FOPS")
+	webapi.RegisterPOST("/mini/hello3", Hello3, "pageSize", "pageIndex")
+	webapi.Run()
+}
+
+// 使用基础参数来接收入参
+// 返回pageSizeRequest结构（会自动转成json)
+func Hello3(pageSize int, pageIndex int) pageSizeRequest {
+    return pageSizeRequest{
+        PageSize:  pageSize,
+        PageIndex: pageIndex,
+    }
+}
+
+// 也可以定义一个结构，用于接收参数
+type pageSizeRequest struct {
+    PageSize  int
+    PageIndex int
+}
+```
+在Hello3函数中，有2个入参：pageSize、pageIndex，这时需要在注册路由时`显示的指定每个参数的名称`。
+
+!> 这是因为Go在反射时，`无法获取到函数的参数名称`（只能获取到参数类型）。
 
 ## 批量注册
 如果要注册的路由太多时，可以采用批量注册的方式，可以将路由单独放到一个`route.go`文件中：

@@ -4,24 +4,6 @@
 > 模块：`webapi.Module`
 
 ## 启动Web服务
-_startupModule.go 启动模块_
-```go
-package main
-import (
-    "github.com/farseer-go/fs/modules"
-    "github.com/farseer-go/webapi"
-)
-type StartupModule struct {
-}
-
-func (module StartupModule) DependsModule() []modules.FarseerModule {
-	return []modules.FarseerModule{webapi.Module{}}
-}
-
-...
-```
-!> 这里依赖了`webapi.Module`模块，这是必须的。
-
 _main.go 入口_
 ```go
 package main
@@ -36,17 +18,37 @@ func main() {
 	webapi.Run()
 }
 
-func Hello1(req request.PageSizeRequest) string {
+func Hello1(req pageSizeRequest) string {
 	return fmt.Sprintf("hello world pageSize=%d，pageIndex=%d", req.PageSize, req.PageIndex)
 }
 
-type PageSizeRequest struct {
+type pageSizeRequest struct {
 	PageSize  int
 	PageIndex int
 }
 ```
 
 执行`webapi.Run()`后，便可启动web api服务。
+
+_startupModule.go 启动模块_
+```go
+package main
+import (
+    "github.com/farseer-go/fs/modules"
+    "github.com/farseer-go/webapi"
+)
+type StartupModule struct { }
+
+func (module StartupModule) DependsModule() []modules.FarseerModule {
+	return []modules.FarseerModule{webapi.Module{}}
+}
+
+func (module StartupModule) PreInitialize() { }
+func (module StartupModule) Initialize() { }
+func (module StartupModule) PostInitialize() { }
+func (module StartupModule) Shutdown() { }
+```
+!> 在DependsModule中，依赖了`webapi.Module`模块。
 
 _运行结果：_
 
@@ -65,14 +67,14 @@ _运行结果：_
 
 在不做任何配置时，EndPort默认为：`localhost:8888`
 
-配置EndPort的两种方式：
+?> 配置EndPort的两种方式：
 
 ### 1、参数配置
 ```go
 func Run(params ...string)
 ```
 params实际只支持一个入参，支持的格式为:
-- webapi.Run(`""`)
+- webapi.Run()
 - webapi.Run(`":80"`)
 - webapi.Run(`"127.0.0.1:80"`)
 
@@ -83,3 +85,8 @@ WebApi:
   Url: ":8888"
 ```
 ?> 支持的格式与参数配置是一样的。
+
+### 3、端口查找规则
+1. 优先读取通过webapi.Run("xxx")传入的实参
+2. 如果未传、或传的是""，则查找配置文件
+3. 如果配置文件没有，则使用默认端口：`localhost:8888`
