@@ -16,10 +16,22 @@
 webapi使用了中间件的管道模型编写，让我们加入非业务逻辑时非常简单。
 
 包含两种风格来提供API服务：
-- `minimalApi`：动态API风格（直接绑定到逻辑层）
+- `MinimalApi`：动态API风格（直接绑定到逻辑层）
 - `Mvc`：Controller、Action风格
 
 ?> 使用minimalApi时，甚至不需要UI层来提供API服务。
+
+## webapi有哪些功能
+- 支持中间件
+- 入参、出参隐式绑定
+- 支持静态目录绑定
+- ActionFilter过虑器
+- ActionResult抽象结果
+- Area区域设置
+- MinimalApi模式
+- Mvc模式
+  - HttpContext上下文
+  - Header隐式绑定
 
 大部份情况下，除了main需要配置webapi路由外，在你的api handle中就是一个普通的func函数，不需要依赖webapi组件。webapi会根据`func函数`的`出入参`来`隐式绑定数据`。
 
