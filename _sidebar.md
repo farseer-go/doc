@@ -74,7 +74,8 @@
   * **docker**
     * [web应用](deploy/docker.web.md "web应用")
 * **最佳实践**
-  * [linq在go中的使用](practices/list.md "linq在go中的使用")
+  * [linq在go中的使用](practices/1.md "linq在go中的使用")
+  * [依赖最新的包](practices/2.md "依赖最新的包")
 * **代码优化**
   * [1、提前初始化](optimization/1.md "1、提前初始化")
 * **开源项目**
