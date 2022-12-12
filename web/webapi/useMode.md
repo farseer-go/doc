@@ -21,4 +21,4 @@
 
 因此这种场景，毫无疑问只能使用`mvc`风格。
 
-`mvc`除了支持httpContext外，还支持`构造函数`的风格，意味着在每个Action执行前，支持做通用的逻辑处理。
+`mvc`除了支持httpContext外，还支持`ActionFilter过滤器`，意味着在每个Action执行前后，支持做通用的逻辑处理。
