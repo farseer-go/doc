@@ -12,7 +12,7 @@
 ![](https://img.shields.io/github/last-commit/farseer-go/fs)
 
 ## 什么是farseer-go
-基于Golang的模块化的完整的基础设施框架，创建现代化Web应用和APIs
+基于Golang模块化完整的基础设施框架，创建现代化Web应用和APIs
 
 使用目前最为流行的组件，并用模块化技术来提供这些组件。
 

@@ -9,9 +9,10 @@
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify@4/lib/themes/vue.css">
 </head>
 <body>
-  <div id="app">加载中</div>
+  <div id="app">loading</div>
   <script>
     window.$docsify = {
+      onlyCover: false,
       coverpage: true,  // 封面
       loadSidebar: true,  // 侧边栏
       loadNavbar: true, // 顶部导航栏
@@ -24,16 +25,14 @@
         '/.*/_sidebar.md': '/_sidebar.md',//防止意外回退
         '/.*/_navbar.md': '/_navbar.md'//防止意外回退
       },
-      search: {
-        placeholder: '搜索',
-        noData: '找不到结果!',
-        depth: 3
-      },
-      externalLinkTarget: '_blank', // default: '_blank'
+      search: 'auto', // 默认值
+      externalLinkTarget: '_blank'
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//unpkg.com/docsify-copy-code"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/emoji.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/prismjs@1/components/prism-go.min.js"></script>
