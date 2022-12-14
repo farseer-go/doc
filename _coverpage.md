@@ -1,11 +1,17 @@
 ![logo](images/go.png)
-# **farseer-go** ![](https://img.shields.io/github/v/release/farseer-go/fs)
+# **farseer-go** ![](https://img.shields.io/github/v/release/farseer-go/fs) <!-- {docsify-ignore} -->
 
-> 基于Golang模块化完整的基础设施框架，
+> **A modular and complete infrastructure framework**
 
-> `创建现代化Web应用和APIs`
+> _基于Golang模块化完整的基础设施框架_
 
-> `优雅 极简 模块化`
+> **create modern web applications and APIs**
+
+> _创建现代化Web应用程序和APIs_
+
+> **Elegant Minimalist Module**
+
+> _优雅 极简 模块化_
 
 
 ![](https://img.shields.io/github/stars/farseer-go?style=social)
