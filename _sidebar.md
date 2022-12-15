@@ -1,7 +1,8 @@
 * **概述**
     * [介绍](README.md "介绍")
     * [快速开始](overview/quickStart.md "快速开始")
-    * [计划](overview/plan.md "计划")
+    * [整体计划](overview/plan.md "整体计划")
+    * [近期计划](overview/comingPlan.md "近期计划")
     * [更新记录](overview/version.md "更新记录")
 * **基础组件**
   * [configure配置文件](basic/configure.md "配置文件")
@@ -81,3 +82,4 @@
 * **开源项目**
   * [FOPS自动构建系统](https://github.com/FarseerNet/fops.go)
   * [FSS分布试调度中心](https://github.com/FarseerNet/fss.go)
+* [**关于我们**](aboutus.md "关于我们")
