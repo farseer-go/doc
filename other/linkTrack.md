@@ -9,6 +9,6 @@
 ![](https://img.shields.io/github/v/release/farseer-go/linkTrack)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/linkTrack)
 ![](https://img.shields.io/github/directory-file-count/farseer-go/linkTrack)
-![](https://img.shields.io/github/last-commit/farseer-go/linkTrack)
+![](https://goreportcard.com/badge/github.com/farseer-go/linkTrack)
 
 !> 文档未编写，尽情期待

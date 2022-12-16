@@ -7,7 +7,7 @@
 ![](https://img.shields.io/github/v/release/farseer-go/mapper)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/mapper)
 ![](https://img.shields.io/github/directory-file-count/farseer-go/mapper)
-![](https://img.shields.io/github/last-commit/farseer-go/mapper)
+![](https://goreportcard.com/badge/github.com/farseer-go/mapper)
 
 ## 概述
 我们在开发当中经常会遇到实体与实体，实体集合与实体集合之间的相互转换，以及各种各样的相互转换问题。

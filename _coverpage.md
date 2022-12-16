@@ -20,7 +20,7 @@
 ![](https://img.shields.io/github/v/release/farseer-go/fs)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/fs)
 ![](https://img.shields.io/github/directory-file-count/farseer-go/fs)
-![](https://img.shields.io/github/last-commit/farseer-go/fs)
+![](https://goreportcard.com/badge/github.com/farseer-go/fs)
 
 [GitHub](https://github.com/farseer-go/fs)
 [Document](README.md)

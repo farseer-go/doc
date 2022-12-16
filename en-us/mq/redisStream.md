@@ -9,6 +9,6 @@
 ![](https://img.shields.io/github/v/release/farseer-go/redisStream)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/redisStream)
 ![](https://img.shields.io/github/directory-file-count/farseer-go/redisStream)
-![](https://img.shields.io/github/last-commit/farseer-go/redisStream)
+![](https://goreportcard.com/badge/github.com/farseer-go/redisStream)
 
 !> 文档未编写，尽情期待

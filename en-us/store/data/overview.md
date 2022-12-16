@@ -9,7 +9,7 @@
 ![](https://img.shields.io/github/v/release/farseer-go/data)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/data)
 ![](https://img.shields.io/github/directory-file-count/farseer-go/data)
-![](https://img.shields.io/github/last-commit/farseer-go/data)
+![](https://goreportcard.com/badge/github.com/farseer-go/data)
 
 ## 概述
 data组件提供数据库ORM操作，将数据库多张表组织到一个`上下文`中。并使用统一的`./farseer.yaml`配置

@@ -7,7 +7,7 @@
 ![](https://img.shields.io/github/v/release/farseer-go/collections)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/collections)
 ![](https://img.shields.io/github/directory-file-count/farseer-go/collections)
-![](https://img.shields.io/github/last-commit/farseer-go/collections)
+![](https://goreportcard.com/badge/github.com/farseer-go/collections)
 
 `collections.ListAny`实际就是`collections.List[any]`，从它的定义就能看出来：
 ```go

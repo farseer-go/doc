@@ -9,6 +9,6 @@
 ![](https://img.shields.io/github/v/release/farseer-go/elasticSearch)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/elasticSearch)
 ![](https://img.shields.io/github/directory-file-count/farseer-go/elasticSearch)
-![](https://img.shields.io/github/last-commit/farseer-go/elasticSearch)
+![](https://goreportcard.com/badge/github.com/farseer-go/elasticSearch)
 
 !> 文档未编写，尽情期待

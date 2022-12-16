@@ -9,7 +9,7 @@
 ![](https://img.shields.io/github/v/release/farseer-go/fss)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/fss)
 ![](https://img.shields.io/github/directory-file-count/farseer-go/fss)
-![](https://img.shields.io/github/last-commit/farseer-go/fss)
+![](https://goreportcard.com/badge/github.com/farseer-go/fss)
 
 ## 概述
 FSS是一款跨语言分布式的调度中心

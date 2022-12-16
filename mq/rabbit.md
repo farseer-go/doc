@@ -9,6 +9,6 @@
 ![](https://img.shields.io/github/v/release/farseer-go/rabbit)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/rabbit)
 ![](https://img.shields.io/github/directory-file-count/farseer-go/rabbit)
-![](https://img.shields.io/github/last-commit/farseer-go/rabbit)
+![](https://goreportcard.com/badge/github.com/farseer-go/rabbit)
 
 !> 文档未编写，尽情期待

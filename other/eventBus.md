@@ -9,7 +9,7 @@
 ![](https://img.shields.io/github/v/release/farseer-go/eventBus)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/eventBus)
 ![](https://img.shields.io/github/directory-file-count/farseer-go/eventBus)
-![](https://img.shields.io/github/last-commit/farseer-go/eventBus)
+![](https://goreportcard.com/badge/github.com/farseer-go/eventBus)
 
 ## 概述
 以事件驱动的方式来解耦业务逻辑，在`DDD`中，事件总线是必然用到的技术。
