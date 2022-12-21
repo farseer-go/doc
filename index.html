@@ -19,15 +19,18 @@
       auto2top: true, // 自动跳转到页面顶部
       name: 'farseer-go',
       repo: 'https://github.com/farseer-go/fs',
-      maxLevel: 2,
-      subMaxLevel: 1,
-      search: 'auto', // 默认值
-      externalLinkTarget: '_blank'
+      maxLevel: 2,            // 最大支持渲染的标题层级
+      subMaxLevel: 1,         // 自定义侧边栏后默认不会再生成目录，设置生成目录的最大层级（建议配置为2-4）
+      search: 'auto',         // 默认值
+      externalLinkTarget: '_blank',
+      mergeNavbar: true,      // 小屏设备下合并导航栏到侧边栏
+      sidebarDisplayLevel: 0, //设置侧边栏目录展示级别
     }
   </script>
   <!-- Docsify v4 -->
   <script src="//cdn.jsdelivr.net/npm/docsify@4"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-tabs@1"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
   <script src="//unpkg.com/docsify-copy-code"></script>

@@ -61,16 +61,15 @@
   * [pageList分页集合](dataStructure/pageList.md "pageList分页集合")
   * [dateTime时间类型](dataStructure/dateTime.md "时间类型")
   * [apiResponse数据包裹](dataStructure/apiResponse.md "Api类型")
-* **其它**
-  * [linkTrack链路追踪](other/linkTrack.md "链路追踪")
-  * [eventBus事件总线](other/eventBus.md "事件总线")
-  * **utils工具集合**
-    * [encrypt加密](other/utils/encrypt.md "encrypt加密")
-    * [exec执行shell](other/utils/exec.md "exec执行shell")
-    * [file文件管理](other/utils/file.md "file文件管理")
-    * [http客户端](other/utils/http.md "http客户端")
-    * [str字符串处理](other/utils/str.md "str字符串处理")
-    * [times时间处理](other/utils/times.md "times时间处理")
+* [**链路追踪**](other/linkTrack.md "链路追踪")
+* [**事件总线**](other/eventBus.md "事件总线")
+* **工具集合**
+  * [encrypt加密](other/utils/encrypt.md "encrypt加密")
+  * [exec执行shell](other/utils/exec.md "exec执行shell")
+  * [file文件管理](other/utils/file.md "file文件管理")
+  * [http客户端](other/utils/http.md "http客户端")
+  * [str字符串处理](other/utils/str.md "str字符串处理")
+  * [times时间处理](other/utils/times.md "times时间处理")
 * **部署**
   * **docker**
     * [web应用](deploy/docker.web.md "web应用")
