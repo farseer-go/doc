@@ -15,6 +15,7 @@
 ![](https://goreportcard.com/badge/github.com/farseer-go/fs)
 
 ## 什么是farseer-go
+
 基于Golang模块化完整的基础设施框架，创建现代化Web应用和APIs
 
 使用目前最为流行的组件，并用模块化技术来提供这些组件。
@@ -22,6 +23,8 @@
 框架完美支持 `DDD领域驱动` 的战术设计，如`仓储资源库`、`应用层事务`、`领域事件`、`应用层动态WebAPI`。
 
 它有一个[.net core](https://github.com/FarseerNet/Farseer.Net/) 成熟版本，已经使用了10多年，非常棒
+
+![](https://farseer-go.gitee.io/images/farseer-go.png)
 
 ?> 不用担心框架会让你依赖过多的包，farseer-go的组件都是独立的包，不使用的包不会下载到您的应用程序中
 
