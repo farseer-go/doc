@@ -125,7 +125,7 @@ instance:= container.Resolve[IDatabase]()
 
 ?> 比如我们可以将IDatabase`接口放在domain领域层`，而`实现放在infrastructure基础设施层`，做到完全的分离。
 
-## 注入
+## 属性注入
 在container组件中要实现注入的方式非常简单，我们先定义一个结构：
 ```go
 type myDb struct {
@@ -139,13 +139,44 @@ type myDb struct {
 
 ```go
 // 注册单例
-container.Register(func() IDatabase { return &mysql{} })
+container.Register(func () IDatabase { return &mysql{} })
 // 注册单例
-container.Register(func() IDatabase { return &sqlserver{} }, "sqlserver")
+container.Register(func () IDatabase { return &sqlserver{} }, "sqlserver")
 
 // 测试直接取对象的方式
 db := container.Resolve[myDb]()
 ```
+
 ![img.png](images/1.png)
 
 如图，myDb的结构体中，Db1、Db2都被自动注入了属性。
+
+?> 事实上，只要通过container.Resolve或者通过注入获取到的接口实例，都会去查找这个对象的（结构体）中，是否存在为nil的接口类型字段，满足这个条件就会执行注入。
+
+```go
+package repository
+
+func RegisterProductRepository() {
+	container.Register(func() product.Repository {
+		return &productRepository{}
+	})
+}
+
+type productRepository struct {
+	DB cache.ICacheManage[product.DomainObject] `inject:"product"`
+}
+
+func (p *productRepository) ToEntity(productId int) product.DomainObject {
+	item, _ := p.DB.GetItem(productId)
+	return item
+}
+```
+
+在这个代码示例中，`productRepository`结构体中包含了：`DB`字段，并设置标签：`inject:"product"`
+
+同时`RegisterProductRepository`函数会执行注册这个实现到`product.Repository`接口中。
+
+当前端通过container.Resolve调用这个接口，DB字段会被自动注入：
+![img.png](images/2.png)
+
+!> 可以发现，容器的属性注入使用好了，可以为我们节省大量的代码。
