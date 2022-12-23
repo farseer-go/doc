@@ -171,6 +171,9 @@ func (p *productRepository) ToEntity(productId int) product.DomainObject {
 	return item
 }
 ```
+?>
+此处代码，可以到[示例](https://github.com/farseer-go/demo/blob/main/fullExample/infrastructure/repository/productRepository.go)
+查看
 
 在这个代码示例中，`productRepository`结构体中包含了：`DB`字段，并设置标签：`inject:"product"`
 
@@ -180,3 +183,5 @@ func (p *productRepository) ToEntity(productId int) product.DomainObject {
 ![img.png](images/2.png)
 
 !> 可以发现，容器的属性注入使用好了，可以为我们节省大量的代码。
+
+搭配webapi，可以实现全过程的自动注入，参考：[容器注入](web/webapi/container.md)

@@ -36,6 +36,7 @@
   * [ActionResult](web/webapi/actionResult.md "ActionResult")
   * [CORS跨域](web/webapi/cors.md "CORS跨域")
   * [Area](web/webapi/area.md "Area")
+  * [容器注入](web/webapi/container.md "容器注入")
 * **集合缓存**
   * [cacheMemory进程缓存](cache/cacheMemory.md "进程缓存")
   * [redis缓存](cache/redis.md "Redis缓存")
