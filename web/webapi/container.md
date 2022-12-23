@@ -4,11 +4,11 @@ webapi支持对已经注册过的接口自动注入，省去我们手动调用`c
 
 ```go
     fs.Initialize[StartupModule]("demo")
-webapi.Area("/api/1.0/", func () {
-webapi.RegisterPOST("/product/ToEntity", productApp.ToEntity)
-})
-webapi.UseApiResponse()
-webapi.Run()
+    webapi.Area("/api/1.0/", func () {
+        webapi.RegisterPOST("/product/ToEntity", productApp.ToEntity)
+    })
+    webapi.UseApiResponse()
+    webapi.Run()
 ```
 
 从上方的代码，我们注册了一个`productApp.ToEntity` 动态API。
