@@ -7,6 +7,7 @@
 ![](https://img.shields.io/github/license/farseer-go/linkTrack)
 ![](https://img.shields.io/github/go-mod/go-version/farseer-go/linkTrack)
 ![](https://img.shields.io/github/v/release/farseer-go/linkTrack)
+![Codecov](https://img.shields.io/codecov/c/github/farseer-go/linkTrack)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/linkTrack)
 ![](https://img.shields.io/github/directory-file-count/farseer-go/linkTrack)
 ![](https://goreportcard.com/badge/github.com/farseer-go/linkTrack)

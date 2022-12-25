@@ -7,6 +7,7 @@
 ![](https://img.shields.io/github/license/farseer-go/rabbit)
 ![](https://img.shields.io/github/go-mod/go-version/farseer-go/rabbit)
 ![](https://img.shields.io/github/v/release/farseer-go/rabbit)
+![Codecov](https://img.shields.io/codecov/c/github/farseer-go/rabbit)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/rabbit)
 ![](https://img.shields.io/github/directory-file-count/farseer-go/rabbit)
 ![](https://goreportcard.com/badge/github.com/farseer-go/rabbit)
