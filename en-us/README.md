@@ -6,13 +6,12 @@
 - `Source`
   - [github](https://github.com/farseer-go/fs)
 
-![](https://img.shields.io/github/stars/farseer-go?style=social)
-![](https://img.shields.io/github/license/farseer-go/fs)
-![](https://img.shields.io/github/go-mod/go-version/farseer-go/fs)
-![](https://img.shields.io/github/v/release/farseer-go/fs)
-![](https://img.shields.io/github/languages/code-size/farseer-go/fs)
-![](https://img.shields.io/github/directory-file-count/farseer-go/fs)
-![](https://goreportcard.com/badge/github.com/farseer-go/fs)
+![stars](https://img.shields.io/github/stars/farseer-go?style=social)
+![license](https://img.shields.io/github/license/farseer-go/fs)
+![go-version](https://img.shields.io/github/go-mod/go-version/farseer-go/fs)
+![release](https://img.shields.io/github/v/release/farseer-go/fs)
+![Codecov](https://img.shields.io/codecov/c/github/farseer-go/fs)
+![badge](https://goreportcard.com/badge/github.com/farseer-go/fs)
 
 ## Introduction
 
