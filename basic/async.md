@@ -1,6 +1,15 @@
 # async异步并行
 > 包：`"github.com/farseer-go/async"`
 
+![](https://img.shields.io/github/stars/farseer-go?style=social)
+![](https://img.shields.io/github/license/farseer-go/async)
+![](https://img.shields.io/github/go-mod/go-version/farseer-go/async)
+![](https://img.shields.io/github/v/release/farseer-go/async)
+![Codecov](https://img.shields.io/codecov/c/github/farseer-go/async)
+![](https://img.shields.io/github/languages/code-size/farseer-go/async)
+![](https://img.shields.io/github/directory-file-count/farseer-go/async)
+![](https://goreportcard.com/badge/github.com/farseer-go/async)
+
 
 ## 概述
 当我们需要并行执行部分函数且阻塞等待这些方法执行完成后再继续往下执行，

@@ -1,6 +1,6 @@
 # eventBus 事件总线
 > 包：`"github.com/farseer-go/eventBus"`
-
+> 
 > 模块：`eventBus.Module`
 
 ![](https://img.shields.io/github/stars/farseer-go?style=social)

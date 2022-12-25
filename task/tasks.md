@@ -40,7 +40,7 @@ _演示：_
 import "github.com/farseer-go/tasks"
 import "github.com/farseer-go/fs/flog"
 
-main () {
+func main () {
     tasks.Run("testRun", 1*time.Second, testRun, context.Background())
     func testRun(context *tasks.TaskContext) {
         flog.Info("doing...")
@@ -62,7 +62,7 @@ _演示：_
 import "github.com/farseer-go/tasks"
 import "github.com/farseer-go/fs/flog"
 
-main () {
+func main () {
     tasks.Run("testRun", 1*time.Second, testRun, context.Background())
     func RunNow(context *tasks.TaskContext) {
         flog.Info("doing...")
