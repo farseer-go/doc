@@ -7,7 +7,7 @@
 ![](https://img.shields.io/github/license/farseer-go/cacheMemory)
 ![](https://img.shields.io/github/go-mod/go-version/farseer-go/cacheMemory)
 ![](https://img.shields.io/github/v/release/farseer-go/cacheMemory)
-![Codecov](https://img.shields.io/codecov/c/github/farseer-go/cacheMemory)
+[![codecov](https://img.shields.io/codecov/c/github/farseer-go/cacheMemory)](https://codecov.io/gh/farseer-go/cacheMemory)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/cacheMemory)
 ![](https://img.shields.io/github/directory-file-count/farseer-go/cacheMemory)
 ![](https://goreportcard.com/badge/github.com/farseer-go/cacheMemory)

@@ -5,7 +5,7 @@
 ![](https://img.shields.io/github/license/farseer-go/async)
 ![](https://img.shields.io/github/go-mod/go-version/farseer-go/async)
 ![](https://img.shields.io/github/v/release/farseer-go/async)
-![Codecov](https://img.shields.io/codecov/c/github/farseer-go/async)
+[![codecov](https://img.shields.io/codecov/c/github/farseer-go/async)](https://codecov.io/gh/farseer-go/async)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/async)
 ![](https://img.shields.io/github/directory-file-count/farseer-go/async)
 ![](https://goreportcard.com/badge/github.com/farseer-go/async)
