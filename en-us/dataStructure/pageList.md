@@ -6,7 +6,7 @@
 ![](https://img.shields.io/github/go-mod/go-version/farseer-go/collections)
 ![](https://img.shields.io/github/v/release/farseer-go/collections)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/collections)
-![](https://img.shields.io/github/directory-file-count/farseer-go/collections)
+[![Build](https://github.com/farseer-go/collections/actions/workflows/go.yml/badge.svg)](https://github.com/farseer-go/collections/actions/workflows/go.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/collections)
 
 PageList实质就是在List的基础上，增加了一个`RecordCount`字段，在`分页数据`的场景下一般都会使用`PageList类型`来返回

@@ -8,7 +8,7 @@ tasks组件可以帮助我们快速编写一个`定时任务`，使用非常简�
 ![](https://img.shields.io/github/go-mod/go-version/farseer-go/tasks)
 ![](https://img.shields.io/github/v/release/farseer-go/tasks)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/tasks)
-![](https://img.shields.io/github/directory-file-count/farseer-go/tasks)
+[![Build](https://github.com/farseer-go/tasks/actions/workflows/go.yml/badge.svg)](https://github.com/farseer-go/tasks/actions/workflows/go.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/tasks)
 
 ## tasks.TaskContext 上下文

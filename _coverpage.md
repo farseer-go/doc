@@ -19,7 +19,7 @@
 ![](https://img.shields.io/github/go-mod/go-version/farseer-go/fs)
 ![](https://img.shields.io/github/v/release/farseer-go/fs)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/fs)
-![](https://img.shields.io/github/directory-file-count/farseer-go/fs)
+[![Build](https://github.com/farseer-go/fs/actions/workflows/go.yml/badge.svg)](https://github.com/farseer-go/fs/actions/workflows/go.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/fs)
 
 [GitHub](https://github.com/farseer-go/fs)
