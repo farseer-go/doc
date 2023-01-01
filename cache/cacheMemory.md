@@ -44,6 +44,8 @@ cacheMemory.SetProfiles[po]("test", "Name", 0)
 ```go
 cacheManage := container.Resolve[cache.ICacheManage[po]]("test")
 ```
+cacheManage是`ICacheManage`接口类型，抽象了对缓存集合的各种操作
+
 ?> 这里我们通过IOC容器的方式获取，cache.ICacheManage接口也是支持注入的方式获取。
 
 ## 方法
