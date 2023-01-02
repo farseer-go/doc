@@ -69,10 +69,10 @@ webapi.Run()
 > 包：`"github.com/farseer-go/webapi/middleware"`
 > 包：`"github.com/farseer-go/webapi/context"`
 
-- 需要定义`struct`，并组合`middleware.IMiddleware`接口
-- 实现`middleware.IMiddleware`接口
+- 需要定义`struct`，并组合`context.IMiddleware`接口
+- 实现`context.IMiddleware`接口
 
-_middleware.IMiddleware.go_
+_context.IMiddleware.go_
 ```go
 type IMiddleware interface {
 	Invoke(httpContext *context.HttpContext)
@@ -82,7 +82,7 @@ type IMiddleware interface {
 _自定义示例：_
 ```go
 type middlewareDemo struct {
-    middleware.IMiddleware
+    context.IMiddleware
 }
 
 func (receiver *middlewareDemo) Invoke(httpContext *context.HttpContext) {
