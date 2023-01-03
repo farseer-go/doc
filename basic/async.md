@@ -7,7 +7,7 @@
 ![](https://img.shields.io/github/v/release/farseer-go/async)
 [![codecov](https://img.shields.io/codecov/c/github/farseer-go/async)](https://codecov.io/gh/farseer-go/async)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/async)
-[![Build](https://github.com/farseer-go/async/actions/workflows/go.yml/badge.svg)](https://github.com/farseer-go/async/actions/workflows/go.yml)
+[![Build](https://github.com/farseer-go/async/actions/workflows/test.yml/badge.svg)](https://github.com/farseer-go/async/actions/workflows/test.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/async)
 
 

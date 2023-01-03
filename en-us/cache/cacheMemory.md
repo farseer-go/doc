@@ -8,7 +8,7 @@
 ![](https://img.shields.io/github/go-mod/go-version/farseer-go/cacheMemory)
 ![](https://img.shields.io/github/v/release/farseer-go/cacheMemory)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/cacheMemory)
-[![Build](https://github.com/farseer-go/cacheMemory/actions/workflows/go.yml/badge.svg)](https://github.com/farseer-go/cacheMemory/actions/workflows/go.yml)
+[![Build](https://github.com/farseer-go/cacheMemory/actions/workflows/test.yml/badge.svg)](https://github.com/farseer-go/cacheMemory/actions/workflows/test.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/cacheMemory)
 
 进程缓存支持`将数据集合缓存到本地`，集合中的数据`需要有唯一标识`。

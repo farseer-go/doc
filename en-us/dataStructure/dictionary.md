@@ -6,7 +6,7 @@
 ![](https://img.shields.io/github/go-mod/go-version/farseer-go/collections)
 ![](https://img.shields.io/github/v/release/farseer-go/collections)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/collections)
-[![Build](https://github.com/farseer-go/collections/actions/workflows/go.yml/badge.svg)](https://github.com/farseer-go/collections/actions/workflows/go.yml)
+[![Build](https://github.com/farseer-go/collections/actions/workflows/test.yml/badge.svg)](https://github.com/farseer-go/collections/actions/workflows/test.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/collections)
 
 Dictionary是字典的意思，是go内置类型map的代替者，是一种更加高级的数据操作方案
