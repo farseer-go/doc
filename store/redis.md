@@ -9,7 +9,7 @@
 ![](https://img.shields.io/github/v/release/farseer-go/redis)
 [![codecov](https://img.shields.io/codecov/c/github/farseer-go/redis)](https://codecov.io/gh/farseer-go/redis)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/redis)
-[![Build](https://github.com/farseer-go/redis/actions/workflows/go.yml/badge.svg)](https://github.com/farseer-go/redis/actions/workflows/go.yml)
+[![Build](https://github.com/farseer-go/redis/actions/workflows/build.yml/badge.svg)](https://github.com/farseer-go/redis/actions/workflows/build.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/redis)
 
 !> 文档未编写，尽情期待

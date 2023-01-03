@@ -8,7 +8,7 @@
 ![](https://img.shields.io/github/go-mod/go-version/farseer-go/fss)
 ![](https://img.shields.io/github/v/release/farseer-go/fss)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/fss)
-[![Build](https://github.com/farseer-go/fss/actions/workflows/go.yml/badge.svg)](https://github.com/farseer-go/fss/actions/workflows/go.yml)
+[![Build](https://github.com/farseer-go/fss/actions/workflows/build.yml/badge.svg)](https://github.com/farseer-go/fss/actions/workflows/build.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/fss)
 
 ## 概述

@@ -9,7 +9,7 @@
 ![](https://img.shields.io/github/v/release/farseer-go/elasticSearch)
 [![codecov](https://img.shields.io/codecov/c/github/farseer-go/elasticSearch)](https://codecov.io/gh/farseer-go/elasticSearch)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/elasticSearch)
-[![Build](https://github.com/farseer-go/elasticSearch/actions/workflows/go.yml/badge.svg)](https://github.com/farseer-go/elasticSearch/actions/workflows/go.yml)
+[![Build](https://github.com/farseer-go/elasticSearch/actions/workflows/build.yml/badge.svg)](https://github.com/farseer-go/elasticSearch/actions/workflows/build.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/elasticSearch)
 
 !> 文档未编写，尽情期待
