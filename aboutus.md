@@ -13,4 +13,4 @@ farseer-go是基于Golang模块化完整的基础设施框架，创建现代化W
 - `源代码`
     - [github](https://github.com/farseer-go/fs)
 
-![img.png](overview/image/dd.png ':size=30%')
+![img.png](devops/images/dd.png ':size=30%')
