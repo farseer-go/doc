@@ -83,28 +83,65 @@ func main() {
 运行后控制台打印加载信息：
 
 ```
-2022-12-01 17:07:24 应用名称： your project Name
-2022-12-01 17:07:24 主机名称： MacBook-Pro.local
-2022-12-01 17:07:24 系统时间： 2022-12-01 17:07:24
-2022-12-01 17:07:24   进程ID： 6123
-2022-12-01 17:07:24   应用ID： 193337022963818496
-2022-12-01 17:07:24   应用IP： 192.168.1.4
-2022-12-01 17:07:24 ---------------------------------------
-2022-12-01 17:07:24 加载模块...
-2022-12-01 17:07:24 加载模块：webapi.Module
-2022-12-01 17:07:24 加载模块：domain.Module
-2022-12-01 17:07:24 加载模块：application.Module
-2022-12-01 17:07:24 加载模块：interfaces.Module
-2022-12-01 17:07:24 加载模块：data.Module
-2022-12-01 17:07:24 加载模块：eventBus.Module
-2022-12-01 17:07:24 加载模块：queue.Module
-2022-12-01 17:07:24 加载模块：infrastructure.Module
-2022-12-01 17:07:24 加载模块：main.StartupModule
-2022-12-01 17:07:24 加载完毕，共加载 10 个模块
-2022-12-01 17:07:24 ---------------------------------------
-2022-12-01 17:07:24 初始化完毕，共耗时：1 ms 
-2022-12-01 17:07:24 ---------------------------------------
-2022-12-01 17:07:24 [Info] Web服务已启动：http://localhost:8888/
+2023-01-05 16:15:00 AppName：  demo
+2023-01-05 16:15:00 AppID：    199530571963039744
+2023-01-05 16:15:00 AppIP：    192.168.3.55
+2023-01-05 16:15:00 HostName： stedenMacBook-Pro.local
+2023-01-05 16:15:00 HostTime： 2023-01-05 16:15:00
+2023-01-05 16:15:00 PID：      22131
+
+2023-01-05 16:15:00 ---------------------------------------
+2023-01-05 16:15:00 Loading Module...
+2023-01-05 16:15:00 Loading Module：cache.Module
+2023-01-05 16:15:00 Loading Module：cacheMemory.Module
+2023-01-05 16:15:00 Loading Module：eventBus.Module
+2023-01-05 16:15:00 Loading Module：queue.Module
+2023-01-05 16:15:00 Loading Module：infrastructure.Module
+2023-01-05 16:15:00 Loading Module：webapi.Module
+2023-01-05 16:15:00 Loading Module：domain.Module
+2023-01-05 16:15:00 Loading Module：application.Module
+2023-01-05 16:15:00 Loading Module：interfaces.Module
+2023-01-05 16:15:00 Loading Module：main.StartupModule
+2023-01-05 16:15:00 Loaded, 11 modules in total
+2023-01-05 16:15:00 ---------------------------------------
+2023-01-05 16:15:00 Elapsed time：0 ms modules.FarseerKernelModule.PreInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms cache.Module.PreInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms cacheMemory.Module.PreInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms eventBus.Module.PreInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms queue.Module.PreInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms infrastructure.Module.PreInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms webapi.Module.PreInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms domain.Module.PreInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms application.Module.PreInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms interfaces.Module.PreInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms main.StartupModule.PreInitialize()
+2023-01-05 16:15:00 ---------------------------------------
+2023-01-05 16:15:00 Elapsed time：0 ms modules.FarseerKernelModule.Initialize()
+2023-01-05 16:15:00 Elapsed time：0 ms cache.Module.Initialize()
+2023-01-05 16:15:00 Elapsed time：0 ms cacheMemory.Module.Initialize()
+2023-01-05 16:15:00 Elapsed time：0 ms eventBus.Module.Initialize()
+2023-01-05 16:15:00 Elapsed time：0 ms queue.Module.Initialize()
+2023-01-05 16:15:00 Elapsed time：0 ms infrastructure.Module.Initialize()
+2023-01-05 16:15:00 Elapsed time：0 ms webapi.Module.Initialize()
+2023-01-05 16:15:00 Elapsed time：0 ms domain.Module.Initialize()
+2023-01-05 16:15:00 Elapsed time：0 ms application.Module.Initialize()
+2023-01-05 16:15:00 Elapsed time：0 ms interfaces.Module.Initialize()
+2023-01-05 16:15:00 Elapsed time：0 ms main.StartupModule.Initialize()
+2023-01-05 16:15:00 ---------------------------------------
+2023-01-05 16:15:00 Elapsed time：0 ms modules.FarseerKernelModule.PostInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms cache.Module.PostInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms cacheMemory.Module.PostInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms eventBus.Module.PostInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms queue.Module.PostInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms infrastructure.Module.PostInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms webapi.Module.PostInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms domain.Module.PostInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms application.Module.PostInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms interfaces.Module.PostInitialize()
+2023-01-05 16:15:00 Elapsed time：0 ms main.StartupModule.PostInitialize()
+2023-01-05 16:15:00 ---------------------------------------
+2023-01-05 16:15:00 Initialization completed, total time：0 ms 
+2023-01-05 16:15:00 [Info] Web service is started：http://localhost:8888/
 ```
 ## Stargazers
 
