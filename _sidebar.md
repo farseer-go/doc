@@ -54,8 +54,8 @@
   * [tasks本地调度](task/tasks.md "本地调度")
 * **消息队列**
   * [queue本地队列](mq/queue.md "本地队列")
-  * [redisStream](mq/redisStream.md "redisStream")
   * [rabbit](mq/rabbit.md "rabbit")
+  * ~~[redisStream](mq/redisStream.md "redisStream")~~
 * **数据结构**
   * [list集合](dataStructure/list.md "list集合")
   * [listAny集合](dataStructure/listAny.md "listAny集合")
