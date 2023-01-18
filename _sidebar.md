@@ -3,7 +3,6 @@
     * [快速开始](overview/quickStart.md "快速开始")
     * [模块依赖](overview/module.md "模块依赖")
     * [整体计划](overview/plan.md "整体计划")
-    * [近期计划](devops/comingPlan.md "近期计划")
     * [更新记录](overview/version.md "更新记录")
 * **基础组件**
   * [configure配置文件](basic/configure.md "配置文件")
@@ -72,6 +71,10 @@
   * [http客户端](other/utils/http.md "http客户端")
   * [str字符串处理](other/utils/str.md "str字符串处理")
   * [times时间处理](other/utils/times.md "times时间处理")
+* **星云（分布式平台）**
+  * [介绍](devops/overview.md "介绍")
+  * [架构设计](devops/architecture.md "架构设计")
+  * [版本](devops/version.md "版本")
 * **部署**
   * **docker**
     * [web应用](deploy/docker.web.md "web应用")
