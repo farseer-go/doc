@@ -15,6 +15,7 @@
 - redisStream.module
 - tasks.module
 - webapi.module
+- etcd.module
 
 ## 模块化的意义
 
