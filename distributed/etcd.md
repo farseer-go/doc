@@ -34,7 +34,7 @@ Etcd:
   default1: "Server=127.0.0.1:2379|127.0.0.1:2379,DialTimeout=5000,Username=test,Password=test"
   default2: "Server=127.0.0.1:2379|127.0.0.1:2379,DialTimeout=5000,Username=test,Password=test"
 ```
-配置文件支持同时配置多个不同服务端、不同的交换器设置。default1、default2是自定义的名称，**同时也是IOC的别名**
+配置文件支持同时配置多个不同服务端。default1、default2是自定义的名称，**同时也是IOC的别名**
 
 配置说明：
 ```go
@@ -63,6 +63,8 @@ putRsp, err := client.Put("/test/a1", "1")
 
 参数值`default1`，是在`./farseer.yaml`中配置节点，意味着使用default1的配置服务端
 
+`KEY`："/test/a1"，`Value`："1"
+
 ## Get
 可以支持按KEY完整匹配，或者按KEY的前缀匹配。
 ```go
@@ -75,7 +77,7 @@ flog.Info(result.Value) // print:1
 results, err := client.GetPrefixKey("/test")
 flog.Info(results["/test/a1"].Value)    // print:1
 ```
-
+results是map对象，map的key是string类型，从etcd中获取到的KEY
 ## Exists
 判断KEY是否存在
 ```go
@@ -89,6 +91,7 @@ client.Exists("/test/a1")
 client := container.Resolve[etcd.IClient]("default1")
 _, _ = client.Delete("/test/a1")
 ```
+删除后"/test/a1"将从etcd服务端移除
 
 ## Watch
 监控指定的KEY（即使KEY还没有创建也可以先监控起来）
@@ -117,11 +120,11 @@ client.WatchPrefixKey(ctx, "/test/", func(event etcd.WatchEvent) {
 ```go
 client := container.Resolve[etcd.IClient]("default1")
 
-unLock1, _ := client.Lock("/lock/1", 3)
+unLock1, _ := client.Lock("/lock/1", 1)
 flog.Info("上锁：unLock1")
 
 go func() {
-    time.Sleep(1000 * time.Millisecond)
+    time.Sleep(3000 * time.Millisecond)
     flog.Info("解锁：unLock1")
     unLock1()
 }()
@@ -134,13 +137,14 @@ flog.Info("解锁：unLock2")
 ```
 打印结果：
 ```
-2023-01-22 01:44:33 [Info] 上锁：unLock1
-2023-01-22 01:44:34 [Info] 解锁：unLock1
-2023-01-22 01:44:34 [Info] 上锁：unLock2
-2023-01-22 01:44:34 [Info] 解锁：unLock2
+2023-01-22 15:10:00 [Info] 上锁：unLock1
+2023-01-22 15:10:03 [Info] 解锁：unLock1
+2023-01-22 15:10:03 [Info] 上锁：unLock2
+2023-01-22 15:10:03 [Info] 解锁：unLock2
 ```
+?> Lock方法第1个参数：KEY，第二个参数：TTL，如果应用程序退出进程，会在TTL + 1秒后自动解锁。如果的应用程序处理时间超过TTL，是会自动续约的，这点不用担心未处理完就解锁了。
 
-!> 同一时刻同一个KEY，只能有一个客户端能上锁成功。使用完后，需调用unLock()解锁
+!> 同一时刻同一个KEY，只能有一个客户端能上锁成功。使用完后，需手动调用unLock()解锁
 
 ## 租约
 ```go
