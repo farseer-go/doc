@@ -1,4 +1,6 @@
 # eventBus 事件总线
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/eventBus)
+
 > 包：`"github.com/farseer-go/eventBus"`
 > 
 > 模块：`eventBus.Module`

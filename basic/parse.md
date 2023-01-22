@@ -1,4 +1,5 @@
 # parse类型转换
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
 > 包：`"github.com/farseer-go/fs/parse"`
 
 得益于在`go 1.18`以后支持了函数泛型，使得类型转换可以更加的优雅了

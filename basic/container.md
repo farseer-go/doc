@@ -1,4 +1,5 @@
 # container容器
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
 > 包：`"github.com/farseer-go/fs/container"`
 
 在使用容器时，先定义一个interface、以及实现该接口的struct

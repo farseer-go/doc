@@ -1,10 +1,5 @@
 # 概述
-- `文档`
-    - [English](https://farseer-go.gitee.io/#/en-us/)
-    - [中文](https://farseer-go.gitee.io/)
-    - [English](https://farseer-go.github.io/doc/#/en-us/)
-- `源代码`
-    - [github](https://github.com/farseer-go/fs)
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
 
 ![stars](https://img.shields.io/github/stars/farseer-go?style=social)
 ![license](https://img.shields.io/github/license/farseer-go/fs)

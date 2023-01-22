@@ -1,8 +1,9 @@
 # etcd client
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/etcd)
 > 包：`"github.com/farseer-go/etcd"`
 >
 > 模块：`etcd.Module`
-
+  
 ![](https://img.shields.io/github/stars/farseer-go?style=social)
 ![](https://img.shields.io/github/license/farseer-go/etcd)
 ![](https://img.shields.io/github/go-mod/go-version/farseer-go/etcd)

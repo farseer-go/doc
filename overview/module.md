@@ -1,4 +1,5 @@
 # 内置模块
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
 
 在您使用框架中的各组件时，大部份组件会要求你显示的依赖模块，用于初始化工作：
 

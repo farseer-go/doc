@@ -1,4 +1,5 @@
 # configure（配置文件管理）
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
 > 包：`"github.com/farseer-go/fs/configure"`
 
 使用`farseer-go`框架，可以让你有一个统一的配置管理，我们将所有组件的配置统一写在`farseer.yaml`中。

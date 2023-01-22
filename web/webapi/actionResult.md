@@ -1,4 +1,6 @@
 # ActionResult 概述
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/webapi)
+
 > 包：`"github.com/farseer-go/webapi/action"`
 
 ActionResult是执行结果的一种抽象封装，目的是让我们可以`输出更多类型`的内容。

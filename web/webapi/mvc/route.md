@@ -1,4 +1,6 @@
 # mvc 路由
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/webapi)
+
 > mvc的路由规则`{area}`/`{strings.ToLower(prefix controller)}`/`{strings.ToLower(action)}`
 
 我们还是以`TestController`为例子：

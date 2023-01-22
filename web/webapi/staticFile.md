@@ -1,4 +1,6 @@
 # 静态资源
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/webapi)
+
 > webapi使得我们加载静态资源变的非常简单
 
 在`webapi.Run()`之前调用`UseStaticFiles()`便能加载

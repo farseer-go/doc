@@ -1,4 +1,6 @@
 # tasks 本地调度
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
+
 > 包：`"github.com/farseer-go/tasks"`
 
 tasks组件可以帮助我们快速编写一个`定时任务`，使用非常简单。

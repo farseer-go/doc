@@ -1,4 +1,5 @@
 # snowflake雪花算法
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
 > 包：`"github.com/farseer-go/fs/snowflake"`
 
 很多时候，我们需要生成一个唯一标识，但又不希望使用`Mysql的Id自增`或`Redis自增`时，可以采用本地生成的方式。
