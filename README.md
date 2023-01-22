@@ -96,7 +96,7 @@ func (module StartupModule) Shutdown() { }
 运行后控制台打印加载信息：
 
 ```
-2023-01-05 16:15:00 AppName：  demo
+2023-01-05 16:15:00 AppName：  your project Name
 2023-01-05 16:15:00 AppID：    199530571963039744
 2023-01-05 16:15:00 AppIP：    192.168.3.55
 2023-01-05 16:15:00 HostName： stedenMacBook-Pro.local
