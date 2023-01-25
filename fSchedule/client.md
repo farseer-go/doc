@@ -62,7 +62,7 @@ fss是为跨语言而设计的调度中心，因此支持使用http协议实现�
 
 > 当客户端处理完任务后，需要回调此接口，告知服务端任务已处理完毕
 
-**URL**：`http://调度中心地址/api/taskCallback`
+**URL**：`http://调度中心地址/api/taskReport`
 
 **客户端请求Body**：
 ```json
@@ -88,7 +88,7 @@ fss是为跨语言而设计的调度中心，因此支持使用http协议实现�
 
 > 客户端上传任务的执行日志
 
-**URL**：`http://调度中心地址/api/taskCallback`
+**URL**：`http://调度中心地址/api/logReport`
 
 **客户端请求Body**：
 ```json
@@ -137,7 +137,7 @@ fss是为跨语言而设计的调度中心，因此支持使用http协议实现�
 
 > 服务端会向客户端调度任务，客户端收到后执行任务，执行完后，客户端需要向服务端发起回调，告知任务执行结果
 
-**URL**：`http://客户端内网IP:Port/api/check`
+**URL**：`http://客户端内网IP:Port/api/invoke`
 
 **服务端请求Body**：
 ```json
@@ -158,7 +158,7 @@ fss是为跨语言而设计的调度中心，因此支持使用http协议实现�
 
 > 服务端向客户端发送指定的任务，用于查询任务的当前执行状态
 
-**URL**：`http://客户端内网IP:Port/api/check`
+**URL**：`http://客户端内网IP:Port/api/status`
 
 **服务端请求Body**：
 ```json
@@ -179,7 +179,7 @@ fss是为跨语言而设计的调度中心，因此支持使用http协议实现�
 
 > 服务端向客户端发送终止指定的任务
 
-**URL**：`http://客户端内网IP:Port/api/check`
+**URL**：`http://客户端内网IP:Port/api/kill`
 
 **服务端请求Body**：
 ```json
