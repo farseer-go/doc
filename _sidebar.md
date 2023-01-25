@@ -78,8 +78,8 @@
   * [架构设计](devops/architecture.md "架构设计")
   * [版本](devops/version.md "版本")
 * **调度中心**
-  * [介绍](fss/overview.md "介绍")
-  * [客户端](fss/client.md "客户端")
+  * [介绍](fSchedule/overview.md "介绍")
+  * [客户端](fSchedule/client.md "客户端")
 * **部署**
   * **docker**
     * [web应用](deploy/docker.web.md "web应用")
