@@ -182,3 +182,16 @@ client.Original()
 
 ## 最后
 以上是常用的方法。完整的方法列表，可以查看：`etcd.IClient`接口
+
+## 运行etcd环境
+```shell
+docker network create net
+docker run -d --name etcd \
+  --network net \
+  -p 2379:2379 \
+  -p 2380:2380 \
+  -e ETCD_NAME=etcd_master \
+  -e ALLOW_NONE_AUTHENTICATION=yes \
+  -e ETCD_ADVERTISE_CLIENT_URLS=http://127.0.0.1:2379 \
+  bitnami/etcd:latest
+```
