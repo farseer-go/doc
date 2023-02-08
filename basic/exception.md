@@ -14,7 +14,3 @@ exception包，提供了3种异常类型：
 提供了捕获异常函数：`exception.Try`
 
 ## 抛出Exception异常
-```go
-exception.ThrowException(err string)
-exception.ThrowExceptionf(format string, a ...any)
-```
