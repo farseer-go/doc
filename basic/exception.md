@@ -18,4 +18,3 @@ exception包，提供了3种异常类型：
 exception.ThrowException(err string)
 exception.ThrowExceptionf(format string, a ...any)
 ```
-这个异常只是对`panic(err)`的一个包装，一般用于不需要捕获时使用
