@@ -19,9 +19,3 @@ exception.ThrowException(err string)
 exception.ThrowExceptionf(format string, a ...any)
 ```
 这个异常只是对`panic(err)`的一个包装，一般用于不需要捕获时使用
-
-## 抛出RefuseException异常
-```go
-exception.ThrowRefuseException(err string)
-exception.ThrowRefuseExceptionf(format string, a ...any)
-```
