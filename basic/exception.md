@@ -25,4 +25,3 @@ exception.ThrowExceptionf(format string, a ...any)
 exception.ThrowRefuseException(err string)
 exception.ThrowRefuseExceptionf(format string, a ...any)
 ```
-`RefuseException异常`，一般是用于`业务上作为拒绝而抛出`的。通常`需要上层捕获并处理自己的逻辑`。
