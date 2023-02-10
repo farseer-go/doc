@@ -104,11 +104,37 @@ cacheManage.SetItemSource(func(cacheId any) (taskGroup.DomainObject, bool) {
     return do, false
 })
 ```
-### EnableItemNullToLoadALl
+
+### SetSyncSource
+设置将缓存的数据同步到你需要的位置，比如同步到数据库
+```go
+cacheManage.SetSyncSource(60*time.Second, func(do taskGroup.TaskEO) {
+    po := mapper.Single[model.TaskPO](&do)
+    repository := data.NewContext[taskRepository]("default")
+    var result bool
+    result = repository.Task.Where("Id = ?", po.Id).Update(po) > 0
+    if !result {
+        result = repository.Task.Insert(&po) == nil
+    }
+})
+```
+如上，定义每隔60秒，将缓存中的数据更新到数据库中
+
+### SetClearSource
+设置清理缓存中的数据
+```go
+cacheManage.SetClearSource(60*time.Second, func(do taskGroup.TaskEO) bool {
+    return do.IsFinish()
+})
+```
+如上，定义每隔60秒，将IsFinish = true的数据，清除
+
+### EnableItemNullToLoadAll
 当开启此选项时，并且未设置`SetItemSource`函数，当要从缓存集合中获取的一项数据不存在时，则会重新缓存整个数据（调用SetListSource的func来缓存数据）
 ```go
 cacheManage.EnableItemNullToLoadAll()
 ```
+
 ## 演示
 ```go
 fs.Initialize[cacheMemory.Module]("进程缓存演示")
