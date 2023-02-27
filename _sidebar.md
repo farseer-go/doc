@@ -48,9 +48,6 @@
     * [CURD](store/data/curd.md "插入记录")
   * [elasticSearch](store/elasticSearch.md "elasticSearch")
   * [redis](store/redis.md "redis")
-* **任务调度**
-  * [fss分布式调度](task/fss.md "分布式调度")
-  * [tasks本地调度](task/tasks.md "本地调度")
 * **消息队列**
   * [queue本地队列](mq/queue.md "本地队列")
   * [rabbit](mq/rabbit.md "rabbit")
@@ -79,7 +76,13 @@
   * [版本](devops/version.md "版本")
 * **调度中心**
   * [介绍](fSchedule/overview.md "介绍")
-  * [客户端](fSchedule/client.md "客户端")
+  * 客户端
+    * [http](fSchedule/client/http.md "http协议")
+    * [go](fSchedule/client/go.md "go客户端")
+  * [安装](fSchedule/setup.md "安装")
+* **任务调度**
+  * [fSchedule客户端](task/fSchedule.md "fSchedule客户端")
+  * [tasks本地调度](task/tasks.md "tasks本地调度")
 * **部署**
   * **docker**
     * [web应用](deploy/docker.web.md "web应用")
@@ -90,7 +93,9 @@
   * [使用container解耦二](practices/4.md "使用container解耦二")
 * **代码优化**
   * [1、提前初始化](optimization/1.md "1、提前初始化")
+  * [2、优化time.After](optimization/2.md "2、优化time.After")
+  * [3、提前初始化](optimization/3.md "3、提前初始化")
 * **开源项目**
   * [FOPS自动构建系统](https://github.com/FarseerNet/fops.go)
-  * [FSS分布试调度中心](https://github.com/FarseerNet/fss.go)
+  * [FSchedule](https://github.com/FSchedule/FSchedule)
 * [**关于我们**](aboutus.md "关于我们")
