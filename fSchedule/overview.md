@@ -19,7 +19,7 @@ Server端依赖Redis、Mysql，通常使用Docker运行（支持集群HA），�
 FSchedule将调度、控制权放到服务端，由服务端统一调度。可以做到统一管理的效果，并且它是高性能、高可用的。
 
 ## 架构设计
-![1.png](images/1.png)
+![架构设计](https://farseer-go.gitee.io/fSchedule/images/1.png)
 
 FSchedule采用go语言设计，编译出来后就是一个二进制的可执行文件（约6.91mb），所以它非常轻巧，且占用资源非常低。
 
