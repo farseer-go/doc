@@ -80,8 +80,7 @@
     * [http](fSchedule/client/http.md "http协议")
     * [go](fSchedule/client/go.md "go客户端")
   * [安装](fSchedule/setup.md "安装")
-* **任务调度**
-  * [fSchedule客户端](task/fSchedule.md "fSchedule客户端")
+* **定时任务**
   * [tasks本地调度](task/tasks.md "tasks本地调度")
 * **部署**
   * **docker**
