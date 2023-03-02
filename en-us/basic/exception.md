@@ -1,4 +1,5 @@
 # exception异常处理
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
 > 包：`"github.com/farseer-go/fs/exception"`
 
 在go中`不建议使用panic来抛出异常`，建议使用`多参数返回值`来达到类似的效果。
@@ -12,21 +13,21 @@ exception包，提供了3种异常类型：
 
 提供了捕获异常函数：`exception.Try`
 
-## 抛出Exception异常
+## Exception异常
 ```go
 exception.ThrowException(err string)
 exception.ThrowExceptionf(format string, a ...any)
 ```
 这个异常只是对`panic(err)`的一个包装，一般用于不需要捕获时使用
 
-## 抛出RefuseException异常
+## RefuseException异常
 ```go
 exception.ThrowRefuseException(err string)
 exception.ThrowRefuseExceptionf(format string, a ...any)
 ```
-`RefuseException异常`，一般是用于`业务上作为拒绝而抛出`的。通常`需要上层捕获并处理自己的逻辑`。
+`RefuseException异常`，一般是用于`业务上作为拒绝而使用`的。通常`需要上层捕获并处理自己的逻辑`。
 
-## 抛出WebException异常
+## WebException异常
 ```go
 exception.ThrowWebException(statusCode int, err string)
 exception.ThrowWebExceptionf(statusCode int, format string, a ...any)
@@ -40,7 +41,7 @@ func Run() {
     try := exception.Try(func() {
 		test()
     }).CatchStringException(func(exp string) {
-		// 这里不会运行，因为test抛出的是RefuseException类型的异常
+		// 这里不会运行，因为test使用的是RefuseException类型的异常
         flog.Info(exp)
     }).CatchRefuseException(func(exp *exception.RefuseException) {
 		// 这里会运行，因为捕获到了RefuseException类型的异常
@@ -52,7 +53,7 @@ func Run() {
 }
 
 func test()  {
-    // 这里我们抛出一个异常
+    // 这里我们使用一个异常
     exception.ThrowRefuseException("test is throw")
 }
 // print: [Warn] test is throw
@@ -68,14 +69,14 @@ func test()  {
 
 ?> 如果在捕获的过程中，又调用了`exception.ThrowXXX`，则后面的`CatchXXX`会继续匹配。
 
-## 向上抛出异常
-未能匹配到异常类型时，如果希望此异常继续向上抛出时，可以调用`ThrowUnCatch()`方法：
+## 向上暴露异常
+未能匹配到异常类型时，如果希望此异常继续向上暴露时，可以调用`ThrowUnCatch()`方法：
 ```go
 func Run() {
     try := exception.Try(func() {
 		test()
     }).CatchStringException(func(exp string) {
-		// 这里不会运行，因为test抛出的是RefuseException类型的异常
+		// 这里不会运行，因为test暴露的是RefuseException类型的异常
         flog.Info(exp)
     }).ThrowUnCatch()
 }

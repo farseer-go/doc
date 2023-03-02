@@ -1,4 +1,6 @@
 # encrypt加密
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/utils)
+
 > 包：`"github.com/farseer-go/utils/encrypt"`
 
 ## `Md5` 对字符串做MD5加密

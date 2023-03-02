@@ -1,5 +1,14 @@
 # 更新记录
+
+## `fs` V**0.4.1** _（2022.12.20）_
+
+1. 修复types.IsGoBasicType方法的BUG
+2. 使用自研的配置组件（移除第三方组件）
+3. 使用自研的container组件（移除第三方组件）
+4. 增加parse.Convert中bool转string
+
 ## `webapi` V**0.2.0** _（2022.12.12）_
+
 1. 修改：重命名handleMiddleware
 2. 修改：mvc控制器，路由名称转为小写
 3. 修改：mvc控制器，增加对Action的参数设置

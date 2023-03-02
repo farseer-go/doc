@@ -1,6 +1,6 @@
 # 计划
 - 开源项目
-  - [x] fss.go上线
+  - [x] FSchedule上线
   - [ ] fops.go上线
 - 开源组件
   - [x] async组件实现

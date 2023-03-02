@@ -8,10 +8,10 @@
 _./farseer.yaml_
 ```yaml
 Database:
-  default: "DataType=mysql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fss_demo?charset=utf8&parseTime=True&loc=Local"
+  default: "DataType=mysql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fSchedule_demo?charset=utf8&parseTime=True&loc=Local"
 Redis:
   default: "Server=127.0.0.1:6379,DB=15,Password=123456,ConnectTimeout=600000,SyncTimeout=10000,ResponseTimeout=10000"
-FSS:
+FSchedule:
   ReservedTaskCount: 20
   PullCount: 100
   WorkCount: 100
@@ -30,7 +30,7 @@ Log:
     event: true
     httpRequest: false
     queue: true
-    fss: true
+    fSchedule: true
 ```
 !> 配置文件：`./farseer.yaml` （位置在应用程序根目录中）
 
@@ -67,11 +67,11 @@ configure.GetString("Database.default")
 ```
 _运行结果：_
 
-?> "DataType=mysql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fss_demo?charset=utf8&parseTime=True&loc=Local"
+?> "DataType=mysql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fSchedule_demo?charset=utf8&parseTime=True&loc=Local"
 
-读取FSS.ReservedTaskCount配置：
+读取FSchedule.ReservedTaskCount配置：
 ```go
-configure.GetInt("FSS.ReservedTaskCount")
+configure.GetInt("FSchedule.ReservedTaskCount")
 ```
 _运行结果：_
 

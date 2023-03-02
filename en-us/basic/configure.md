@@ -1,4 +1,5 @@
 # configure（配置文件管理）
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
 > 包：`"github.com/farseer-go/fs/configure"`
 
 使用`farseer-go`框架，可以让你有一个统一的配置管理，我们将所有组件的配置统一写在`farseer.yaml`中。
@@ -7,10 +8,10 @@
 _./farseer.yaml_
 ```yaml
 Database:
-  default: "DataType=mysql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fss_demo?charset=utf8&parseTime=True&loc=Local"
+  default: "DataType=mysql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fSchedule_demo?charset=utf8&parseTime=True&loc=Local"
 Redis:
   default: "Server=127.0.0.1:6379,DB=15,Password=123456,ConnectTimeout=600000,SyncTimeout=10000,ResponseTimeout=10000"
-FSS:
+FSchedule:
   ReservedTaskCount: 20
   PullCount: 100
   WorkCount: 100
@@ -29,7 +30,7 @@ Log:
     event: true
     httpRequest: false
     queue: true
-    fss: true
+    fSchedule: true
 ```
 !> 配置文件：`./farseer.yaml` （位置在应用程序根目录中）
 
@@ -66,11 +67,11 @@ configure.GetString("Database.default")
 ```
 _运行结果：_
 
-?> "DataType=mysql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fss_demo?charset=utf8&parseTime=True&loc=Local"
+?> "DataType=mysql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fSchedule_demo?charset=utf8&parseTime=True&loc=Local"
 
-读取FSS.ReservedTaskCount配置：
+读取FSchedule.ReservedTaskCount配置：
 ```go
-configure.GetInt("FSS.ReservedTaskCount")
+configure.GetInt("FSchedule.ReservedTaskCount")
 ```
 _运行结果：_
 
@@ -86,3 +87,27 @@ _运行结果：_
 
 ?> "steden"
 > 有时候，在配置文件没有这些配置时，设置默认值很有必要的
+
+## 环境变量支持
+配置文件默认是支持环境变量的，且优先级别最高，会覆盖配置文件的设置
+
+由于环境变量不支持`.`、`[`、`]`符号的，因此在环境变量中Key需要做转义，比如：
+
+_环境变量_
+```
+WebApi_Url = :80
+```
+
+_./farseer.yaml_
+```yaml
+WebApi:
+  Url: ":888"
+```
+
+_读取配置_
+```go
+// result = :80
+configure.GetString("WebApi.Url")
+```
+
+代码读取上，还是使用`WebApi.Url`，在环境变量想要覆盖配置，则替换为：`WebApi_Url`

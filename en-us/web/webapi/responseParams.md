@@ -1,4 +1,5 @@
 # 出参
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/webapi)
 
 出参支持三种类型：
 - **DTO模式**：当只有`1个struct`类型时，则会被转成json输出

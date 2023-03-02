@@ -1,4 +1,5 @@
 # flog日志
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
 > 包：`"github.com/farseer-go/fs/flog"`
 
 一共提供了`6个`日志级别，每个级别在打印日志后，会显示当前日志级别，如：
@@ -24,7 +25,7 @@ Log:
     event: true           // 打印event组件的日志
     httpRequest: true     // 打印httpRequest组件的日志
     queue: true           // 打印queue组件的日志
-    fss: true             // 打印fss组件的日志
+    fSchedule: true             // 打印fSchedule组件的日志
 ```
 ?> 通过配置文件`./farseer.yaml`，可以用来控制在生产环境、开发环境、测试环境间的日志打印频率
 

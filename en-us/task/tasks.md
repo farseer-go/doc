@@ -1,4 +1,6 @@
 # tasks 本地调度
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
+
 > 包：`"github.com/farseer-go/tasks"`
 
 tasks组件可以帮助我们快速编写一个`定时任务`，使用非常简单。
@@ -7,6 +9,7 @@ tasks组件可以帮助我们快速编写一个`定时任务`，使用非常简�
 ![](https://img.shields.io/github/license/farseer-go/tasks)
 ![](https://img.shields.io/github/go-mod/go-version/farseer-go/tasks)
 ![](https://img.shields.io/github/v/release/farseer-go/tasks)
+[![codecov](https://img.shields.io/codecov/c/github/farseer-go/tasks)](https://codecov.io/gh/farseer-go/tasks)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/tasks)
 [![Build](https://github.com/farseer-go/tasks/actions/workflows/test.yml/badge.svg)](https://github.com/farseer-go/tasks/actions/workflows/test.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/tasks)
@@ -39,7 +42,7 @@ _演示：_
 import "github.com/farseer-go/tasks"
 import "github.com/farseer-go/fs/flog"
 
-main () {
+func main () {
     tasks.Run("testRun", 1*time.Second, testRun, context.Background())
     func testRun(context *tasks.TaskContext) {
         flog.Info("doing...")
@@ -61,7 +64,7 @@ _演示：_
 import "github.com/farseer-go/tasks"
 import "github.com/farseer-go/fs/flog"
 
-main () {
+func main () {
     tasks.Run("testRun", 1*time.Second, testRun, context.Background())
     func RunNow(context *tasks.TaskContext) {
         flog.Info("doing...")

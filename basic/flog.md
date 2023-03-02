@@ -25,7 +25,7 @@ Log:
     event: true           // 打印event组件的日志
     httpRequest: true     // 打印httpRequest组件的日志
     queue: true           // 打印queue组件的日志
-    fss: true             // 打印fss组件的日志
+    fSchedule: true             // 打印fSchedule组件的日志
 ```
 ?> 通过配置文件`./farseer.yaml`，可以用来控制在生产环境、开发环境、测试环境间的日志打印频率
 

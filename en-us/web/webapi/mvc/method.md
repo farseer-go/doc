@@ -1,4 +1,6 @@
 # Method
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/webapi)
+
 当MVC风格进行注册时，`默认`会将所有的Action采用`POST`的方式进行`注册`。
 
 ?> `minimalApi`是单独注册的，所以在注册时就指定了`Method`

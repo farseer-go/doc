@@ -82,7 +82,7 @@ var route = []webapi.Route{
 _main.go_
 ```go
 func main() {
-	fs.Initialize[StartupModule]("fss")
+	fs.Initialize[StartupModule]("FSchedule")
 
 	// 批量注册
 	webapi.RegisterRoutes(route)

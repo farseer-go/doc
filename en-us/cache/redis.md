@@ -1,4 +1,5 @@
 # redis 缓存
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/redis)
 > 包：`"github.com/farseer-go/cache"`、`"github.com/farseer-go/redis"`
 >
 > 模块：`redis.Module`
@@ -7,6 +8,7 @@
 ![](https://img.shields.io/github/license/farseer-go/redis)
 ![](https://img.shields.io/github/go-mod/go-version/farseer-go/redis)
 ![](https://img.shields.io/github/v/release/farseer-go/redis)
+[![codecov](https://img.shields.io/codecov/c/github/farseer-go/redis)](https://codecov.io/gh/farseer-go/redis)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/redis)
 [![Build](https://github.com/farseer-go/redis/actions/workflows/build.yml/badge.svg)](https://github.com/farseer-go/redis/actions/workflows/build.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/redis)
@@ -89,6 +91,60 @@ func (receiver CacheManage[TEntity]) Count() int
 清空数据
 ```go
 func (receiver CacheManage[TEntity]) Clear()
+```
+
+
+### SetListSource
+设置整个集合的数据源，比如这个集合的数据是来自数据库的。当获取缓存数据时，发现本地没有缓存数据（或失效），则可以通过这个源重新拿到数据并缓存到本地
+```go
+cacheManage.SetListSource(func() collections.List[taskGroup.DomainObject] {
+    var lst collections.List[taskGroup.DomainObject]
+    repository.TaskGroup.ToList().MapToList(&lst)
+    return lst
+})
+```
+此段代码，会从`repository`仓储中拿到整个表的数据，当我们获取缓存整合时，如果当前没有缓存数据，则会调用SetListSource的func来缓存数据。
+### SetItemSource
+设置集合中每一项的数据源，当缓存集合中的这一项数据不存在时，会调用SetItemSource的func来获取。
+```go
+cacheManage.SetItemSource(func(cacheId any) (taskGroup.DomainObject, bool) {
+    po := repository.TaskGroup.Where("Id = ?", cacheId).ToEntity()
+    if po.Id > 0 {
+        return mapper.Single[taskGroup.DomainObject](&po), true
+    }
+    var do taskGroup.DomainObject
+    return do, false
+})
+```
+
+### SetSyncSource
+设置将缓存的数据同步到你需要的位置，比如同步到数据库
+```go
+cacheManage.SetSyncSource(60*time.Second, func(do taskGroup.TaskEO) {
+    po := mapper.Single[model.TaskPO](&do)
+    repository := data.NewContext[taskRepository]("default")
+    var result bool
+    result = repository.Task.Where("Id = ?", po.Id).Update(po) > 0
+    if !result {
+        result = repository.Task.Insert(&po) == nil
+    }
+})
+```
+如上，定义每隔60秒，将缓存中的数据更新到数据库中
+
+### SetClearSource
+设置清理缓存中的数据
+```go
+cacheManage.SetClearSource(60*time.Second, func(do taskGroup.TaskEO) bool {
+    return do.IsFinish()
+})
+```
+如上，定义每隔60秒，将IsFinish = true的数据，清除
+
+### EnableItemNullToLoadAll
+当开启此选项时，并且未设置`SetItemSource`函数，当要从缓存集合中获取的一项数据不存在时，则会重新缓存整个数据（调用SetListSource的func来缓存数据）
+```go
+cacheManage.EnableItemNullToLoadAll()
 ```
 
 ## 演示

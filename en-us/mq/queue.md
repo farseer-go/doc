@@ -1,4 +1,5 @@
 # queue 本地队列
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/queue)
 > 包：`"github.com/farseer-go/queue"`
 >
 > 模块：`queue.Module`
@@ -7,6 +8,7 @@
 ![](https://img.shields.io/github/license/farseer-go/queue)
 ![](https://img.shields.io/github/go-mod/go-version/farseer-go/queue)
 ![](https://img.shields.io/github/v/release/farseer-go/queue)
+[![codecov](https://img.shields.io/codecov/c/github/farseer-go/queue)](https://codecov.io/gh/farseer-go/queue)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/queue)
 [![Build](https://github.com/farseer-go/queue/actions/workflows/test.yml/badge.svg)](https://github.com/farseer-go/queue/actions/workflows/test.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/queue)

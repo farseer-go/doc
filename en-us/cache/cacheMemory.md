@@ -1,12 +1,14 @@
 # cacheMemory 进程缓存
+[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/cacheMemory)
 > 包：`"github.com/farseer-go/cache"`、`"github.com/farseer-go/cacheMemory"`
-
+>
 > 模块：`cacheMemory.Module`
 
 ![](https://img.shields.io/github/stars/farseer-go?style=social)
 ![](https://img.shields.io/github/license/farseer-go/cacheMemory)
 ![](https://img.shields.io/github/go-mod/go-version/farseer-go/cacheMemory)
 ![](https://img.shields.io/github/v/release/farseer-go/cacheMemory)
+[![codecov](https://img.shields.io/codecov/c/github/farseer-go/cacheMemory)](https://codecov.io/gh/farseer-go/cacheMemory)
 ![](https://img.shields.io/github/languages/code-size/farseer-go/cacheMemory)
 [![Build](https://github.com/farseer-go/cacheMemory/actions/workflows/test.yml/badge.svg)](https://github.com/farseer-go/cacheMemory/actions/workflows/test.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/cacheMemory)
@@ -23,74 +25,121 @@ type po struct {
 ```
 
 ## 初始化操作
-_SetProfilesInMemory定义_
+_SetProfiles定义_
 ```go
-func SetProfilesInMemory[TEntity any](key string, uniqueField string, memoryExpiry time.Duration)
+func SetProfiles[TEntity any](key string, uniqueField string, expiry time.Duration)
 ```
 - `key`：这批数据的key，用于区分不同数据集合。
-- `uniqueField`：数据集合中，用于区分Item的唯一值的字段名称
-- `memoryExpiry`：缓存失效时间
+- `uniqueField`：数据集合中，用于区分Item的唯一值的字段名称（主键）
+- `expiry`：缓存失效时间
 
 _使用演示_
 ```go
 fs.Initialize[cacheMemory.Module]("进程缓存演示")
-cache.SetProfilesInMemory[po]("test", "Name", 0)
+cacheMemory.SetProfiles[po]("test", "Name", 0)
 ```
-第二个参数Name对应po结构的Name字段名称，第三个参数0代表不失效
+?> 第二个参数Name对应po结构的Name字段名称，第三个参数0代表不失效
 
 ## 获取对象
 在读写这个缓存集合前，我们需要先获取到这个集合的对象：
 ```go
-cacheManage := cache.GetCacheManage[po]("test")
+cacheManage := container.Resolve[cache.ICacheManage[po]]("test")
 ```
+cacheManage是`ICacheManage`接口类型，抽象了对缓存集合的各种操作
+
+?> 这里我们通过IOC容器的方式获取，cache.ICacheManage接口也是支持注入的方式获取。
 
 ## 方法
-### 1、Get
-获取缓存的集合对象
+### ICacheManage接口的定义
 ```go
-func (receiver CacheManage[TEntity]) Get() collections.List[TEntity]
+type ICacheManage[TEntity any] interface {
+	// SetListSource 集合数据不存在时，则通过getListSourceFn获取
+	SetListSource(getListSourceFn func() collections.List[TEntity])
+	// SetItemSource 元素不存在时，则通过getItemSourceFn获取
+	SetItemSource(getItemSourceFn func(cacheId any) (TEntity, bool))
+	// EnableItemNullToLoadAll 元素不存在时，自动读取集合数据源
+    EnableItemNullToLoadAll()
+	// Get 获取缓存数据
+	Get() collections.List[TEntity]
+	// Single 获取单个对象
+	Single() TEntity
+	// GetItem 从集合中获取指定cacheId的元素
+	GetItem(cacheId any) (TEntity, bool)
+	// Set 缓存整个集合，将覆盖原有集合（如果有数据）
+	Set(val ...TEntity)
+	// SaveItem 更新item数据到集合
+	SaveItem(newVal TEntity)
+	// Remove 移除集合中的item数据
+	Remove(cacheId string)
+	// Clear 清空数据
+	Clear()
+	// ExistsKey 缓存集合是否存在：如果没初始过Key，或者Key缓存已失效，都会返回false
+	ExistsKey() bool
+	// ExistsItem 缓存是否存在
+	ExistsItem(cacheId string) bool
+	// Count 获取集合内的数量
+	Count() int
+}
 ```
-### 2、ExistsKey
-缓存集合是否存在：如果没初始过Key，或者Key缓存已失效，都会返回false
+
+### SetListSource
+设置整个集合的数据源，比如这个集合的数据是来自数据库的。当获取缓存数据时，发现本地没有缓存数据（或失效），则可以通过这个源重新拿到数据并缓存到本地
 ```go
-func (receiver CacheManage[TEntity]) ExistsKey() bool
+cacheManage.SetListSource(func() collections.List[taskGroup.DomainObject] {
+    var lst collections.List[taskGroup.DomainObject]
+    repository.TaskGroup.ToList().MapToList(&lst)
+    return lst
+})
 ```
-### 3、ExistsItem
-集合中是否存在，`cacheId` 为 初始化时传入的`uniqueField`
+此段代码，会从`repository`仓储中拿到整个表的数据，当我们获取缓存整合时，如果当前没有缓存数据，则会调用SetListSource的func来缓存数据。
+### SetItemSource
+设置集合中每一项的数据源，当缓存集合中的这一项数据不存在时，会调用SetItemSource的func来获取。
 ```go
-func (receiver CacheManage[TEntity]) ExistsItem(cacheId string) bool
+cacheManage.SetItemSource(func(cacheId any) (taskGroup.DomainObject, bool) {
+    po := repository.TaskGroup.Where("Id = ?", cacheId).ToEntity()
+    if po.Id > 0 {
+        return mapper.Single[taskGroup.DomainObject](&po), true
+    }
+    var do taskGroup.DomainObject
+    return do, false
+})
 ```
-### 4、Set
-缓存整个集合，将覆盖原有集合（如果有数据）
+
+### SetSyncSource
+设置将缓存的数据同步到你需要的位置，比如同步到数据库
 ```go
-func (receiver CacheManage[TEntity]) Set(val ...TEntity)
+cacheManage.SetSyncSource(60*time.Second, func(do taskGroup.TaskEO) {
+    po := mapper.Single[model.TaskPO](&do)
+    repository := data.NewContext[taskRepository]("default")
+    var result bool
+    result = repository.Task.Where("Id = ?", po.Id).Update(po) > 0
+    if !result {
+        result = repository.Task.Insert(&po) == nil
+    }
+})
 ```
-### 5、SaveItem
-更新item数据到集合
+如上，定义每隔60秒，将缓存中的数据更新到数据库中
+
+### SetClearSource
+设置清理缓存中的数据
 ```go
-func (receiver CacheManage[TEntity]) SaveItem(newVal TEntity)
+cacheManage.SetClearSource(60*time.Second, func(do taskGroup.TaskEO) bool {
+    return do.IsFinish()
+})
 ```
-### 6、Remove
-移除集合中的item数据
+如上，定义每隔60秒，将IsFinish = true的数据，清除
+
+### EnableItemNullToLoadAll
+当开启此选项时，并且未设置`SetItemSource`函数，当要从缓存集合中获取的一项数据不存在时，则会重新缓存整个数据（调用SetListSource的func来缓存数据）
 ```go
-func (receiver CacheManage[TEntity]) Remove(cacheId string) 
-```
-### 7、Count
-获取集合内的数量
-```go
-func (receiver CacheManage[TEntity]) Count() int 
-```
-### 8、Clear
-清空数据
-```go
-func (receiver CacheManage[TEntity]) Clear()
+cacheManage.EnableItemNullToLoadAll()
 ```
 
 ## 演示
 ```go
 fs.Initialize[cacheMemory.Module]("进程缓存演示")
-cache.SetProfilesInMemory[po]("test", "Name", 0)
-cacheManage := cache.GetCacheManage[po]("test")
+cacheMemory.SetProfiles[po]("test", "Name", 0)
+cacheManage := container.Resolve[cache.ICacheManage[po]]("test")
 
 // 缓存了2项数据
 cacheManage.Set(po{Name: "steden", Age: 18}, po{Name: "steden2", Age: 19})
