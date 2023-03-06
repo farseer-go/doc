@@ -35,7 +35,7 @@ fSchedule.AddJob(true, "Hello"+strconv.Itoa(i), "测试HelloJob"+strconv.Itoa(i)
 
 任务组版本说明，如果需要向服务端修改任务组属性，则要在原版本号的基础下+1，否则无效。
 
-如果原来服务端版本为3，本次想修改caption，则应将ver改为4。这时服务端才会修改，否则忽略。
+> 比如原来服务端版本为3，本次想修改caption，则应将ver改为4。这时服务端才会修改，否则忽略。
 
 
 ## 完整示例

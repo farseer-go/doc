@@ -36,10 +36,9 @@
   * [CORS跨域](web/webapi/cors.md "CORS跨域")
   * [Area](web/webapi/area.md "Area")
   * [容器注入](web/webapi/container.md "容器注入")
-* **集合缓存**
-  * [cacheMemory进程缓存](cache/cacheMemory.md "进程缓存")
-  * [redis缓存](cache/redis.md "Redis缓存")
-  * [二级缓存](cache/level2Cache.md "二级缓存")
+* **缓存**
+  * [redis](cache/redis.md "redis")
+  * [集合缓存](cache/cache.md "集合缓存")
 * **存储**
   * **data数据库ORM**
     * [概述](store/data/overview.md "概述")
@@ -47,7 +46,6 @@
     * [上下文](store/data/context.md "上下文")
     * [CURD](store/data/curd.md "插入记录")
   * [elasticSearch](store/elasticSearch.md "elasticSearch")
-  * [redis](store/redis.md "redis")
 * **消息队列**
   * [queue本地队列](mq/queue.md "本地队列")
   * [rabbit](mq/rabbit.md "rabbit")
