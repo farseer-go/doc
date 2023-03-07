@@ -93,6 +93,5 @@
   * [2、优化time.After](optimization/2.md "2、优化time.After")
   * [3、提前初始化](optimization/3.md "3、提前初始化")
 * **开源项目**
-  * [FOPS自动构建系统](https://github.com/FarseerNet/fops.go)
-  * [FSchedule](https://github.com/FSchedule/FSchedule)
+  * [调度中心2.0](https://github.com/FSchedule/FSchedule)
 * [**关于我们**](aboutus.md "关于我们")

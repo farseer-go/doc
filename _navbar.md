@@ -1,6 +1,6 @@
+* [示例代码](https://github.com/farseer-go/demo)
 * 开源项目
-  * [FOPS](https://github.com/FarseerNet/fops.go)
-  * [FSchedule](https://github.com/FSchedule/FSchedule)
+  * [调度中心2.0](https://github.com/FSchedule/FSchedule)
 * Language
   * [:cn:中文](/ ':ignore :target=_self')
   * [:uk:English](/en-us/)

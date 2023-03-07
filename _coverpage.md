@@ -22,5 +22,5 @@
 [![codecov](https://img.shields.io/codecov/c/github/farseer-go/fs)](https://codecov.io/gh/farseer-go/fs)
 ![badge](https://goreportcard.com/badge/github.com/farseer-go/fs)
 
-[GitHub](https://github.com/farseer-go/fs)
-[Document](README.md)
+[FSchedule2](fSchedule/overview.md)
+[farseer-go](README.md)
