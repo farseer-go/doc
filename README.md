@@ -99,7 +99,6 @@ func (module StartupModule) Shutdown() { }
 2023-01-05 16:15:00 PID：      22131
 
 2023-01-05 16:15:00 ---------------------------------------
-2023-01-05 16:15:00 Loading Module...
 2023-01-05 16:15:00 Loading Module：webapi.Module
 2023-01-05 16:15:00 Loading Module：main.StartupModule
 2023-01-05 16:15:00 Loaded, 11 modules in total

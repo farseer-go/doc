@@ -55,13 +55,10 @@ type startupModule struct {}
 func (module startupModule) DependsModule() []modules.FarseerModule {
 	return []modules.FarseerModule{fSchedule.Module{}}
 }
-func (module startupModule) PreInitialize() {}
-func (module startupModule) Initialize() {}
 func (module startupModule) PostInitialize() {
 	// 在这里注册任务
     fSchedule.AddJob(true, "Hello1", "测试HelloJob1", 1, "0/1 * * * * ?", 1674571566, job1)
 }
-func (module startupModule) Shutdown() {}
 
 // 主函数
 func main() {
