@@ -23,15 +23,13 @@
 
 ?> 不用担心框架会让你依赖过多的包，farseer-go的组件都是独立的包，不使用的包不会下载到您的应用程序中
 
-!> 每个组件都是单独的包，因此版本号也是单独发布的
-
 ## 有什么特点？
 
 - `统一配置`：所有的配置被整合到`./farseer.yaml`
 
 - `优雅`：所有的模块都遵循开发者体验优先为原则。
 
-- `模块化`：供了完整的模块化系统，使你能够开发可重复使用的应用程序模块。
+- `模块化`：完整的模块化系统，使你能够开发可重复使用的应用程序模块。
 
 - `领域驱动`：帮助你实现基于DDD的分层架构并构建可维护的代码库。
 
@@ -120,10 +118,17 @@ func (module StartupModule) Shutdown() { }
 2023-01-05 16:15:00 Initialization completed, total time：0 ms 
 2023-01-05 16:15:00 [Info] Web service is started：http://localhost:8888/
 ```
+
+## farseer-go框架演示
+我们提供了模拟一个[小型电商网站](https://github.com/farseer-go/demo/tree/main/shopping)，用到的技术：
+* ddd：使用领域驱动设计
+* ioc：使用ioc/container，做解耦、注入、依赖倒置
+* webapi：api服务，并使用动态api技术
+* data：数据库操作
+* redis：redis操作
+* eventBus：事件驱动
+您可以把它下载到本地并运行起来
+
 ## Stargazers
 
 [![Stargazers repo roster for @farseer-go/fs](https://reporoster.com/stars/farseer-go/fs)](https://github.com/farseer-go/fs/stargazers)
-
-## Forkers
-
-[![Forkers repo roster for @farseer-go/fs](https://reporoster.com/forks/farseer-go/fs)](https://github.com/farseer-go/fs/network/members)
