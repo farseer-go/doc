@@ -35,6 +35,8 @@
 
 - `领域驱动`：帮助你实现基于DDD的分层架构并构建可维护的代码库。
 
+- `健康检查`：farseer-go会在启动时立即检查您的所有依赖项，如数据库、Redis、MQ，如果连接失败则无法启动。
+
 - `链路追踪`（下个版本推出）：如果您使用框架中的Orm、Redis、Http、Grpc、ES、MQ、EventBus、Task、fSchedule，将隐式为您实现链路追踪，并提供API请求日志、慢查询。
 
 > 结合[FOPS](https://github.com/FarseerNet/FOPS) 项目（自动构建、链路追踪控制台、K8S集群日志收集）支持代码无侵入的全链路实时监控。

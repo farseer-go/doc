@@ -18,12 +18,12 @@ webapi支持对已经注册过的接口自动注入，省去我们手动调用`c
 package productApp
 
 import (
-	"fullExample/domain/products/product"
+	"shopping/domain/products/product"
 	"github.com/farseer-go/collections"
 	"github.com/farseer-go/mapper"
 )
 
-// ToEntity 查看产品详细信息
+// ToEntity 查看商品详细信息
 // repository通过container自动注入实现进来
 func ToEntity(productId int, repository product.Repository) DTO {
 	do := repository.ToEntity(productId)
@@ -70,4 +70,4 @@ container.Register[cache.ICacheManage[product.DomainObject]](..., "product")
 如果当前这个结构体是通过container容器取出来的，就会去查找这个对象（结构体）字段中，是否有接口类型的字段，并且是已注册到container中的。就会启用属性注入。
 
 
-完整的代码示例，可以到[这里查看](https://github.com/farseer-go/demo/blob/main/fullExample/main.go)
+完整的代码示例，可以到[这里查看](https://github.com/farseer-go/demo/blob/main/shopping/main.go)

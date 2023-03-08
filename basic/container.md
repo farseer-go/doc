@@ -173,7 +173,7 @@ func (p *productRepository) ToEntity(productId int) product.DomainObject {
 }
 ```
 ?>
-此处代码，可以到[示例](https://github.com/farseer-go/demo/blob/main/fullExample/infrastructure/repository/productRepository.go)
+此处代码，可以到[示例](https://github.com/farseer-go/demo/blob/main/shopping/infrastructure/repository/productRepository.go)
 查看
 
 在这个代码示例中，`productRepository`结构体中包含了：`DB`字段，并设置标签：`inject:"product"`
