@@ -4,7 +4,7 @@
 >
 > 模块：`fSchedule.Module`
 
-## 定义任务
+## 1、定义任务
 ```go
 func job1(jobContext *fSchedule.JobContext) bool {
     return true
@@ -15,7 +15,7 @@ func job1(jobContext *fSchedule.JobContext) bool {
 
 **出参**：`true`：本次任务执行成功。`false`：执行失败（失败后，服务端会立即重新调度）。
 
-## 添加一个任务
+## 2、添加一个任务
 ```go
 // isEnable：任务是否开启
 // name：任务组名称（英文）
@@ -38,7 +38,7 @@ fSchedule.AddJob(true, "Hello"+strconv.Itoa(i), "测试HelloJob"+strconv.Itoa(i)
 > 比如原来服务端版本为3，本次想修改caption，则应将ver改为4。这时服务端才会修改，否则忽略。
 
 
-## 完整示例
+## 3、完整示例
 ```go
 
 import (

@@ -13,7 +13,7 @@
 
 PageList实质就是在List的基础上，增加了一个`RecordCount`字段，在`分页数据`的场景下一般都会使用`PageList类型`来返回
 
-## 数据结构定义
+## 1、数据结构定义
 ```go
 type PageList[TData any] struct {
     // 总记录数
@@ -23,7 +23,7 @@ type PageList[TData any] struct {
 }
 ```
 
-## 初始化
+## 2、初始化
 ```go
 lst := collections.NewList[string]("a", "b", "c", "d")
 collections.NewPageList(lst, 100)
@@ -31,7 +31,7 @@ collections.NewPageList(lst, 100)
 
 ?> 100：表示这批数据，一共有100条记录（RecordCount=100）。
 
-## MapToPageList 转换到另一个PageList类型
+## 3、MapToPageList 转换到另一个PageList类型
 _fops中用到的场景_
 ```go
 func (repository buildRepository) ToBuildingList(pageSize int, pageIndex int) collections.PageList[build.DomainObject] {

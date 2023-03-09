@@ -9,7 +9,7 @@
 func GenerateId() int64 {}
 ```
 
-## 使用示例
+## 1、使用示例
 ```go
 return snowflake.GenerateId()
 ```

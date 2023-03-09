@@ -1,7 +1,7 @@
 # 快速开始
 [English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
 
-## fs.Initialize 初始化
+## 1、fs.Initialize 初始化
 _main.go_
 ```go
 package main
@@ -22,7 +22,7 @@ func main() {
 
 `StartupModule`是你定义的模块之一（你的项目将作为业务模块，加载到框架中）
 
-## 启动模块
+## 2、启动模块
 
 _startupModule.go_
 

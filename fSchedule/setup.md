@@ -4,7 +4,7 @@
 2. `redis`（已测：6.2.6）
 
 > fSchedule运行时，会自动创建表
-## docker（推荐）
+## 1、docker（推荐）
 ```shell
 docker run --name fschedule -p 8886:8886 -d \
 -e Database_default="DataType=mysql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fschedule?charset=utf8&parseTime=True&loc=Local" \
@@ -19,7 +19,7 @@ steden88/fschedule:latest
 * `FSchedule_DataSyncTime`: 多少秒同步一次任务组数据到数据库（单位秒，默认60）
 * `FSchedule_ReservedTaskCount`: 保留多少条已完成的任务数据（0不清理，默认60）
 
-## 集群部署
+## 2、集群部署
 ```shell
 docker run --name fschedule1 -p 80:8886 -d \
 -e Database_default="DataType=mysql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fschedule?charset=utf8&parseTime=True&loc=Local" \
@@ -38,7 +38,7 @@ steden88/fschedule:latest
 ```
 > 多个节点运行，不需要特别配置，与单节点运行是一样的。
 
-## linux
+## 3、linux
 需要`go 1.20+`
 ```shell
 git clone https://github.com/FSchedule/FSchedule
@@ -51,7 +51,7 @@ chmod +x fschedule-server
 
 > 在应用程序根目录中有`farseer.yaml`配置文件，配置方式参考环境变量说明
 
-## mac
+## 4、mac
 需要`go 1.20+`
 ```shell
 git clone https://github.com/FSchedule/FSchedule

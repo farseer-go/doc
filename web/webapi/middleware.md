@@ -6,28 +6,29 @@
 
 ?> 它允许我们在http的请求过程中，加入自定义的`非业务逻辑`，如`权限效验`、`记录日志`、`api性能统计`等等。
 
-## 处理流程
+## 1、处理流程
 
 > `http` -> `exception` -> `routing` -> `自定义` -> `handleMiddleware`
 
 !> 除了自定义的中间件，http、exception、routing、handleMiddleware，都不需要我们显示加载。
 
-## 内置的中间件
-### 1、Http
+## 2、内置的中间件
+### 2.1、Http
 负责将httpResponse的Body写入到输出流
 
-### 2、exception
+### 2.2、exception
 在执行业务api发生异常时，进行捕获处理
 
-### 3、routing
+### 2.3、routing
 对method不匹配的请求，进行拒绝
 
-### 4、handleMiddleware
+### 2.4、handleMiddleware
 最后的处理流程，主要是将最终的请求，转发到具体的Action中
 
-### 5、Cors
+### 2.5、Cors
 支持跨域请求，需要在web.Run()运行前，手动加载
-### 6、apiResponse
+
+### 2.6、apiResponse
 支持对返回值做一层包装。apiResponse的结构为：
 ```go
 type ApiResponse[TData any] struct {
@@ -55,7 +56,7 @@ _运行结果：_
 }
 ```
 
-## 加载中间件
+## 3、加载中间件
 要加载Cors、apiResponse、或自定义的中间件，很简单。
 ```go
 webapi.RegisterPOST("/projectgroup/tolist", projectGroupApp.ToPageList, "pageSize", "pageIndex")
@@ -66,7 +67,7 @@ webapi.Run()
 ```
 ?> 加载顺序：先加载的先执行
 
-## 自定义中间件
+## 4、自定义中间件
 > 包：`"github.com/farseer-go/webapi/middleware"`
 > 包：`"github.com/farseer-go/webapi/context"`
 
@@ -103,7 +104,7 @@ _执行顺序_
 
 我们可以在`Invoke`执行前、或执行后，编写你的逻辑代码。
 
-## 加载自定义中间件
+## 5、加载自定义中间件
 加载中间件，只需要调用`webapi.RegisterMiddleware`即可：
 ```go
 webapi.UseCors()

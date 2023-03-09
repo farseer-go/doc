@@ -4,7 +4,7 @@
 
 apiResponse类型，一般用于api服务返回类型的包裹结构
 
-## 数据结构定义
+## 1、数据结构定义
 ```go
 type ApiResponse[TData any] struct {
     // 操作是否成功
@@ -32,14 +32,14 @@ type ApiResponse[TData any] struct {
 
 可以跳到webapi组件中查看，在中间件中支持自动设置：[webapi中间件](/web/webapi/middleware.md?id=_6%e3%80%81apiresponse)
 
-## 常用的默认类型
+## 2、常用的默认类型
 ```go
 type ApiResponseInt ApiResponse[int]
 type ApiResponseLong ApiResponse[int64]
 type ApiResponseString ApiResponse[string]
 ```
 
-## 1、SetData
+## 3、SetData
 ```go
 apiResponse:= core.ApiResponse[string]{
     Status:true,
@@ -60,13 +60,13 @@ _运行结果：_
 }
 ```
 
-## 2、ToJson
+## 4、ToJson
 将对象转换成Json string
 
-## 3、ToBytes
+## 5、ToBytes
 将对象转换成Json []byte
 
-## 4、Success
+## 6、Success
 ```go
 core.Success("成功",123).ToJson()
 ```
@@ -80,7 +80,7 @@ _运行结果：_
 }
 ```
 
-## 5、Error
+## 7、Error
 ```go
 core.Error[any]("失败" ,500).ToJson()
 ```
@@ -94,7 +94,7 @@ _运行结果：_
 }
 ```
 
-## 6、Error403
+## 8、Error403
 ```go
 core.Error403[any]("失败").ToJson()
 ```

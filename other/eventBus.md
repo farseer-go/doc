@@ -14,14 +14,14 @@
 [![Build](https://github.com/farseer-go/elasticSearch/actions/workflows/build.yml/badge.svg)](https://github.com/farseer-go/elasticSearch/actions/workflows/build.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/eventBus)
 
-## 概述
+## 1、概述
 以事件驱动的方式来解耦业务逻辑，在`DDD`中，事件总线是必然用到的技术。
 
 当两个业务模块相互之间有业务关联，但又不希望在代码结构上直接依赖。
 
 则可以使用事件驱动的方式来解耦相互之间的依赖。
 
-## 1、发布事件
+## 2、发布事件
 本着farseer-go极简、优雅风格，使用eventBus组件也是非常简单的：
 
 _函数定义_
@@ -52,7 +52,7 @@ func main() {
 }
 ```
 
-## 2、订阅事件
+## 3、订阅事件
 _函数定义_
 ```go
 // 订阅
@@ -81,7 +81,7 @@ func main() {
 }
 ```
 
-## 3、使用IOC
+## 4、使用IOC
 在上文中，我们会显示的依赖eventBus包，如果您想使用接口方式，也是支持的：
 ```go
 eventBus.RegisterEvent("TaskScheduler", domainEvent.SchedulerEvent)
@@ -110,7 +110,7 @@ func (receiver *TaskGroupMonitor) waitScheduler() {
 }
 ```
 
-## 4、使用Redis的发布订阅
+## 5、使用Redis的发布订阅
 eventBus包（模块），是在当前进程实现的发布与订阅。如果你希望你的事件能被其它机器上的实例执行。我们可以使用farseer-go/redis包来实现
 ```go
 // 注册客户端更新通知事件

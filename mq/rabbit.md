@@ -13,7 +13,7 @@
 [![Build](https://github.com/farseer-go/rabbit/actions/workflows/build.yml/badge.svg)](https://github.com/farseer-go/rabbit/actions/workflows/build.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/rabbit)
 
-## 概述
+## 1、概述
 rabbit是比较流行的MQ中间件之一。
 
 它有部署简单、使用方便、轻量等特性。
@@ -26,7 +26,7 @@ rabbit是比较流行的MQ中间件之一。
 - `容器化操作`：使用IOC，我们可以很方便就能取到client。
 - `支持连接池`：并允许设置Channel最低、最大值来控制连接池。
 
-## 配置
+## 2、配置
 _./farseer.yaml_
 ```yaml
 Rabbit:
@@ -57,7 +57,7 @@ Rabbit:
   - `UseConfirmModel`：发送消息时，是否需要确保消息发送到服务端
   - `AutoCreateExchange`：交换器不存在，是否自动创建
 
-## 发消息
+## 3、发消息
 ```go
 product := container.Resolve[rabbit.IProduct]("Ex1")
 product.SendString("aaaa")
@@ -89,7 +89,7 @@ type IProduct interface {
 
 ?> 事实上，以上的函数，最终会调用：`SendMessage`函数
 
-## 消费
+## 4、消费
 ```go
 // 注册消费者
 consumer := container.Resolve[rabbit.IConsumer]("Ex1")

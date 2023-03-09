@@ -5,7 +5,7 @@
 
 使用webapi的mvc模式，可以`自动注册controller下的所有action`，省去一个个action注册的麻烦
 
-## 定义controller
+## 1、定义controller
 使用mvc模式，需要我们在UI层定义控制器
 ```go
 import (
@@ -30,7 +30,7 @@ func (r *TestController) Hello2(pageSize int, pageIndex int) request.PageSizeReq
 }
 ```
 
-## 注册控制器
+## 2、注册控制器
 使用`mvc`非常简单，我们先看下注册方法的定义：
 ```go
 func RegisterController(c controller.IController) { }

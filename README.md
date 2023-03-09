@@ -9,7 +9,7 @@
 [![codecov](https://img.shields.io/codecov/c/github/farseer-go/fs)](https://codecov.io/gh/farseer-go/fs)
 ![badge](https://goreportcard.com/badge/github.com/farseer-go/fs)
 
-## 介绍
+## 1、介绍
 
 基于Golang模块化完整的基础设施框架，创建现代化Web应用和APIs
 
@@ -23,7 +23,7 @@
 
 ?> 不用担心框架会让你依赖过多的包，farseer-go的组件都是独立的包，不使用的包不会下载到您的应用程序中
 
-## 有什么特点？
+## 2、有什么特点？
 
 - `统一配置`：所有的配置被整合到`./farseer.yaml`
 
@@ -37,9 +37,7 @@
 
 - `链路追踪`（下个版本推出）：如果您使用框架中的Orm、Redis、Http、Grpc、ES、MQ、EventBus、Task、fSchedule，将隐式为您实现链路追踪，并提供API请求日志、慢查询。
 
-> 结合[FOPS](https://github.com/FarseerNet/FOPS) 项目（自动构建、链路追踪控制台、K8S集群日志收集）支持代码无侵入的全链路实时监控。
-
-## 集成的组件
+## 3、集成的组件
 
 | 包名                                                           | 描述          |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
 |--------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -62,7 +60,7 @@
 | [linkTrack](https://github.com/farseer-go/linkTrack)         | 链路追踪        | （即将推出）                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 | [redisStream](https://github.com/farseer-go/redisStream)     | redis mq    | （即将推出）                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                              |
 
-## 如何开始
+## 4、如何开始
 
 _main.go_
 ```go
@@ -75,10 +73,12 @@ func main() {
 	fs.Initialize[StartupModule]("your project Name")
 }
 
+// StartupModule 启动模块
 type StartupModule struct { }
 
+// DependsModule 依赖模块
 func (module StartupModule) DependsModule() []modules.FarseerModule {
-  return []modules.FarseerModule{webapi.Module{}}
+  return []modules.FarseerModule{webapi.Module{}} // 加载webapi.Module模块
 }
 func (module StartupModule) PreInitialize() { }
 func (module StartupModule) Initialize() { }
@@ -107,11 +107,9 @@ func (module StartupModule) Shutdown() { }
 2023-01-05 16:15:00 Elapsed time：0 ms webapi.Module.PreInitialize()
 2023-01-05 16:15:00 Elapsed time：0 ms main.StartupModule.PreInitialize()
 2023-01-05 16:15:00 ---------------------------------------
-2023-01-05 16:15:00 Elapsed time：0 ms modules.FarseerKernelModule.Initialize()
 2023-01-05 16:15:00 Elapsed time：0 ms webapi.Module.Initialize()
 2023-01-05 16:15:00 Elapsed time：0 ms main.StartupModule.Initialize()
 2023-01-05 16:15:00 ---------------------------------------
-2023-01-05 16:15:00 Elapsed time：0 ms modules.FarseerKernelModule.PostInitialize()
 2023-01-05 16:15:00 Elapsed time：0 ms webapi.Module.PostInitialize()
 2023-01-05 16:15:00 Elapsed time：0 ms main.StartupModule.PostInitialize()
 2023-01-05 16:15:00 ---------------------------------------
@@ -119,8 +117,8 @@ func (module StartupModule) Shutdown() { }
 2023-01-05 16:15:00 [Info] Web service is started：http://localhost:8888/
 ```
 
-## farseer-go框架演示
-我们提供了模拟一个[小型电商网站](https://github.com/farseer-go/demo/tree/main/shopping)，用到的技术：
+## 4、farseer-go框架演示
+我们提供了模拟一个[小型电商网站](https://github.com/farseer-go/demo/tree/main/shopping)，这个DEMO用到的技术有：
 * ddd：使用领域驱动设计
 * ioc：使用ioc/container，做解耦、注入、依赖倒置
 * webapi：api服务，并使用动态api技术
@@ -129,6 +127,6 @@ func (module StartupModule) Shutdown() { }
 * eventBus：事件驱动
 您可以把它下载到本地并运行起来
 
-## Stargazers
+## 6、Stargazers
 
 [![Stargazers repo roster for @farseer-go/fs](https://reporoster.com/stars/farseer-go/fs)](https://github.com/farseer-go/fs/stargazers)

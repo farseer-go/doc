@@ -35,7 +35,7 @@ webapi.RegisterGET("/projectgroup/tolist", projectGroupApp.ToPageList, "pageSize
 
 ?> 完整URL为：`GET` http://localhost:8888/projectgroup/tolist
 
-## params参数
+## 1、params参数
 当Api函数的入参不是DTO模型时，需要显示传入参数的名称，参数的顺序应与Api函数一致
 
 ```go
@@ -64,7 +64,7 @@ type pageSizeRequest struct {
 
 !> 这是因为Go在反射时，`无法获取到函数的参数名称`（只能获取到参数类型）。
 
-## 批量注册
+## 2、批量注册
 如果要注册的路由太多时，可以采用批量注册的方式，可以将路由单独放到一个`route.go`文件中：
 
 _route.go_

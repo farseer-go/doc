@@ -4,7 +4,7 @@
 
 使用`farseer-go`框架，可以让你有一个统一的配置管理，我们将所有组件的配置统一写在`farseer.yaml`中。
 
-## 配置示例
+## 1、配置示例
 _./farseer.yaml_
 ```yaml
 Database:
@@ -38,7 +38,7 @@ Log:
 
 ?> 各组件的配置，会在每个组件说明文档中详细描述
 
-## 使用自己的配置
+## 2、使用自己的配置
 我们提供了一系列手动读取配置的函数：
 ```go
 // GetString 获取配置
@@ -60,7 +60,7 @@ func GetSubNodes(key string) map[string]string
 // SetDefault 设置配置的默认值
 func SetDefault(key string, value interface{}) 
 ```
-## 读取配置
+## 3、读取配置
 读取数据库的default配置：
 ```go
 configure.GetString("Database.default")
@@ -77,7 +77,7 @@ _运行结果：_
 
 ?> 20
 
-## 设置默认值
+## 4、设置默认值
 有时候，在我们没有对配置文件进行配置时，我们需要一些初始默认值，则可以使用`SetDefault`函数，如：
 ```go
 configure.SetDefault("myConfig.name","steden")
@@ -88,7 +88,7 @@ _运行结果：_
 ?> "steden"
 > 有时候，在配置文件没有这些配置时，设置默认值很有必要的
 
-## 环境变量支持
+## 5、环境变量支持
 配置文件默认是支持环境变量的，且优先级别最高，会覆盖配置文件的设置
 
 由于环境变量不支持`.`、`[`、`]`符号的，因此在环境变量中Key需要做转义，比如：

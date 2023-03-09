@@ -13,7 +13,7 @@
 [![Build](https://github.com/farseer-go/queue/actions/workflows/test.yml/badge.svg)](https://github.com/farseer-go/queue/actions/workflows/test.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/queue)
 
-## 概述
+## 1、概述
 在我们的生产环境中，我们每秒钟、每分钟都会产生非常多的执行日志。
 
 如果每个产生的日志都被写到ES、数据库一次，就会给IO带来更大的压力。
@@ -24,7 +24,7 @@
 
 这时使用本地队列是最合适的，因为它足够轻量，不需要搭建服务端的消息队列中间件。
 
-## 1、生产消息
+## 2、生产消息
 本着farseer-go极简、优雅风格，使用queue组件也是非常简单的：
 ```go
 func Push(queueName string, message any)
@@ -43,7 +43,7 @@ func main() {
 }
 ```
 
-## 2、消费
+## 3、消费
 _函数定义：_
 ```go
 type queueSubscribeFunc func(subscribeName string, lstMessage collections.ListAny, remainingCount int)

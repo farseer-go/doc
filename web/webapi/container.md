@@ -65,7 +65,7 @@ container.Register[cache.ICacheManage[product.DomainObject]](..., "product")
 
 在注册时，设置了别名：product
 
-## 什么时候这个属性会被注入？
+## 1、什么时候这个属性会被注入？
 
 如果当前这个结构体是通过container容器取出来的，就会去查找这个对象（结构体）字段中，是否有接口类型的字段，并且是已注册到container中的。就会启用属性注入。
 

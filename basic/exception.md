@@ -13,21 +13,21 @@ exception包，提供了3种异常类型：
 
 提供了捕获异常函数：`exception.Try`
 
-## Exception异常
+## 1、Exception异常
 ```go
 exception.ThrowException(err string)
 exception.ThrowExceptionf(format string, a ...any)
 ```
 这个异常只是对`panic(err)`的一个包装，一般用于不需要捕获时使用
 
-## RefuseException异常
+## 2、RefuseException异常
 ```go
 exception.ThrowRefuseException(err string)
 exception.ThrowRefuseExceptionf(format string, a ...any)
 ```
 `RefuseException异常`，一般是用于`业务上作为拒绝而使用`的。通常`需要上层捕获并处理自己的逻辑`。
 
-## WebException异常
+## 3、WebException异常
 ```go
 exception.ThrowWebException(statusCode int, err string)
 exception.ThrowWebExceptionf(statusCode int, format string, a ...any)
@@ -35,7 +35,7 @@ exception.ThrowWebExceptionf(statusCode int, format string, a ...any)
 
 在`webapi`组件中，使用`minimalApi`时，由于我们的函数不会依赖任何的web组件，而又希望对接口返回错误，并`标记statusCode`时，则可以使用`WebException`异常，`webapi会对此异常捕获并设置http statusCode`
 
-## 捕获异常
+## 4、捕获异常
 ```go
 func Run() {
     try := exception.Try(func() {
@@ -69,7 +69,7 @@ func test()  {
 
 ?> 如果在捕获的过程中，又调用了`exception.ThrowXXX`，则后面的`CatchXXX`会继续匹配。
 
-## 向上暴露异常
+## 5、向上暴露异常
 未能匹配到异常类型时，如果希望此异常继续向上暴露时，可以调用`ThrowUnCatch()`方法：
 ```go
 func Run() {

@@ -14,7 +14,7 @@ tasks组件可以帮助我们快速编写一个`定时任务`，使用非常简�
 [![Build](https://github.com/farseer-go/tasks/actions/workflows/test.yml/badge.svg)](https://github.com/farseer-go/tasks/actions/workflows/test.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/tasks)
 
-## tasks.TaskContext 上下文
+## 1、tasks.TaskContext 上下文
 ```go
 // 运行任务的上下文
 type TaskContext struct { }
@@ -27,7 +27,7 @@ func (receiver *TaskContext) SetNextDuration(d time.Duration)
 ```
 提供了两个方法`SetNextTime`、`SetNextDuration`，他们只是支持的类型不同，`效果是一样的`。
 
-## 1、tasks.Run 运行任务
+## 2、tasks.Run 运行任务
 函数的定义
 ```go
 // 运行一个任务，运行前先休眠
@@ -49,7 +49,7 @@ func main () {
     }
 }
 ```
-## 2、tasks.RunNow 立即运行任务
+## 3、tasks.RunNow 立即运行任务
 函数的定义
 ```go
 // 运行一个任务
@@ -72,5 +72,5 @@ func main () {
 }
 ```
 
-## 说明
+## 4、说明
 `tasks.Run`、`tasks.RunNow`都是会执行任务，只不过`tasks.Run`会先`根据interval参数先sleep`，而`tasks.RunNow`会`立即执行`。

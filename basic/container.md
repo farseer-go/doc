@@ -36,7 +36,7 @@ func (r *sqlserver) GetDbType() string             { return "sqlserver" }
 ```
 这里我们模拟一个数据库ORM，支持sqlserver、mysql。
 
-## 注册单例
+## 1、注册单例
 ```go
 container.Register(func() IDatabase { return &mysql{} })
 ```
@@ -45,14 +45,14 @@ container.Register(func() IDatabase { return &mysql{} })
 这样我们就注册了一个`单例`IDatabase接口的容器
 
 
-## 注册临时对象
+## 2、注册临时对象
 要注册临时对象：
 ```go
 container.RegisterTransient(func() IDatabase { return &mysql{} })
 ```
 当调用了`RegisterTransient`时，意味着当前注册的对象为`临时对象`，每次获取注册的容器时，都会执行一遍func()函数
 
-## 注册多实例
+## 3、注册多实例
 
 对于应用来说，大部份的使用场景都是一对一的。但有时候我们还是需要`一个接口对应多个不同的实现`，比如`工厂模式`。
 
@@ -71,7 +71,7 @@ mysql := container.Resolve[IDatabase]("mysql")
 sqlserver := container.Resolve[IDatabase]("sqlserver")
 ```
 
-## 注册函数
+## 4、注册函数
 更高级的用法是，在获取实现类的时候，它是经过一些逻辑而得出的，这时我们可以使用函数的方式注册。
 
 这个注册与面前的注册是一样的，我们先定义一个接口、实现类、以及要注册的函数
@@ -112,7 +112,7 @@ container.Resolve[IDatabase]().GetDbType() // return "sqlserver"
 接着，`createDb`函数的入参需要传入：`IDatabaseFactory`的实现。这时容器会去查找`IDatabaseFactory`的实现，自动获取后并传入这个参数。
 
 
-## 获取实例
+## 5、获取实例
 ```go
 instance:= container.Resolve[IDatabase]()
 ```
@@ -126,7 +126,7 @@ instance:= container.Resolve[IDatabase]()
 
 ?> 比如我们可以将IDatabase`接口放在domain领域层`，而`实现放在infrastructure基础设施层`，做到完全的分离。
 
-## 属性注入
+## 6、属性注入
 在container组件中要实现注入的方式非常简单，我们先定义一个结构：
 ```go
 type myDb struct {

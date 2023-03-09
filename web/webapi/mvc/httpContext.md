@@ -19,7 +19,7 @@ type HttpContext struct {
 }
 ```
 
-### Header
+## 1、Header
 通过r.HttpContext.Header可以获取到所有Header信息
 ```go
 func (r *TestController) Hello3() (TValue string) {
@@ -27,7 +27,7 @@ func (r *TestController) Hello3() (TValue string) {
 }
 ```
 Header支持隐式绑定（自动绑定到struct），详情看[隐式绑定Header](web/webapi/mvc/bindHeader.md)
-### 状态码
+## 2、状态码
 如果需要返回自定义的状态码，可以使用WriteCode
 ```go
 r.HttpContext.Response.WriteCode(200)

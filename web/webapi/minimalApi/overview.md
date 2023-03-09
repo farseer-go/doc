@@ -1,7 +1,7 @@
 # minimalApi 概述
 [English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/webapi)
 
-## 介绍
+## 1、介绍
 > minimalApi是一种`极简`、`优雅`的风格，`不需要依赖任何参数`，它看起来就是一个普通的函数
 
 只需要在`webapi.Run()`启动前注册就可以运行了，不需要特意去依赖`http.Request`、`http.Response`，极大简化了应用代码。
@@ -31,7 +31,7 @@ type pageSizeRequest struct {
 ```
 
 
-## 特殊说明
+## 2、特殊说明
 !> 由于minimalApi不需要依赖controller、httpContext，因此`不支持获取header`，如果需要获取，可以使用`mvc模式`。
 
 ?> 在不需要header的场景下，推荐大家用`minimalApi风格`。

@@ -21,31 +21,31 @@ Database:
 
 连接字符串，由key=value组成，多个间用"`,`"分隔。
 
-## DataType
+## 1、DataType
 数据库类型（不区分大小写）：
 - `mysql`
 - `postgresql`
 - `sqlite`
 - `sqlserver`
 
-## PoolMaxSize
+## 2、PoolMaxSize
 连接池最大数量
 
-## PoolMinSize
+## 3、PoolMinSize
 连接池最小数量
 
-## ConnectionString
-### mysql
+## 4、ConnectionString
+### 4.1、mysql
 `user`:`pass`@tcp(`127.0.0.1:3306`)/`dbname`?charset=utf8mb4&parseTime=True&loc=Local
 
 ?> 参考 https://github.com/go-sql-driver/mysql#dsn-data-source-name 获取详情
-### PostgreSQL
+### 4.2、PostgreSQL
 user=`user` password=`pass` dbname=`dbname` port=`9920` sslmode=disable TimeZone=Asia/Shanghai
 
-### sqlite
+### 4.3、sqlite
 "xxx.db"
 
 ?> 注意： 您也可以使用 file::memory:?cache=shared 替代文件路径。 这会告诉 SQLite 在系统内存中使用一个临时数据库
 
-### SQL Server
+### 4.4、SQL Server
 sqlserver://`user`:`pass`@`localhost:9930`?database=`dbname`

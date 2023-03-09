@@ -14,7 +14,7 @@ _运行结果：_
 
 !> 推荐大家使用flog日志实现应用的日志打印，我们将在`未来的版本`中会加入`分布式日志`能力，如果你使用了flog打印的日志，到时只需要修改配置就可实现自动采集日志
 
-## ./farseer.yaml配置
+## 1、./farseer.yaml配置
 ```yaml
 Log:
   LogLevel: "Information" // 低于info级别不打印
@@ -38,43 +38,43 @@ Log.LogLevel控制日志打印的最低级别，级别从低到高：
 - Critical
 
 !> 如果`Log.LogLevel`设为"`Information`"，则`Trace`、`Debug`都不会打印出来
-## Trace
+## 2、Trace
 ```go
 func Trace(contents ...any)
 func Tracef(format string, a ...any)
 ```
 
-## Debug
+## 3、Debug
 ```go
 func Debug(contents ...any)
 func Debugf(format string, a ...any)
 ```
 
-## Info
+## 4、Info
 ```go
 func Info(contents ...any)
 func Infof(format string, a ...any)
 ```
 
-## Warning
+## 5、Warning
 ```go
 func Warning(content ...any)
 func Warningf(format string, a ...any)
 ```
 
-## Error
+## 6、Error
 ```go
 func Error(contents ...any)
 func Errorf(format string, a ...any)
 ```
 
-## Critical
+## 7、Critical
 ```go
 func Critical(contents ...any)
 func Criticalf(format string, a ...any)
 ```
 
-## Log
+## 8、Log
 ```go
 func Log(logLevel eumLogLevel.Enum, contents ...any)
 ```

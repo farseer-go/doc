@@ -5,7 +5,7 @@
 
 ?> `minimalApi`是单独注册的，所以在注册时就指定了`Method`
 
-## 指定Action的Method
+## 1、指定Action的Method
 在调用`webapi.RegisterController`注册时，通过`Action`字段来指定：
 ```go
 webapi.RegisterController(&testController.TestController{
@@ -24,7 +24,7 @@ webapi.RegisterController(&testController.TestController{
 - `Key`：代表Action Name
 - `Value`：对Action的配置
 
-## controller.Action的结构
+## 2、controller.Action的结构
 ```go
 package controller
 type Action struct {

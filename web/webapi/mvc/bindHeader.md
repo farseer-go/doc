@@ -5,7 +5,7 @@
 
 而`Header`也是同样`支持自动绑定`的。
 
-## 手动获取
+## 1、手动获取
 我们先看一下，手动获取时的操作：
 ```go
 // GetClient 获取头部信息，并更新客户端
@@ -22,7 +22,7 @@ func (r *TaskController) GetClient() clientApp.DTO {
 
 这不符合我们优雅、极简的定义。现在来看一下如何隐式绑定：
 
-## 隐式绑定
+## 2、隐式绑定
 ```go
 type TaskController struct {
 	controller.BaseController

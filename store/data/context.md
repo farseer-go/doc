@@ -26,7 +26,7 @@ type mysqlContext struct { // MysqlContext是你要实现的代码
 其中标签``data:"name=admin"``用来标记数据库的表名
 
 
-## Model层
+## 1、Model层
 在应用中，我们会定义一系列的model，用来匹配数据库表结构，比如：
 
 _model.AdminPO.go_
@@ -42,7 +42,7 @@ type AdminPO struct {
 
 !> 注意：标签gorm是临时的，未来版本中会变更。
 
-## data.NewContext初始化
+## 2、data.NewContext初始化
 
 _dbContext.go_
 ```go
@@ -50,7 +50,7 @@ func NewContext[TDbContext any](dbName string) *TDbContext
 ```
 有两种方式，一种是使用IOC容器，一种是直接初始化：
 
-### 1、注册到容器
+### 2.1、注册到容器
 ```go
 type adminRepository struct {
     data.TableSet[model.AdminPO] `data:"name=admin"`
@@ -77,7 +77,7 @@ container.Resolve[admin.Repository]()
 
 我们就可以很完美的将数据库操作的`定义`与`实现`完全`解耦`。
 
-### 2、直接初始化
+### 2.2、直接初始化
 直接初始化，非常简单，只需要调用`data.NewContext`函数，并传入`dbName`即可：
 ```go
 data.NewContext[adminRepository]("fops")

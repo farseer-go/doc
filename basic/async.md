@@ -12,11 +12,11 @@
 ![](https://goreportcard.com/badge/github.com/farseer-go/async)
 
 
-## 概述
+## 1、概述
 当我们需要并行执行部分函数且阻塞等待这些方法执行完成后再继续往下执行，
 或者当需要异步并行执行部分方法，且执行完成后执行回调方法时，可使用async组件。
 
-## 1、同步执行（阻塞）
+## 2、同步执行（阻塞）
 本着farseer-go极简、优雅风格，使用async组件也是非常简单的：
 
 ```go
@@ -43,7 +43,7 @@ count *= 2  // 由于阻塞，所以这里最后执行
 // count = 6 // 最终结果
 ```
 
-## 2、异步执行（不阻塞）
+## 3、异步执行（不阻塞）
 
 ```go
 func ContinueWith(callbacks ...func())

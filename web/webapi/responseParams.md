@@ -6,7 +6,7 @@
 - **1个基础类型**：当只有一个基础类型时（如：string、int），会被直接输出
 - **多个出参**：会放到一个数组后以json输出
 
-    ## 1、DTO模式
+## 1、DTO模式
 ```go
 func Hello3(pageSize int, pageIndex int) pageSizeRequest {
     return request.PageSizeRequest{
@@ -17,7 +17,7 @@ func Hello3(pageSize int, pageIndex int) pageSizeRequest {
 ```
 这时会把`pageSizeRequest`序列化成json后输出
 
-    _运行结果：_
+_运行结果：_
 ```json
 {
     "PageSize": 10,
@@ -25,7 +25,7 @@ func Hello3(pageSize int, pageIndex int) pageSizeRequest {
 }
 ```
 
-    ## 2、1个基础类型
+## 2、1个基础类型
 ```go
 func Hello1(req request.PageSizeRequest) string {
     return fmt.Sprintf("hello world pageSize=%d，pageIndex=%d", req.PageSize, req.PageIndex)
@@ -33,12 +33,12 @@ func Hello1(req request.PageSizeRequest) string {
 ```
 会被直接输出
 
-    _运行结果：_
+_运行结果：_
 ```text
 "hello world pageSize=3，pageIndex=1"
 ```
 
-    ## 3、多个出参
+## 3、多个出参
 ```go
 func Hello4(pageSize int, pageIndex int) (int, int) {
     return pageSize, pageIndex
@@ -46,7 +46,7 @@ func Hello4(pageSize int, pageIndex int) (int, int) {
 ```
 这时，会将多个返回值组成json数组
 
-    _运行结果：_
+_运行结果：_
 ```json
 [ 10, 1 ]
 ```
