@@ -2,7 +2,7 @@
 [English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
 > 包：`"github.com/farseer-go/fs/exception"`
 
-在go中`不建议使用panic来抛出异常`，建议使用`多参数返回值`来达到类似的效果。
+在go中`不建议使用panic来抛出异常`，建议使用`error返回值`来达到类似的效果。
 
 !> 但有时候，使用类似.net core 、java这种异常机制来处理，反而会使得逻辑更加通顺
 
@@ -11,21 +11,21 @@ exception包，提供了3种异常类型：
 - `exception.RefuseException`
 - `exception.WebException`
 
-提供了捕获异常函数：`exception.Try`
+捕获异常：`exception.Try`
 
 ## 1、Exception异常
 ```go
 exception.ThrowException(err string)
 exception.ThrowExceptionf(format string, a ...any)
 ```
-这个异常只是对`panic(err)`的一个包装，一般用于不需要捕获时使用
+这个异常是对`panic(err)`的一个包装，一般用于非业务逻辑的错误、未知的异常
 
 ## 2、RefuseException异常
 ```go
 exception.ThrowRefuseException(err string)
 exception.ThrowRefuseExceptionf(format string, a ...any)
 ```
-`RefuseException异常`，一般是用于`业务上作为拒绝而使用`的。通常`需要上层捕获并处理自己的逻辑`。
+`RefuseException异常`，一般是用于`业务上作为拒绝`而使用的。通常`需要上层捕获并处理自己的逻辑`。
 
 ## 3、WebException异常
 ```go
@@ -85,3 +85,8 @@ func test()  {
     exception.ThrowRefuseException("test is throw")
 }
 ```
+
+## 6、什么时候会用到异常机制
+一般来说，如果接口的定义是固定且无法变更的（如第三方框架），并且这种方法的返回值又不支持error的时候。
+
+而你的业务需要去识别不同的结果时，则使用异常机制是很有必要的。

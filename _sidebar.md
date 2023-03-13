@@ -88,10 +88,11 @@
   * [依赖最新的包](practices/2.md "依赖最新的包")
   * [使用container解耦一](practices/3.md "使用container解耦一")
   * [使用container解耦二](practices/4.md "使用container解耦二")
+  * [搞懂领域驱动设计](practices/5.md "搞懂领域驱动设计")
 * **代码优化**
   * [1、提前初始化](optimization/1.md "1、提前初始化")
   * [2、优化time.After](optimization/2.md "2、优化time.After")
-  * [3、提前初始化](optimization/3.md "3、提前初始化")
+  * [3、分布式共享数据](optimization/3.md "3、分布式共享数据")
 * **开源项目**
   * [调度中心2.0](https://github.com/FSchedule/FSchedule)
 * [**关于我们**](aboutus.md "关于我们")
