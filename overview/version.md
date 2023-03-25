@@ -1,13 +1,13 @@
 # 更新记录
-## farseer-go`v0.8.0` by 未发布
+## farseer-go `v0.8.0` by 未发布
 ```go
 fs              v0.7.0 -> v0.8.0
 collections     v0.4.0 -> 
-mapper          v0.3.0 -> 
+mapper          v0.3.0 -> v0.4.0
 cache           v0.2.0 -> v0.3.0
 cacheMemory     v0.2.0 -> 
 redis           v0.2.0 -> v0.3.0
-data            v0.2.0 -> 
+data            v0.2.0 -> v0.3.0
 eventBus        v0.2.0 -> 
 queue           v0.2.0 -> 
 tasks           v0.2.0 -> 
@@ -23,6 +23,7 @@ elasticSearch   v0.1.0-alpha ->
 1. 调整：FarseerModule接口拆分成FarseerPreInitializeModule、FarseerInitializeModule、FarseerPostInitializeModule、FarseerShutdownModule
 2. 调整：框架启动时的日志内容
 3. 修复：FarseerKernelModule模块需要去重
+4. 修复：时间轮的时间格超出下标的错误
 
 `cache v0.3.0`
 1. 调整：获取数量时，如果数量为0，添加判断是否存在KEY，KEY不存在时，重新读取数据源
@@ -33,7 +34,14 @@ elasticSearch   v0.1.0-alpha ->
 `webapi v0.4.0`
 1. 调整：json输出时，Content-Type设置为application/json
 
-## farseer-go`v0.7.0` by 2023.03.03
+`data v0.3.0`
+1. 新增：WhereIgnoreLessZero方法，自动忽略小于等于0的sql条件
+2. 新增：WhereIgnoreNil，自动忽略nil条件
+
+`mapper v0.4.0`
+1. 调整：部分类型转换，取消强制指针入参类型
+
+## farseer-go `v0.7.0` by 2023.03.03
 ```go
 fs              v0.6.0 -> v0.7.0
 collections     v0.3.0 -> v0.4.0
@@ -191,7 +199,7 @@ elasticSearch   v0.1.0-alpha ->
 1. 调整：time.After方式，避免内存泄露
 2. 修复：日志格式错误
 
-## farseer-go`v0.6.0` by 2023.01.11
+## farseer-go `v0.6.0` by 2023.01.11
 ```go
 fs              v0.5.0 -> v0.6.0
 collections     v0.3.0 -> 
@@ -224,7 +232,7 @@ elasticSearch   v0.0.0 -> v0.1.0-alpha
 9. 修复：parse.Convert转换时，需要对source判断nil
 10. 修复：reflect.Type类型不需要判断reflect.Interface
 
-## farseer-go`v0.5.0` by 2022.12.28
+## farseer-go `v0.5.0` by 2022.12.28
 ```go
 fs              v0.4.1 -> v0.5.0
 collections     v0.2.1 -> v0.3.0
@@ -257,7 +265,7 @@ elasticSearch   v0.0.0 ->
 1. 调整：增加读写锁
 2. 优化：优化代码
 
-## farseer-go`v0.4.0` by 2022.12.20
+## farseer-go `v0.4.0` by 2022.12.20
 ```go
 fs              v0.3.0 -> v0.4.0 -> v0.4.1
 collections     v0.2.0 -> v0.2.1
@@ -303,7 +311,7 @@ elasticSearch   v0.0.0 ->
 1. 调整：移除go.work
 2. 调整：升级依赖
 
-## farseer-go`v0.3.0` by 2022.12.12
+## farseer-go `v0.3.0` by 2022.12.12
 ```go
 fs              v0.2.0 -> v0.3.0
 collections     v0.1.0 -> v0.2.0
@@ -347,7 +355,7 @@ elasticSearch   v0.0.0 ->
 8. 修复：controller.BaseController初始化时的错误
 9. 修复：异常内容转成string的错误
 
-## farseer-go`v0.2.0` by 2022.12.06
+## farseer-go `v0.2.0` by 2022.12.06
 ```go
 fs              v0.1.0 -> v0.2.0
 collections     v0.1.0 ->
@@ -385,7 +393,7 @@ elasticSearch   v0.0.0 ->
 
 1. 调整：http.client改为链式调用
 
-## farseer-go`v0.1.0` by 2022.09.20
+## farseer-go `v0.1.0` by 2022.09.20
 ```go
 fs              v0.0.0 -> v0.1.0
 collections     v0.0.0 -> v0.1.0
