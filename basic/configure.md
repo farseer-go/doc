@@ -58,7 +58,7 @@ func GetBool(key string) bool
 // GetSubNodes 获取所有子节点
 func GetSubNodes(key string) map[string]string
 // SetDefault 设置配置的默认值
-func SetDefault(key string, value interface{}) 
+func SetDefault(key string, value any) 
 ```
 ## 3、读取配置
 读取数据库的default配置：
