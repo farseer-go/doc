@@ -42,7 +42,7 @@ type AdminPO struct {
 
 !> 注意：标签gorm是临时的，未来版本中会变更。
 
-## 2、data.NewContext初始化
+## 2、data.NewContext初始化上下文
 
 _dbContext.go_
 ```go
@@ -66,7 +66,7 @@ func RegisterRepository() {
 
 `admin.Repository`是定义的`interface`，`adminRepository`实现了`admin.Repository`接口，这里先不看技术细节，具体的会在后面章节介绍
 
-`fops`就是在./farseer.yaml中 `Database.fops`节点定义的数据库配置
+字符串`"fops"`就是在./farseer.yaml中 `Database.fops`节点定义的数据库配置
 
 `container.Register`，在[container容器](/basic/container.md?id=注册单例)组件中我们介绍过，这是`注册单例`的方式。
 
