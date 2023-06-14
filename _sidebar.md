@@ -46,6 +46,7 @@
     * [上下文](store/data/context.md "上下文")
     * [CURD](store/data/curd.md "插入记录")
     * [事务](store/data/transaction.md "事务")
+    * [通用仓储](store/data/repository.md "通用仓储")
   * [elasticSearch](store/elasticSearch.md "elasticSearch")
 * **消息队列**
   * [queue本地队列](mq/queue.md "本地队列")
