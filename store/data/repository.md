@@ -56,19 +56,17 @@ var MysqlContextIns *MysqlContext
 
 // MysqlContext 数据库上下文
 type MysqlContext struct {
-	// 定义数据库表 产品 映射TableSet
-	Product data.TableSet[model.ProductPO] `data:"name=farseer_go_product"`
+	// 定义数据库表 产品 映射DomainSet
+	Product data.DomainSet[model.ProductPO, product.DomainObject] `data:"name=farseer_go_product"`
 }
 
 // InitMysqlContext 初始化上下文
 func InitMysqlContext() {
 	MysqlContextIns = data.NewContext[MysqlContext]("default", true)
-	// 注册通用的仓储接口
-	repository.RegisterRepository[product.DomainObject](MysqlContextIns.Product)
 }
 ```
 
-在初始化上下文的时候，调用了`repository.RegisterRepository`来注册这个接口，泛型传入的是`product.DomainObject`是领域对象。实参传入的是TableSet类型，用于绑定。
+在`MysqlContext`上下文，使用`data.DomainSet`类型，泛型传入的是`model.ProductPO, product.DomainObject`，第一个是PO对象，第二个是领域对象。
 
 这样我们原先定义的`Repository`接口，就有了通用的CRUD功能了。
 
