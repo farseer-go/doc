@@ -1,17 +1,30 @@
 # 计划
 - 开源项目
-  - [x] FSchedule上线
-  - [ ] fops.go上线
+  - [x] 调度中心，FSchedule上线（*作者：steden、山鸣、杨巍*）
+  - [ ] 发布中心，FOPS上线
 - 开源组件
-  - [x] async组件实现
-  - [x] webapi组件实现
-  - [x] mapper组件实现（移除第三方组件依赖）
-  - [x] configure组件实现（移除第三方组件依赖）
-  - [x] container组件实现（移除第三方组件依赖）
+  - [x] async组件实现（*作者：山鸣*）
+  - [x] webapi组件实现（*作者：steden*）
+  - [x] mapper组件实现，移除第三方组件依赖（*作者：海涛*）
+  - [x] configure组件实现，移除第三方组件依赖（*作者：steden*）
+  - [x] container组件实现，移除第三方组件依赖（*作者：steden*）
   - [x] 完善配套的官方文档
-  - [x] rabbit组件实现
+  - [x] rabbit组件实现（*作者：山鸣、steden*）
+  - [x] 重写日志组件（支持可扩展模块）（*作者：steden*）
+  - [ ] 日志组件支持文件写入
+  - [ ] 日志组件支持ES写入
+  - [ ] 日志组件支持数据库写入
   - [ ] webapi支持正则路由
-  - [ ] redis组件百分百覆盖测试
-  - [ ] es组件百分百覆盖测试
-  - [ ] linkTrack组件实现
+  - [ ] webapi支持Session模块（*作者：山鸣*）
+  - [ ] webapi支持访问统计
+  - [ ] webapi支持黑白名单
+  - [ ] webapi支持鉴权
+  - [ ] webapi支持限流
+  - [ ] webapi支持熔断
+  - [ ] fs支持环境信息收集（*作者：山鸣*）
+  - [ ] redis组件百分百覆盖测试（*作者：海涛*）
+  - [ ] es组件百分百覆盖测试（*作者：海涛*）
+  - [ ] linkTrack组件实现（*作者：山鸣*）
   - [ ] redisStream组件实现
+  - [ ] mapper组件重写成对象设计模式（*作者：海涛*）
+  - [ ] 监控告警组件
