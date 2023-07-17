@@ -61,7 +61,7 @@ Session支持通过配置的方式来定义Session的存储方式（进程、Red
 WebApi:
   Url: ":888"
   Session:
-    Store: Redis    # 以redis存储
+    Store: "Redis"    # 以redis存储
     StoreConfigName: "default"  # redis的配置名称
     Age: 1800     # session过期时间
 ```

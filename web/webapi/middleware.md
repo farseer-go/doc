@@ -10,7 +10,7 @@
 
 > `http` -> `exception` -> `routing` -> `自定义` -> `handleMiddleware`
 
-!> 除了自定义的中间件，http、exception、routing、handleMiddleware，都不需要我们显示加载。
+!> http、exception、routing、handleMiddleware框架启动时会自动加载。
 
 ## 2、内置的中间件
 ### 2.1、Http
