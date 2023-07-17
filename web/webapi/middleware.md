@@ -56,10 +56,14 @@ _运行结果：_
 }
 ```
 
+## 2.7、session
+开启session功能
+
 ## 3、加载中间件
-要加载Cors、apiResponse、或自定义的中间件，很简单。
+要加载Session、Cors、apiResponse、或自定义的中间件，很简单。
 ```go
 webapi.RegisterPOST("/projectgroup/tolist", projectGroupApp.ToPageList, "pageSize", "pageIndex")
+webapi.UseSession()
 webapi.UseCors()
 webapi.UseApiResponse()
 
