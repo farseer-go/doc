@@ -5,17 +5,19 @@
 
 ```go
 type HttpContext struct {
-	Request          *HttpRequest
-	Response         *HttpResponse
-	Header           collections.Dictionary[string, string]
-	Route            *HttpRoute
-	URI              *HttpURL
-	Method           string
-	ContentLength    int64
-	Close            bool
-	TransferEncoding []string
-	ContentType      string
-	Exception        any
+    Request          *HttpRequest
+    Response         *HttpResponse
+    Header           collections.ReadonlyDictionary[string, string]
+    Cookie           *HttpCookies
+    Session          *HttpSession
+    Route            *HttpRoute
+    URI              *HttpURL
+    Method           string
+    ContentLength    int64
+    Close            bool
+    TransferEncoding []string
+    ContentType      string
+    Exception        any
 }
 ```
 
