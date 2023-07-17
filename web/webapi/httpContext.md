@@ -53,6 +53,7 @@ Header支持隐式绑定（自动绑定到struct），详情看[隐式绑定Head
 - context.GetHttpContext().Cookie.SetSuretyValue *设置Cookie安全值，将不允许脚本读取该值（HttpOnly）*
 - context.GetHttpContext().Cookie.SetCookie *设置Cookie*
 - context.GetHttpContext().Cookie.Remove *删除Cookie*
+
 ## 5、Session
 通过httpContext可以操作Session，Session提供了最简单的方法来获取、设置Session值
 Session支持通过配置的方式来定义Session的存储方式（进程、Redis）、以及保存时间（默认20分钟）
@@ -69,6 +70,8 @@ WebApi:
 - context.GetHttpContext().Session.SetValue *设置Session*
 - context.GetHttpContext().Session.Remove *删除Session*
 - context.GetHttpContext().Session.Clear *清空Session*
+
+!> 注意，Session功能需要手动开启，使用Session中间件来加载：`webapi.UseSession()`
 
 ## 6、状态码
 如果需要返回自定义的状态码，可以使用WriteCode
