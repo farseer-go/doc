@@ -11,18 +11,18 @@
   - [x] 完善配套的官方文档
   - [x] rabbit组件实现（*作者：山鸣、steden*）
   - [x] 重写日志组件（支持可扩展模块）（*作者：steden*）
+  - [x] webapi支持Session模块（*作者：山鸣*）
+  - [x] webapi支持Cookies模块（*作者：山鸣*）
+  - [x] fs支持环境信息收集（*作者：steden*）
   - [ ] 日志组件支持文件写入
   - [ ] 日志组件支持ES写入
   - [ ] 日志组件支持数据库写入
   - [ ] webapi支持正则路由
-  - [x] webapi支持Session模块（*作者：山鸣*）
-  - [x] webapi支持Cookies模块（*作者：山鸣*）
   - [ ] webapi支持访问统计
   - [ ] webapi支持黑白名单
   - [ ] webapi支持鉴权
   - [ ] webapi支持限流
   - [ ] webapi支持熔断
-  - [ ] fs支持环境信息收集（*作者：山鸣*）
   - [ ] redis组件百分百覆盖测试（*作者：海涛*）
   - [ ] es组件百分百覆盖测试（*作者：海涛*）
   - [ ] linkTrack组件实现（*作者：山鸣*）
