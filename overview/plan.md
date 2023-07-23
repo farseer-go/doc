@@ -13,12 +13,12 @@
   - [x] 重写日志组件（支持可扩展模块）（*作者：steden*）
   - [x] webapi支持Session模块（*作者：山鸣*）
   - [x] webapi支持Cookies模块（*作者：山鸣*）
+  - [x] webapi支持正则路由（*作者：steden*）
   - [x] fs支持环境信息收集（*作者：steden*）
   - [ ] linkTrack组件实现（*作者：山鸣*）
   - [ ] 日志组件支持文件写入
   - [ ] 日志组件支持ES写入
   - [ ] 日志组件支持数据库写入
-  - [ ] webapi支持正则路由
   - [ ] webapi支持访问统计
   - [ ] webapi支持黑白名单
   - [ ] webapi支持鉴权
