@@ -35,7 +35,7 @@ webapi.RegisterGET("/projectgroup/tolist", projectGroupApp.ToPageList, "pageSize
 
 ?> 完整URL为：`GET` http://localhost:8888/projectgroup/tolist
 
-## 1、params参数
+## 1、手动指定参数顺序
 当Api函数的入参不是DTO模型时，需要显示传入参数的名称，参数的顺序应与Api函数一致
 
 ```go
@@ -93,3 +93,33 @@ func main() {
 }
 ```
 通过：`webapi.RegisterRoutes`函数，它接收一个`[]webapi.Route`数组，将路由批量注册进来。
+
+## 3、路由模板
+普通的URL可能是：http://127.0.0.1:8080/api/news?id=xxx ，这种格式让URL变的更长，且不够友好显示
+
+webapi支持占位符的方式来更友好展示URL：http://127.0.0.1:8080/api/news-{id} ，http://127.0.0.1:8080/api/news/{id}
+
+通过`{id}`占位符来指定这是一个入参变量，其中`{}`表示占位符，`id`表示为一个变量
+
+看下例子：
+```go
+func main() {
+    fs.Initialize[StartupModule]("FSchedule")
+    
+	webapi.RegisterGET("/mini/hello4/{pageSize}-{pageIndex}", Hello4)
+	webapi.RegisterPOST("/mini/hello4/{pageSize}/{pageIndex}", Hello4)
+    
+	webapi.UseApiResponse()
+    webapi.Run(":8888")
+}
+
+func Hello4(pageSize int, pageIndex int) (int, int) {
+    return pageSize, pageIndex
+}
+```
+
+我们可以这样访问：
+```go
+http.Get("http://127.0.0.1:8888/mini/hello4/15-1")
+http.Post("http://127.0.0.1:8888/mini/hello4/20/1")
+```
