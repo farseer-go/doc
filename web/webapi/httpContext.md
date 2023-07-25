@@ -34,10 +34,10 @@ func (r *TestController) Hello3() (TValue string) {
 ## 2、MinimalApi模式获取httpContext
 ```go
 func Hello10() string {
-	return context.GetHttpContext().Header.GetValue("Content-Type")
+	return webapi.GetHttpContext().Header.GetValue("Content-Type")
 }
 ```
-通过`context.GetHttpContext()`函数，可以获取到当前API访问时的HttpContext
+通过`webapi.GetHttpContext()`函数，可以获取到当前API访问时的HttpContext
 > mvc模式也是支持此种方式的
 
 ## 3、Header
@@ -47,12 +47,12 @@ Header支持隐式绑定（自动绑定到struct），详情看[隐式绑定Head
 
 ## 4、Cookies
 通过httpContext可以操作Cookies，Cookies提供了最简单的方法来获取、设置Cookie值
-- context.GetHttpContext().Cookie.Get *获取Cookie*
-- context.GetHttpContext().Cookie.GetValue *获取Cookie*
-- context.GetHttpContext().Cookie.SetValue *设置Cookie*
-- context.GetHttpContext().Cookie.SetSuretyValue *设置Cookie安全值，将不允许脚本读取该值（HttpOnly）*
-- context.GetHttpContext().Cookie.SetCookie *设置Cookie*
-- context.GetHttpContext().Cookie.Remove *删除Cookie*
+- webapi.GetHttpContext().Cookie.Get *获取Cookie*
+- webapi.GetHttpContext().Cookie.GetValue *获取Cookie*
+- webapi.GetHttpContext().Cookie.SetValue *设置Cookie*
+- webapi.GetHttpContext().Cookie.SetSuretyValue *设置Cookie安全值，将不允许脚本读取该值（HttpOnly）*
+- webapi.GetHttpContext().Cookie.SetCookie *设置Cookie*
+- webapi.GetHttpContext().Cookie.Remove *删除Cookie*
 
 ## 5、Session
 通过httpContext可以操作Session，Session提供了最简单的方法来获取、设置Session值
@@ -66,10 +66,10 @@ WebApi:
     Age: 1800     # session过期时间
 ```
 使用
-- context.GetHttpContext().Session.GetValue *获取Session*
-- context.GetHttpContext().Session.SetValue *设置Session*
-- context.GetHttpContext().Session.Remove *删除Session*
-- context.GetHttpContext().Session.Clear *清空Session*
+- webapi.GetHttpContext().Session.GetValue *获取Session*
+- webapi.GetHttpContext().Session.SetValue *设置Session*
+- webapi.GetHttpContext().Session.Remove *删除Session*
+- webapi.GetHttpContext().Session.Clear *清空Session*
 
 !> 注意，Session功能需要手动开启，使用Session中间件来加载：`webapi.UseSession()`
 
@@ -77,6 +77,6 @@ WebApi:
 如果需要返回自定义的状态码，可以使用WriteCode
 ```go
 func Hello10() string {
-    return context.GetHttpContext().Response.WriteCode(200)
+    return webapi.GetHttpContext().Response.WriteCode(200)
 }
 ```
