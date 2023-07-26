@@ -1,12 +1,9 @@
 # 错误信息
 
-很多时候，我们的接口返回的是model对象：
+很多时候，我们的API接口返回的是model对象：
 ```go
-func Hello3(pageSize int, pageIndex int) pageSizeRequest {
-    return request.PageSizeRequest{
-        PageSize:  pageSize,
-        PageIndex: pageIndex,
-    }
+func Check(clientId int64) ResourceVO {
+	return getResource()
 }
 ```
 但在业务上，如果请求的参数是非法的，又或者登陆的时候账号密码错误，我们需要返回一个错误信息提示给前端。
