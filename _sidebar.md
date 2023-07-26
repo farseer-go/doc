@@ -29,6 +29,7 @@
     * [IActionFilter过虑器](web/webapi/mvc/actionFilter.md "IActionFilter过虑器")
   * [入参](web/webapi/requestParams.md "入参")
   * [出参](web/webapi/responseParams.md "出参")
+  * [错误信息](web/webapi/error.md "错误信息")
   * [HttpContext](web/webapi/httpContext.md "HttpContext上下文")
   * [中间件](web/webapi/middleware.md "中间件")
   * [静态资源](web/webapi/staticFile.md "静态资源")
