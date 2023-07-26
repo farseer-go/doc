@@ -56,3 +56,27 @@ func InitMysqlContext() {
 ## 2.1 参数说明：
 - fops：数据库配置名称，对应./farseer.yaml 中的 Database节点
 - true：传入true表示自动创建表，以此实现code first模式
+
+## 3、获取原生ORM对象
+有时候需要在不绑定model时使用原生orm对象，可以通过在上下文中内嵌`data.IInternalContext`接口实现：
+```go
+// MysqlContext 数据库上下文
+type MysqlContext struct {
+	// 手动使用事务时必须定义
+	core.ITransaction
+	// 获取原生ORM框架（不使用TableSet或DomainSet）
+	data.IInternalContext
+	// 定义数据库表 订单 映射TableSet
+	Order data.DomainSet[model.OrderPO, order.DomainObject] `data:"name=farseer_go_order"`
+	// 定义数据库表 商品分类 映射TableSet
+	ProCate data.DomainSet[model.ProCatePO, procate.DomainObject] `data:"name=farseer_go_procate"`
+	// 定义数据库表 产品 映射TableSet
+	Product data.DomainSet[model.ProductPO, product.DomainObject] `data:"name=farseer_go_product"`
+}
+```
+调用示例：
+```go
+    MysqlContextIns := data.NewContext[MysqlContext]("default", true)
+	MysqlContextIns.Original().xxx
+```
+`Original()`函数将返回原生的orm对象
