@@ -1,6 +1,6 @@
 # cache 集合缓存
 [English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/cacheMemory)
-
+ 
 集合缓存支持`将数据集合缓存到进程或Redis`，与直接操作Redis的区别是：集合缓存支持数据库自动同步到Redis或本地。
 
 这是一种更加抽象的使用，可以让我们遮蔽缓存技术。
@@ -40,14 +40,14 @@ _SetProfiles定义_
 // SetProfiles 设置内存缓存（集合）
 // key：这批数据的key，用于区分不同数据集合。
 // uniqueField：数据集合中，用于区分Item的唯一值的字段名称（主键）
-// expiry：缓存失效时间
-func SetProfiles[TEntity any](key string, uniqueField string, expiry time.Duration) cache.ICacheManage[TEntity] {
+// ops：选项
+func SetProfiles[TEntity any](key string, uniqueField string, ops ...cache.Option) cache.ICacheManage[TEntity]
 ```
 
 _使用演示_
 ```go
 fs.Initialize[cacheMemory.Module]("进程缓存演示")
-cacheMemory.SetProfiles[po]("test", "Name", 0)
+cacheMemory.SetProfiles[po]("test", "Name")
 ```
 ?> 第2个参数Name对应po结构的Name字段名称，第3个参数0代表不失效
 
@@ -66,20 +66,34 @@ cacheMemory.SetProfiles[po]("test", "Name", 0)
 // SetProfiles 设置缓存（集合）
 // key：这批数据的key，用于区分不同数据集合。
 // uniqueField：数据集合中，用于区分Item的唯一值的字段名称（主键）
-// expiry：缓存失效时间
 // redisConfigName：farseer.yaml的Redis.xx配置名称
-func SetProfiles[TEntity any](key string, uniqueField string, expiry time.Duration, redisConfigName string) cache.ICacheManage[TEntity] {
+// ops：选项
+func SetProfiles[TEntity any](key string, uniqueField string, redisConfigName string, ops ...cache.Option) cache.ICacheManage[TEntity]
 ```
 
 _使用演示_
 ```go
 fs.Initialize[redis.Module]("进程缓存演示")
-redis.SetProfiles[po]("test", "Name", 0, "default")
+redis.SetProfiles[po]("test", "Name", "default")
 ```
-?> 第2个参数Name对应po结构的Name字段名称，第3个参数0代表不失效，第4个参数"default"代表farseer.yaml的Redis.default配置名称
+?> 第2个参数Name对应po结构的Name字段名称，第3个参数"default"代表farseer.yaml的Redis.default配置名称
 
 !> 只在定义时，需要区分是进程缓存还是Redis缓存。后续使用都定义在cache包：`cache.ICacheManage[TEntity any]`接口。
 
+### 1.3、ops ...cache.Option
+用于设置缓存策略
+```go
+// AbsoluteExpiration 绝对时间，到期自动移除
+func (receiver *Op) AbsoluteExpiration(expiry time.Duration)
+// SlidingExpiration 任意一次访问都会重置过期时间
+func (receiver *Op) SlidingExpiration(expiry time.Duration)
+```
+例子：
+```go
+cacheMemory.SetProfiles[po]("test7", "Name", func(op *cache.Op) {
+    op.SlidingExpiration(200 * time.Millisecond)
+})
+```
 ## 2、获取对象
 在读写这个缓存集合前，我们需要先获取到这个集合的对象：
 ```go
@@ -122,7 +136,7 @@ type ICacheManage[TEntity any] interface {
 }
 ```
 
-### SetListSource
+### 3.2、SetListSource
 设置整个集合的数据源，比如这个集合的数据是来自数据库的。当获取缓存数据时，发现没有缓存数据（或失效），则可以通过这个源重新拿到数据并缓存到本地
 ```go
 cacheManage.SetListSource(func() collections.List[taskGroup.DomainObject] {
@@ -134,7 +148,7 @@ cacheManage.SetListSource(func() collections.List[taskGroup.DomainObject] {
 
 此段代码，会从`repository`仓储中拿到整个表的数据，当我们获取缓存整合时，如果当前没有缓存数据，则会调用SetListSource的func来缓存数据。
 
-### SetItemSource
+### 3.3、SetItemSource
 设置集合中每一项的数据源，当缓存集合中的这一项数据不存在时，会调用SetItemSource的func来获取。
 ```go
 cacheManage.SetItemSource(func(cacheId any) (taskGroup.DomainObject, bool) {
@@ -147,7 +161,7 @@ cacheManage.SetItemSource(func(cacheId any) (taskGroup.DomainObject, bool) {
 })
 ```
 
-### 3.2、SetSyncSource
+### 3.4、SetSyncSource
 设置将缓存的数据同步到你需要的位置，比如同步到数据库
 ```go
 cacheManage.SetSyncSource(60*time.Second, func(do taskGroup.TaskEO) {
@@ -162,7 +176,7 @@ cacheManage.SetSyncSource(60*time.Second, func(do taskGroup.TaskEO) {
 ```
 如上，定义每隔60秒，将缓存中的数据更新到数据库中
 
-### 3.3、SetClearSource
+### 3.5、SetClearSource
 设置清理缓存中的数据
 ```go
 cacheManage.SetClearSource(60*time.Second, func(do taskGroup.TaskEO) bool {
@@ -171,7 +185,7 @@ cacheManage.SetClearSource(60*time.Second, func(do taskGroup.TaskEO) bool {
 ```
 如上，定义每隔60秒，将IsFinish = true的数据，清除
 
-### 3.4、EnableItemNullToLoadAll
+### 3.6、EnableItemNullToLoadAll
 当开启此选项时，并且未设置`SetItemSource`函数，当要从缓存集合中获取的一项数据不存在时，则会重新缓存整个数据（调用SetListSource的func来缓存数据）
 ```go
 cacheManage.EnableItemNullToLoadAll()
@@ -180,7 +194,7 @@ cacheManage.EnableItemNullToLoadAll()
 ## 4、演示
 ```go
 fs.Initialize[cacheMemory.Module]("进程缓存演示")
-cacheMemory.SetProfiles[po]("test", "Name", 0)
+cacheMemory.SetProfiles[po]("test", "Name")
 cacheManage := container.Resolve[cache.ICacheManage[po]]("test")
 
 // 缓存了2项数据
