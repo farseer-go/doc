@@ -12,17 +12,56 @@
   2. 调整：框架启动时的日志内容
   3. 修复：FarseerKernelModule模块需要去重
   4. 修复：时间轮的时间格超出下标的错误
+  5. 新增：数据库事务接口`core.ITransaction`
+  6. 新增：日志接口`core.ILog`
+  7. 调整：重写日志组件
+  8. 调整：执行配置文件初始化逻辑改到FarseerKernelModule模块中
+  9. 新增：日志打印json格式支持
+  10. 新增：flog.ErrorIfExists方法
+  11. 新增：container支持移除已注册的实例`container.Remove`、`container.RemoveUnused`
+  12. 新增：获取系统环境资源`system.GetResource`
+  13. 新增：日志写入到文件功能
+- `collections`
+  1. 新增：Enumerable类型的Foreach方法，快速实现遍历元素
+- `mapper`
+  1. 调整：部分类型转换，取消强制指针入参类型
 - `cache`
   1. 调整：获取数量时，如果数量为0，添加判断是否存在KEY，KEY不存在时，重新读取数据源
-- `redis`
-  1. 新增：HashIncrXXX,Hash对field加减
-- `webapi`
-  1. 调整：json输出时，Content-Type设置为application/json
+  2. 调整：缓存设置过期时间的方式`Option func(*Op)`
+- `cacheMemory`
+  1. 修改：TTL时间入参改为cache.Option参数传入
+  2. 新增：缓存时间策略
 - `data`
   1. 新增：WhereIgnoreLessZero方法，自动忽略小于等于0的sql条件
   2. 新增：WhereIgnoreNil，自动忽略nil条件
-- `mapper`
-  1. 调整：部分类型转换，取消强制指针入参类型
+  3. 调整：使用域的方式创建session，支持并发安全
+  4. 新增：执行原生SQL
+  5. 新增：返回原生的对象
+  6. 新增：Expr对字段做表达式操作方法
+  7. 新增：数据库事务功能
+  8. 调整：重命名内部上下文名称为：InternalDbContext
+  9. 新增：通用的仓储接口及实现
+  10. 新增：DomainSet类型，实现通用CRUD绑定
+  11. 新增：IInternalContext接口，可以数据库上下文直接操作原生ORM
+  12. 调整：open数据库发生错误时的日志记录
+- `utils`
+  1. 调整：重写追加文件内容方法
+- `webapi`
+  1. 调整：json输出时，Content-Type设置为application/json
+  2. 新增：支持action入参的接口类型IocName设置
+  3. 新增：Cookies功能
+  4. 新增：Session功能（支持本地存储、Redis存储）
+  5. 新增：minimalApi支持获取HttpContext
+  6. 调整：重写路由机制，自定义实现serveMux
+  7. 新增：实现正则路由匹配（占位符变量）
+  8. 修复：multipart/form-data取不到值的BUG
+  9. 修复：视图路径查找缺失PATH的问题
+- `fSchedule`
+  1. 新增：客户端环境资源收集
+- `redis`
+  1. 新增：HashIncrXXX,Hash对field加减
+  2. 修改：TTL时间入参改为cache.Option参数传入
+  3. 新增：缓存时间策略
 
 ## farseer-go `v0.7.0` by 2023.03.03
 - `fs`
