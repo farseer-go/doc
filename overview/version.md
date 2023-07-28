@@ -6,7 +6,7 @@
 
 修订版本号：是针对具体的组件做单独的修订发布，这个发布只针对某个组件，而不是全部组件（不会影响到其它组件的版本号）。
 
-## farseer-go `v0.8.0` by 未发布
+## farseer-go `v0.8.0` by 2023.07.27
 - `fs`
   1. 调整：FarseerModule接口拆分成FarseerPreInitializeModule、FarseerInitializeModule、FarseerPostInitializeModule、FarseerShutdownModule
   2. 调整：框架启动时的日志内容
