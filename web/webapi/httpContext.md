@@ -5,19 +5,20 @@
 
 ```go
 type HttpContext struct {
-    Request          *HttpRequest
-    Response         *HttpResponse
-    Header           collections.ReadonlyDictionary[string, string]
-    Cookie           *HttpCookies
-    Session          *HttpSession
-    Route            *HttpRoute
-    URI              *HttpURL
-    Method           string
-    ContentLength    int64
+    Request          *HttpRequest                                   // Request
+    Response         *HttpResponse                                  // Response
+    Header           collections.ReadonlyDictionary[string, string] // 头部信息
+    Cookie           *HttpCookies                                   // Cookies信息
+    Session          *HttpSession                                   // Session信息
+    Route            *HttpRoute                                     // 路由信息
+    URI              *HttpURL                                       // URL信息
+    Data             *HttpData                                      // 用于传递值
+    Method           string                                         // 客户端提交时的Method
+    ContentLength    int64                                          // 客户端提交时的内容长度
+    ContentType      string                                         // 客户端提交时的内容类型
+    Exception        any                                            // 是否发生异常
     Close            bool
     TransferEncoding []string
-    ContentType      string
-    Exception        any
 }
 ```
 
@@ -79,4 +80,19 @@ WebApi:
 func Hello10() string {
     return webapi.GetHttpContext().Response.WriteCode(200)
 }
+```
+
+## 7、自定义数据
+当需要在自定义中间件设置值，在后面环节获取之前设置的值时。可以使用HttpData对象
+比如：
+```go
+func (receiver *Http) Invoke(httpContext *context.HttpContext) {
+    httpContext.Data.Set("key1", "val1")
+    receiver.IMiddleware.Invoke(httpContext)
+}	
+```
+
+在应用层获取：
+```go
+webapi.GetHttpContext().Data.Get("key1")
 ```
