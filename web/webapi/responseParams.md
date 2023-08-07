@@ -50,3 +50,18 @@ _运行结果：_
 ```json
 [ 10, 1 ]
 ```
+
+## 4、修改StatusMessage
+如果开启了`webapi.UseApiResponse()`,希望能自定义StatusMessage，则可以使用：
+```go
+webapi.GetHttpContext().Response.SetMessage("更新成功")
+```
+
+```json
+{
+    "Status": true,
+    "StatusCode": 200,
+    "StatusMessage": "更新成功",
+    "Data": ""
+}
+```

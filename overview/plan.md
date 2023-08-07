@@ -24,7 +24,9 @@
   - [ ] webapi支持鉴权
   - [ ] webapi支持限流
   - [ ] webapi支持熔断
-  - [ ] webapi服务注册
+  - [ ] webapi支持表单验证
+  - [ ] webapi支持过滤器（路由中间件）
+  - [ ] webapi服务注册（*作者：steden*）
   - [ ] redisStream组件实现
   - [ ] mapper组件重写成对象设计模式（*作者：海涛*）
   - [ ] 监控告警组件
