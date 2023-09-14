@@ -9,7 +9,7 @@ func Convert[T any](source any, defVal T) T
 
 ?> Convert`接受一个泛型`，`source参数`为转换前的值，`defVal`为转换`失败时的默认值`，`T`为要`转换后的类型`。
 
-## 1、支持的类型互转
+## 1、基础类型转换
 - `int8`
 - `int16`
 - `int32`
@@ -24,8 +24,6 @@ func Convert[T any](source any, defVal T) T
 - `float32`
 - `float64`
 - `string`
-
-## 2、转换示例
 
 ```go
 // 我们知道，在数字与bool之间，我们一般规定0=false、1=true
@@ -46,13 +44,23 @@ result := parse.Convert("123", 0)
 ```
 
 ?> 这让我们在日常处理这些`基本类型之间的转换`时，会容易很多
-
-## 3、string转[]string
-```go
-// result = [0]="a"，[0]="b"，[0]="c"，[0]="d"
-result := parse.Convert("a,b,c,d", []string{})
-```
 类似strings.Join操作
+
+## 2、string转集合
+```go
+// 转换成collections.List[int]类型
+lst := parse.Convert("1,2,3", collections.NewList[int]())
+// 转换成字符串数组 [0]="1"，[1]="2"，[2]="3"
+lst := parse.Convert("1,2,3", []string{})
+// 转换成int数组
+parse.Convert("1,2,3", []int{})
+```
+
+## 3、支持DateTime和time.Time互转
+```go
+// time.Time转
+parse.Convert(time.Now(), dateTime.DateTime{})
+```
 
 ## 4、支持reflect.Type转换
 ```go

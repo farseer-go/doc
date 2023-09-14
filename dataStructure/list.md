@@ -285,3 +285,48 @@ NewList(1, 2, 3).Rand() // return 1 or 2 or 3
 ```go
 NewList(1, 2, 3).ToString(",") // return "1,2,3"
 ```
+
+## 22、For操作
+```go
+lst := collections.NewList(0, 0, 0, 0)
+lst.For(func(index int, item *int) {
+	
+})
+// 等同于
+for i := 0; i < lst.Count(); i++ {
+}
+```
+
+## 23、Foreach操作
+```go
+lst := collections.NewList(0, 0, 0, 0)
+lst.Foreach(func(item *int) {
+
+})
+// 等同于
+for item := range lst.ToArray() {
+
+}
+```
+
+## 24、Parallel操作
+```go
+lst := collections.NewList(1, 2, 3, 3)
+sum := 0
+lst.Parallel(func(item *int) {
+    sum += *item
+})
+
+// 等同于
+lst := collections.NewList(1, 2, 3, 3)
+var wg sync.WaitGroup
+wg.Add(4)
+for i := 0; i < len(4); i++ {
+    item := lst.Index(i)
+    go func() {
+        defer wg.Done()
+        itemFn(item)
+    }()
+}
+wg.Wait()
+```
