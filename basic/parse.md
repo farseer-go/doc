@@ -24,6 +24,7 @@ func Convert[T any](source any, defVal T) T
 - `float32`
 - `float64`
 - `string`
+- `time`
 
 ```go
 // 我们知道，在数字与bool之间，我们一般规定0=false、1=true
@@ -56,13 +57,19 @@ lst := parse.Convert("1,2,3", []string{})
 parse.Convert("1,2,3", []int{})
 ```
 
-## 3、支持DateTime和time.Time互转
+## 3、DateTime和time.Time互转
 ```go
 // time.Time转
 parse.Convert(time.Now(), dateTime.DateTime{})
 ```
 
-## 4、支持reflect.Type转换
+## 4、string转time、dateTime
+```go
+dt := parse.Convert("2023-09-15", time.Time{})
+dt := parse.Convert("2023-09-15", dateTime.DateTime{})
+```
+
+## 5、reflect.Type转换
 ```go
 func ConvertValue(source any, defValType reflect.Type) reflect.Value
 ```
