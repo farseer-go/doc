@@ -11,11 +11,6 @@ Database:
   default: "DataType=mysql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fSchedule_demo?charset=utf8&parseTime=True&loc=Local"
 Redis:
   default: "Server=127.0.0.1:6379,DB=15,Password=123456,ConnectTimeout=600000,SyncTimeout=10000,ResponseTimeout=10000"
-FSchedule:
-  ReservedTaskCount: 20
-  PullCount: 100
-  WorkCount: 100
-  PullInterval: 500
 ElasticSearch:
   es: "Server=http://127.0.0.1:9200,Username=es,Password=123456,ReplicasCount=1,ShardsCount=1,RefreshInterval=5,IndexFormat=yyyy_MM"
   LinkTrack: "Server=http://127.0.0.1:9200,Username=es,Password=123456"
@@ -71,7 +66,7 @@ _运行结果：_
 
 读取FSchedule.ReservedTaskCount配置：
 ```go
-configure.GetInt("FSchedule.ReservedTaskCount")
+configure.GetInt("Log.File.FileCountLimit")
 ```
 _运行结果：_
 
