@@ -79,3 +79,17 @@ type pageSizeRequest struct {
 ?> 如果是`application/json`，则会自动被反序列化成model，如果是`x-www-form-urlencoded`，则会将每一项的key/value匹配到model字段中
 
 可以看到，整个过程，`不需要`做`json序列化`、`httpRequest`、`httpResponse`的操作。
+
+在webapi组件中，提供了两种风格：`minimalApi`、`mvc`。
+
+## 2、使用哪种模式
+### 2.1、`minimalApi`风格
+`minimalApi`风格，非常的简单，不需要你依赖任何的webapi组件。对你的应用系统没有侵入性。
+通常在我们的设计原则里面，依赖的越少越好。
+
+另外`minimalApi`风格，我们也可以称为：`动态API`的方案。意味着，我们不需要在应用系统中专门分一个UI层来放API入口。而是直接通过路由绑定到业务层（或DDD中的应用层）
+
+### 2.2、`mvc`风格
+`mvc`风格，需要依赖`controller.BaseController`，但可以自动注册所有该控制器下的API方法。
+
+`mvc`还支持`ActionFilter过滤器`，意味着在每个Action执行前后，支持做通用的逻辑处理。

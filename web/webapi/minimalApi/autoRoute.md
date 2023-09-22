@@ -1,0 +1,1 @@
+# minimalApi 自动路由

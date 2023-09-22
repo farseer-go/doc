@@ -1,4 +1,4 @@
-# middleware中间件
+# middleware全局中间件
 [English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/webapi)
 
 > 中间件，是一种管道设计理念
@@ -8,13 +8,15 @@
 
 ## 1、处理流程
 
-> `http` -> `exception` -> `routing` -> `自定义` -> `handleMiddleware`
+> `http` -> `exception` -> `routing` -> `自定义中间件` -> `handleMiddleware`
 
 !> http、exception、routing、handleMiddleware框架启动时会自动加载。
 
+handleMiddleware中间件是最终调用你的Handle处理程序。
+
 ## 2、内置的中间件
 ### 2.1、Http
-负责将httpResponse的Body写入到输出流
+负责处理httpResponse的Body流
 
 ### 2.2、exception
 在执行业务api发生异常时，进行捕获处理

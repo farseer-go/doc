@@ -2,20 +2,34 @@
 [English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/webapi)
 
 使用`minimalApi`非常简单，只需要在`web.Run()`执行前调用`webapi.RegisterXXX`，注册有以下几种：
+- webapi.`RegisterRoutes`
 - webapi.`RegisterPOST`
 - webapi.`RegisterGET`
 - webapi.`RegisterPUT`
 - webapi.`RegisterDELETE`
 
 ```go
+// 批量注册路由（推荐使用）
+func RegisterRoutes(routes ...Route)
+// 注册单个路由
 func RegisterPOST(route string, actionFunc any, params ...string)
 func RegisterGET(route string, actionFunc any, params ...string)
 func RegisterPUT(route string, actionFunc any, params ...string)
 func RegisterDELETE(route string, actionFunc any, params ...string)
 ```
-- route：路由url
-- actionFunc：可以传入任意函数，为Api的逻辑。
-- params：对入参为多参数时的一种命名补充（详细后面会说到）
+- route string：路由url
+- actionFunc any：可以传入任意函数，为Api的逻辑。
+- params ...string：对入参为多参数时的一种命名补充（详细后面会说到）
+
+**批量注册：**
+```go
+fs.Initialize[StartupModule]("demo")
+webapi.RegisterRoutes(
+    webapi.Route{Url: "/mini/hello1", Method: "GET", Action: Hello1},
+    webapi.Route{Url: "/mini/hello2", Method: "POST", Action: Hello2},
+)
+webapi.Run()
+```
 
 **POST路由：**
 ```go
