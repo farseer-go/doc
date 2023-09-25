@@ -69,6 +69,7 @@ type DTO struct {
 | ip       | ip格式       |
 | ipv4     | ip4格式      |
 | url      | url格式      |
+| eqfield  | 等于指定字段值    |
 
 更多效验规则，请查看：https://github.com/go-playground/validator
 
