@@ -163,7 +163,7 @@ lst.OrderByDescending(func(item int) any {  // return 8, 7, 6, 5, 4, 3, 2, 1
 }).ToArray()
 ```
 
-## 11、并集、并集、差集、去重
+## 11、交集、并集、差集、去重
 ```go
 lst1 := collections.NewList(1, 2, 3)
 lst2 := collections.NewList(3, 4, 5)
@@ -329,4 +329,11 @@ for i := 0; i < len(4); i++ {
     }()
 }
 wg.Wait()
+```
+
+## 24、Reverse集合反转
+```go
+lst1 := collections.NewList(1, 2, 3, 4, 5)
+lst2 := lst1.Reverse()  // result:5、4、3、2、1
+
 ```
