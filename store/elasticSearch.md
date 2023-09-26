@@ -226,3 +226,31 @@ func InitEsContext() {
 ```go
     _ = context.User.SetAliasesName("test_alis_22")
 ```
+
+## 6、多租户
+先定义多租户的上下文
+```go
+package context
+var esContext = make(map[int]*EsContext)
+
+// EsContext 实际业务
+type EsContext struct {
+	// 账户操作记录
+	AccountOprLog elasticSearch.IndexSet[model.AccountOprLogPO] `es:"index=account_opr_log_yyyy_MM;alias=account_opr_log;shards=3;replicas=1;refresh=1"`
+}
+
+// InitEsContext 初始化上下文
+func InitEsContext(companyId int) {
+	esContext[companyId] = elasticSearch.NewContext[EsContext](parse.ToString(companyId))
+}
+
+func EsContext() *EsContext {
+	return esContext[common.GetCompanyId()]
+}
+```
+动态注册：
+```go
+// 初始化到ES
+elasticSearch.RegisterInternalContext(strCompanyId, item.Conn.ReportDb)
+context.InitEsContext(item.Id)
+```
