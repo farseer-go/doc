@@ -30,14 +30,8 @@ rabbit是比较流行的MQ中间件之一。
 _./farseer.yaml_
 ```yaml
 Rabbit:
-  - Server: "Server=rabbit1:5672,UserName=farseer,Password=farseer,MinChannelCount=10,MaxChannelCount=100"
-    Exchange:
-      - "ExchangeName=Ex1,RoutingKey=,ExchangeType=fanout,IsDurable=true,UseConfirmModel=true,AutoCreateExchange=true"
-      - "ExchangeName=Ex2,RoutingKey=,ExchangeType=fanout,IsDurable=true,UseConfirmModel=true,AutoCreateExchange=true"
-  - Server: "Server=rabbit2:5672,UserName=farseer,Password=farseer,MinChannelCount=10,MaxChannelCount=100"
-    Exchange:
-      - "ExchangeName=Ex3,RoutingKey=,ExchangeType=fanout,IsDurable=true,UseConfirmModel=true,AutoCreateExchange=true"
-      - "ExchangeName=Ex24,RoutingKey=,ExchangeType=fanout,IsDurable=true,UseConfirmModel=true,AutoCreateExchange=true"
+  Ex1: "Server=rabbit:5672,UserName=farseer,Password=farseer,Exchange=Ex1,RoutingKey=,Type=fanout,UseConfirm=false,AutoCreate=true"
+  Ex2: "Server=rabbit:5672,UserName=farseer,Password=farseer,Exchange=Ex2,RoutingKey=,Type=fanout,UseConfirm=false,AutoCreate=true"
 ```
 配置文件支持同时配置多个不同服务端、不同的交换器设置。
 
