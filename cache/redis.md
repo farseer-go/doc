@@ -14,4 +14,29 @@
 [![Build](https://github.com/farseer-go/redis/actions/workflows/build.yml/badge.svg)](https://github.com/farseer-go/redis/actions/workflows/build.yml)
 ![](https://goreportcard.com/badge/github.com/farseer-go/redis)
 
-!> 文档未编写，尽情期待
+
+
+## 多租户
+定义多租户上下文
+```go
+package context
+var mapRedisContext = make(map[int]redis.IClient)
+
+// RedisContext Redis实例
+func RedisContext() redis.IClient {
+	return mapRedisContext[common.GetCompanyId()]
+}
+
+// InitRedisContext 初始化上下文
+func InitRedisContext(companyId int) {
+	mapRedisContext[companyId] = container.Resolve[redis.IClient](parse.ToString(companyId))
+}
+```
+
+```go
+// 注册Redis
+redis.Register(strCompanyId, item.Conn.Redis)
+context.InitRedisContext(item.Id)
+```
+
+item.Conn.Redis："Server=127.0.0.1:6379,DB=0,Password=123456,ConnectTimeout=600000,SyncTimeout=10000,ResponseTimeout=10000"
