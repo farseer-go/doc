@@ -62,7 +62,7 @@ type MysqlContext struct {
 
 // InitMysqlContext 初始化上下文
 func InitMysqlContext() {
-	MysqlContextIns = data.NewContext[MysqlContext]("default", true)
+	MysqlContextIns = data.NewContext[MysqlContext]("default")
 }
 ```
 
@@ -103,7 +103,7 @@ func (p *ProductRepository) ToPageListByCateId(cateId, pageSize, pageIndex int) 
 ```go
 // ToEntity 查看商品详细信息
 // repository通过container自动注入实现进来
-func ToEntity(productId int64, productRepository product.Repository) DTO { //
+func ToEntity(productId int64, productRepository product.Repository) DTO {
 	do := productRepository.ToEntity(productId)
     return mapper.Single[DTO](do)
 }

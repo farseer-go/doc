@@ -10,21 +10,23 @@
 _mysqlContext.go_
 ```go
 type MysqlContext struct { // MysqlContext是你要实现的代码
-	Admin         data.TableSet[model.AdminPO]         `data:"name=admin"` // data.name 表名
-	Build         data.TableSet[model.BuildPO]         `data:"name=build"`
-	Cluster       data.TableSet[model.ClusterPO]       `data:"name=cluster"`
-	DockerfileTpl data.TableSet[model.DockerfileTplPO] `data:"name=dockerfile_tpl"`
-	DockerHub     data.TableSet[model.DockerHubPO]     `data:"name=docker_hub"`
-	Git           data.TableSet[model.GitPO]           `data:"name=basic_git"`
-	Project       data.TableSet[model.ProjectPO]       `data:"name=basic_project"`
-	ProjectGroup  data.TableSet[model.ProjectGroupPO]  `data:"name=basic_project_group"`
-	YamlTpl       data.TableSet[model.YamlTplPO]       `data:"name=k8s_yaml_tpl"`
+	Admin         data.TableSet[model.AdminPO]         `data:"name=admin;migrate"` // data.name 表名
+	Build         data.TableSet[model.BuildPO]         `data:"name=build;migrate"`
+	Cluster       data.TableSet[model.ClusterPO]       `data:"name=cluster;migrate"`
+	DockerfileTpl data.TableSet[model.DockerfileTplPO] `data:"name=dockerfile_tpl;migrate"`
+	DockerHub     data.TableSet[model.DockerHubPO]     `data:"name=docker_hub;migrate"`
+	Git           data.TableSet[model.GitPO]           `data:"name=basic_git;migrate"`
+	Project       data.TableSet[model.ProjectPO]       `data:"name=basic_project;migrate"`
+	ProjectGroup  data.TableSet[model.ProjectGroupPO]  `data:"name=basic_project_group;migrate"`
+	YamlTpl       data.TableSet[model.YamlTplPO]       `data:"name=k8s_yaml_tpl;migrate=InnoDB"`
 }
 ```
 每个model，由`data.TableSet`包裹，`data.TableSet`是用来操作数据库表的相关方法。
 
-其中标签``data:"name=admin"``用来标记数据库的表名
+- `data:"name=admin"`用来标记数据库的表名
+- `data:"migrate=InnoDB"`用来标记数据库的表引擎，对于InnoDB引擎，可以直接用："migrate"
 
+?> 标记migrate之后，意味着该表会被自动创建。 
 
 ## 1、Model层
 在应用中，我们会定义一系列的model，用来匹配数据库表结构，比如：
@@ -49,7 +51,7 @@ type AdminPO struct {
 var MysqlContextIns *MysqlContext
 // 在模块中调用这个函数来执行初始化上下文
 func InitMysqlContext() {
-    MysqlContextIns = data.NewContext[MysqlContext]("fops", true)
+    MysqlContextIns = data.NewContext[MysqlContext]("fops")
 }
 ```
 
@@ -76,7 +78,7 @@ type MysqlContext struct {
 ```
 调用示例：
 ```go
-    MysqlContextIns := data.NewContext[MysqlContext]("default", true)
+    MysqlContextIns := data.NewContext[MysqlContext]("default")
 	MysqlContextIns.Original().xxx
 ```
 `Original()`函数将返回原生的orm对象

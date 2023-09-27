@@ -24,7 +24,7 @@ type mysqlContext struct {
 }
 // InitMysqlContext 初始化上下文
 func InitMysqlContext() {
-	MysqlContext = data.NewContext[mysqlContext]("default", true)
+	MysqlContext = data.NewContext[mysqlContext]("default")
 }
 ```
 然后在基础设施层的PostInitialize环节中，通过读取配置记录表，然后进行动态注册：
