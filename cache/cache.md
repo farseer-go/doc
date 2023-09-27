@@ -46,9 +46,13 @@ func SetProfiles[TEntity any](key string, uniqueField string, ops ...cache.Optio
 
 _使用演示_
 ```go
-fs.Initialize[cacheMemory.Module]("进程缓存演示")
-cacheMemory.SetProfiles[po]("test", "Name")
+type Module struct { }
+func (module Module) PostInitialize() {
+    cacheMemory.SetProfiles[po]("test", "Name")
+}
 ```
+cacheMemory.SetProfiles 用于初始化集合缓存，所以通常是放在`PostInitialize`在执行。
+
 ?> 第2个参数Name对应po结构的Name字段名称，第3个参数0代表不失效
 
 ### 1.2、Redis缓存
@@ -73,14 +77,18 @@ func SetProfiles[TEntity any](key string, uniqueField string, redisConfigName st
 
 _使用演示_
 ```go
-fs.Initialize[redis.Module]("进程缓存演示")
-redis.SetProfiles[po]("test", "Name", "default")
+type Module struct { }
+func (module Module) PostInitialize() {
+    redis.SetProfiles[po]("test", "Name")
+}
 ```
+redis.SetProfiles 用于初始化集合缓存，所以通常是放在`PostInitialize`在执行。
+
 ?> 第2个参数Name对应po结构的Name字段名称，第3个参数"default"代表farseer.yaml的Redis.default配置名称
 
 !> 只在定义时，需要区分是进程缓存还是Redis缓存。后续使用都定义在cache包：`cache.ICacheManage[TEntity any]`接口。
 
-### 1.3、ops ...cache.Option
+### 1.3、参数设置ops ...cache.Option
 用于设置缓存策略
 ```go
 // AbsoluteExpiration 绝对时间，到期自动移除
