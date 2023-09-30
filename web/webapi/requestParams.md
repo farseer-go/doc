@@ -66,10 +66,13 @@ type DTO struct {
 | ne       | 值必须!=      |
 | eq       | 值必须==      |
 | len      | 字符串长度      |
+| max      | 字符串最大长度    |
+| min      | 字符串最小长度    |
 | ip       | ip格式       |
 | ipv4     | ip4格式      |
 | url      | url格式      |
-| eqfield  | 等于指定字段值    |
+| eqfield  | 等于另一个字段    |
+| nefield  | 不等于另一个字段   |
 
 更多效验规则，请查看：https://github.com/go-playground/validator
 
