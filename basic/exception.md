@@ -43,7 +43,7 @@ func Run() {
     }).CatchStringException(func(exp string) {
 		// 这里不会运行，因为test使用的是RefuseException类型的异常
         flog.Info(exp)
-    }).CatchRefuseException(func(exp *exception.RefuseException) {
+    }).CatchRefuseException(func(exp exception.RefuseException) {
 		// 这里会运行，因为捕获到了RefuseException类型的异常
         flog.Warning(exp.Message)
     }).CatchException(func(exp any) {
