@@ -79,7 +79,7 @@ _使用演示_
 ```go
 type Module struct { }
 func (module Module) PostInitialize() {
-    redis.SetProfiles[po]("test", "Name")
+    redis.SetProfiles[po]("test", "Name", "default")
 }
 ```
 redis.SetProfiles 用于初始化集合缓存，所以通常是放在`PostInitialize`在执行。
