@@ -103,13 +103,22 @@ cacheMemory.SetProfiles[po]("test7", "Name", func(op *cache.Op) {
 })
 ```
 ## 2、获取对象
-在读写这个缓存集合前，我们需要先获取到这个集合的对象：
+## 2.1、手动获取：
 ```go
 cacheManage := container.Resolve[cache.ICacheManage[po]]("test")
 ```
 cacheManage是`ICacheManage`接口类型，抽象了对缓存集合的各种操作
 
 ?> 这里我们通过IOC容器的方式获取，cache.ICacheManage接口也是支持注入的方式获取。
+
+## 2.2、IOC注入获取：
+```go
+// ProCateRepository 产品分类仓储
+type ProCateRepository struct {
+	data.IRepository[procate.DomainObject]
+	Cache cache.ICacheManage[po] `inject:"test"` // 通过容器注入，获得实例
+}
+```
 
 ## 3、方法
 ### 3.1、ICacheManage接口的定义
