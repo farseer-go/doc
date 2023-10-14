@@ -9,9 +9,9 @@
   - [x] configure组件实现（移除第三方组件依赖）
   - [x] container组件实现（移除第三方组件依赖）
   - [x] 完善配套的官方文档
-  - [ ] webapi支持正则路由
+  - [x] webapi支持正则路由
   - [ ] redis组件百分百覆盖测试
   - [ ] es组件百分百覆盖测试
-  - [ ] linkTrack组件实现
-  - [ ] rabbit组件实现
+  - [ ] linkTrace组件实现
+  - [x] rabbit组件实现
   - [ ] redisStream组件实现

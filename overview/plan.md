@@ -16,7 +16,7 @@
   - [x] webapi支持Cookies模块（*作者：山鸣*）
   - [x] webapi支持变量占位符路由（*作者：steden*）
   - [x] fs支持环境信息收集（*作者：steden*）
-  - [ ] linkTrack组件实现（*作者：山鸣*）
+  - [ ] linkTrace组件实现（*作者：steden*）
   - [ ] 日志组件支持ES写入
   - [ ] 日志组件支持数据库写入
   - [ ] webapi访问统计

@@ -9,7 +9,7 @@
 - elasticSearch.module
 - eventBus.module
 - fSchedule.module
-- linkTrack.module
+- linkTrace.module
 - queue.module
 - rabbit.module
 - redis.module

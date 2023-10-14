@@ -64,7 +64,7 @@
   * [pageList分页集合](dataStructure/pageList.md "pageList分页集合")
   * [dateTime时间类型](dataStructure/dateTime.md "时间类型")
   * [apiResponse数据包裹](dataStructure/apiResponse.md "Api类型")
-* [**链路追踪**](other/linkTrack.md "链路追踪")
+* [**链路追踪**](other/linkTrace.md "链路追踪")
 * [**事件总线**](other/eventBus.md "事件总线")
 * **服务注册**
   * [ETCD](distributed/etcd.md "encrypt加密")

@@ -59,7 +59,7 @@
   * [PageList](en-us/dataStructure/pageList.md "PageList")
   * [DateTime](en-us/dataStructure/dateTime.md "DateTime")
   * [ApiResponse](en-us/dataStructure/apiResponse.md "ApiResponse")
-* [LinkTrack](en-us/other/linkTrack.md "LinkTrack")
+* [LinkTrace](en-us/other/linkTrace.md "LinkTrace")
 * [EventBus](en-us/other/eventBus.md "EventBus")
 * **服务注册**
   * [ETCD](en-us/distributed/etcd.md "encrypt加密")

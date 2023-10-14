@@ -13,7 +13,7 @@ Redis:
   default: "Server=127.0.0.1:6379,DB=15,Password=123456,ConnectTimeout=600000,SyncTimeout=10000,ResponseTimeout=10000"
 ElasticSearch:
   es: "Server=http://127.0.0.1:9200,Username=es,Password=123456,ReplicasCount=1,ShardsCount=1,RefreshInterval=5,IndexFormat=yyyy_MM"
-  LinkTrack: "Server=http://127.0.0.1:9200,Username=es,Password=123456"
+  LinkTrace: "Server=http://127.0.0.1:9200,Username=es,Password=123456"
 WebApi:
   Url: ":888"
 Log:

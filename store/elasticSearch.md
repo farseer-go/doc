@@ -123,17 +123,17 @@ func GetEsType(val reflect.Type) string {
 
 初始化，非常简单，只需要调用`elasticSearch.NewContext`函数，并传入`esName`即可：
 ```go
-var elasticSearchContext = *EsContext
+var ESContext *esContext
 
 // EsContext 
-type EsContext struct {
+type esContext struct {
     // 用户记录
     User elasticSearch.IndexSet[model.UserPO] `es:"index=User_yyyy_MM_dd;alias=user_yyyy_MM_dd;shards=2;replicas=2;refresh=2"`
 }
 
-// InitLbsEsContext 初始化上下文
-func InitEsContext() {
-    elasticSearchContext = elasticSearch.NewContext[EsContext]("esName")
+// initEsContext 初始化上下文
+func initEsContext() {
+ESContext = elasticSearch.NewContext[esContext]("esName")
 }
 
 ```
