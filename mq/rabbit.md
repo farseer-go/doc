@@ -44,14 +44,31 @@ Rabbit:
   - `MaxChannelCount`：最低保持多少个频道
 - Exchange（交换器设置）
   - `ExchangeName`：交换器名称
-  - `RoutingKey`：路由KEY
+  - `RoutingKey`：默认路由KEY
   - `ExchangeType`：交换器类型（fanout、direct、topic）
   - `IsDurable`：true表示 持久化，交换器、消息体、队列，均会设置为持久化
   - `AutoDelete`：不使用时，是否自动删除
   - `UseConfirmModel`：发送消息时，是否需要确保消息发送到服务端
   - `AutoCreateExchange`：交换器不存在，是否自动创建
 
-## 3、发消息
+## 3、交换器类型
+### 3.1、`fanout`
+所有对该交换器类型的队列，均可消费到全量的消息
+### 3.2、`direct`
+绑定到该交换器的队列需要设定好RoutingKey。 生产者对交换器发消息的同时携带RoutingKey
+
+交换器根据RoutingKey，自动将消息发送到对应RoutingKey的队列中。
+
+该RoutingKey必须完全匹配。
+
+比如在多租户下，我们可以将公司ID作为RoutingKey。这样每个租户的队列可以独立消费，彼此不受影响。
+### 3.3、`topic`
+与`direct`的完全匹配机制不同的是，`topic`支持通配符匹配机制
+
+支持的符号有：`*`、`#`
+
+符号`#`匹配一个或多个词，符号`*`匹配不多不少一个词。因此“audit.`#`”能够匹配到“audit.irs.corporate”，但是“audit.`*`” 只会匹配到“audit.irs”。
+## 4、发消息
 ```go
 product := container.Resolve[rabbit.IProduct]("Ex1")
 product.SendString("aaaa")
@@ -83,7 +100,7 @@ type IProduct interface {
 
 ?> 事实上，以上的函数，最终会调用：`SendMessage`函数
 
-## 4、消费
+## 5、消费
 ```go
 // 注册消费者
 consumer := container.Resolve[rabbit.IConsumer]("Ex1")
