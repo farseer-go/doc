@@ -33,7 +33,6 @@
 * `webapi`（api服务）
 * `rabbit.consumer`（rabbit消费）
 * `queue`（本地队列）
-* `eventBus`（事件总线消费）
 * `task`（本地任务执行）
 * `fSchedule`（调度中心任务执行）
 * `etcd Watch`（Watch Key）
