@@ -16,18 +16,18 @@
   - [x] webapi支持Cookies模块（*作者：山鸣*）
   - [x] webapi支持变量占位符路由（*作者：steden*）
   - [x] fs支持环境信息收集（*作者：steden*）
-  - [ ] linkTrace组件实现（*作者：steden*）
-  - [ ] 日志组件支持ES写入
-  - [ ] 日志组件支持数据库写入
+  - [x] linkTrace组件实现（*作者：steden*）
+  - [x] webapi支持表单验证
+  - [x] webapi支持过滤器（路由中间件）
   - [ ] webapi访问统计
   - [ ] webapi黑白名单
   - [ ] webapi支持鉴权
   - [ ] webapi支持限流
   - [ ] webapi支持熔断
-  - [ ] webapi支持表单验证
-  - [ ] webapi支持过滤器（路由中间件）
   - [ ] webapi服务注册（*作者：steden*）
   - [ ] redisStream组件实现
+  - [ ] 日志组件支持ES写入
+  - [ ] 日志组件支持数据库写入
   - [ ] mapper组件重写成对象设计模式（*作者：海涛*）
   - [ ] 监控告警组件
   - [ ] redis组件百分百覆盖测试（*作者：海涛*）
