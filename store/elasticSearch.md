@@ -239,9 +239,11 @@ type EsContext struct {
 	AccountOprLog elasticSearch.IndexSet[model.AccountOprLogPO] `es:"index=account_opr_log_yyyy_MM;alias=account_opr_log;shards=3;replicas=1;refresh=1"`
 }
 
-// InitEsContext 初始化上下文
-func InitEsContext(companyId int) {
-	esContext[companyId] = elasticSearch.NewContext[EsContext](parse.ToString(companyId))
+// InitLbsEsContext 初始化上下文
+func InitLbsEsContext(companyId int, connString string) {
+  strCompanyId := parse.ToString(companyId)
+  elasticSearch.RegisterInternalContext(strCompanyId, connString)
+  esContext[companyId] = elasticSearch.NewContext[EsContext](strCompanyId)
 }
 
 func EsContext() *EsContext {

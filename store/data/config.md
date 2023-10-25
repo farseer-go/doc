@@ -27,6 +27,7 @@ Database:
 - `postgresql`
 - `sqlite`
 - `sqlserver`
+- `clickhouse`
 
 ## 2、PoolMaxSize
 连接池最大数量
@@ -49,3 +50,8 @@ user=`user` password=`pass` dbname=`dbname` port=`9920` sslmode=disable TimeZone
 
 ### 4.4、SQL Server
 sqlserver://`user`:`pass`@`localhost:9930`?database=`dbname`
+
+### 4.5、ClickHouse
+clickhouse://`user`:`123456`@`127.0.0.1:9942`/`dbname`?dial_timeout=10s&read_timeout=20s
+
+?> 参考：https://github.com/go-gorm/clickhouse

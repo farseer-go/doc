@@ -43,11 +43,8 @@ func (module Module) PostInitialize() {
 	container.Resolve[company.Repository]().ToList().Where(func(item company.DomainObject) bool {
 		return item.Enable
 	}).Foreach(func(item *company.DomainObject) {
-		// 租户ID
-		strCompanyId := parse.ToString(item.Id)
 		// 注册数据库
-		data.RegisterInternalContext(strCompanyId, item.Conn.Db)
-		context.InitMultiMysqlContext(item.Id)
+		context.InitMultiMysqlContext(item.Id, item.Conn.Db)
 	})
 }
 ```
@@ -74,7 +71,8 @@ type multiMysqlContext struct {
 }
 
 // InitMultiMysqlContext 初始化上下文
-func InitMultiMysqlContext(companyId int) {
+func InitMultiMysqlContext(companyId int, connString string) {
+	data.RegisterInternalContext(strCompanyId, connString)
 	mapMysqlContext[companyId] = data.NewContext[multiMysqlContext](parse.ToString(companyId), true)
 }
 
