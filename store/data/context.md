@@ -34,15 +34,22 @@ type MysqlContext struct { // MysqlContext是你要实现的代码
 _model.AdminPO.go_
 ```go
 type AdminPO struct {
-    Id int `gorm:"primaryKey"`  // 标记为主键
+	// 主键，自增ID
+    Id int `gorm:"primaryKey;autoIncrement;comment:ID"`
     // 管理员名称
-    UserName string
+    UserName string `gorm:"size:32;not null;index:idx_user_name;default:'';comment:管理员名称"`
     // 管理员密码
-    UserPwd string
+    UserPwd string `gorm:"size:32;not null;default:'';comment:管理员密码"`
+	// 账号类型
+    AccountType accountType.Enum `gorm:"type:tinyint;not null;default:0;comment:账号类型"`
+	// 允许登陆
+    AllowLogin bool `gorm:"size:1;not null;default:0;comment:允许登陆"`
+	// 分类ID
+    CateIds []int `gorm:"size:32;not null;json;default:'[]';comment:分类ID"`
+	// 创建时间
+    CreateAt time.Time `gorm:"type:timestamp;size:6;not null;default:CURRENT_TIMESTAMP;comment:创建时间"`
 }
 ```
-
-!> 注意：标签gorm是临时的，未来版本中会变更。
 
 ## 2、data.NewContext初始化上下文
 
