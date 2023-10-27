@@ -82,7 +82,7 @@ type IClient interface {
 ## 6、发布订阅
 请查看[事件总线](/other/eventBus.md)篇
 
-## 7、## 多租户
+## 7、多租户
 定义多租户上下文
 ```go
 package context
