@@ -6,6 +6,41 @@
 
 修订版本号：是针对具体的组件做单独的修订发布，这个发布只针对某个组件，而不是全部组件（不会影响到其它组件的版本号）。
 
+## farseer-go `v0.9.0` by 2023.11.22
+- `fs`
+1. 新增：不同操作系统的差异符号
+2. 新增：parse.Convert转换枚举类型
+3. 新增：链路追踪接口
+4. 新增：asyncLocal类型，用于实现routine的泛型版本
+5. 新增：exception.ThrowWebExceptionBool 为true时抛异常方法
+6. 新增：exception.ThrowWebExceptionError抛出WebException异常
+7. 新增：string转collections.List
+8. 新增：parse类型转换：string转time.Time、DateTime、ToInt、ToInt64、ToUInt、ToFloat32、ToFloat64、ToString、ToBool
+9. 新增：日志的时间格式配置
+10. 调整：未配置日志滚动间隔时，默认按天存储
+11. 调整：获取IP方式改为，从C类到A类的顺序获取
+12. 调整：container.ResolveType解析实例方法，增加error返回参数
+13. 调整：exception.CatchException方法内部不再捕获异常
+14. 调整：退回1.20新增的方法，降低到1.9版本的方法
+15. 修复：日志json输出、或文件写入时，没有移除颜色标记
+16. 修复：随机字符串，长度无效
+17. 修复：如果配置文件没有设置日志级别，则默认为Trace级别
+18. 修复：时间类型转换缺时区的问题
+- `collections`
+1. 新增：Parallel for range 并行操作
+2. 新增：For方法，等同于for i
+3. 新增：ToList 将arr按,号分隔，转换成List[T]
+4. 新增：list.Reverse()反转集合
+5. 新增：ReadonlyDictionary.ToDictionary()转Dictionary方法
+6. 新增：AddList、AddArray方法
+7. 新增：GroupBy方法支持map[x]collections.List[x]类型
+8. 调整：将动态反射的代码实现移到fs组件中
+9. 调整：如果Enumerable对象为空，则返回默认Enumerable
+10. 调整：NewReadonlyDictionaryFromMap字典map为nil时，重新初始化
+11. 调整：types.ListAdd的参数为非指针类型
+12. 修复：没数据时使用Insert插入报错
+13. 修复：字符串排序的问题
+
 ## farseer-go `v0.8.0` by 2023.07.27
 - `fs`
   1. 调整：FarseerModule接口拆分成FarseerPreInitializeModule、FarseerInitializeModule、FarseerPostInitializeModule、FarseerShutdownModule
