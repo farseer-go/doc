@@ -40,6 +40,94 @@
 11. 调整：types.ListAdd的参数为非指针类型
 12. 修复：没数据时使用Insert插入报错
 13. 修复：字符串排序的问题
+- `mapper`
+1. 新增：mapper组件支持转换对象执行初始化方法MapperInit
+2. 新增：mapper组件 数组嵌套转换支持
+3. 新增：mapper 支持 map 非指针数组
+4. 新增：mapper 支持实体内list集合转换
+5. 新增：自定义collections.List类型转换
+6. 新增：支持 ListType 类型转换
+7. 新增：支持 decimal.Decimal
+8. 调整：mapper组件 非导出字段，接口类型的 过滤转换
+- `cache`
+仅升级依赖组件版本号
+- `cacheMemory`
+1. 调整：异常信息提示
+- `data`
+1. 新增：上下文初始化失败时提醒
+2. 新增：通用仓储方法：Update，数据修改方法
+3. 新增：通用仓储方法：IsExists，记录是否存在
+4. 新增：通用仓储方法：Delete，删除数据
+5. 新增：IMigratorCreate接口，在PO实体，可自定义创建表时的SQL
+6. 新增：获取decimal.Decimal类型字段
+7. 新增：Exprs方法，批量Expr操作数据库
+8. 新增：对Clickhouse数据库的支持
+9. 新增：Clickhouse的OptimizeFinal方法
+10. 新增：Omit方法，Update时可以忽略更新字段
+11. 新增：数据库的链路追踪
+12. 新增：实现数据库的执行耗时统计
+13. 新增：支持表引擎设置（如innodb、memory)
+14. 新增：IInternalContext接口增加：ExecuteSql、ExecuteSqlToResult、ExecuteSqlToValue方法
+15. 新增：手动注册内部上下文，以实现动态数据库方案
+16. 调整：TableSet部份方法的返回值（增加返回行数、error）
+17. 调整：健康检查时，返回数据库时间
+18. 调整：自动创建表开关改到上下文的tag中
+19. 调整：初始化tableSet时，需要优先设置tableName
+20. 调整：移除routine依赖，改用asyncLocal类型
+21. 调整：Update方法转map时，json需要单独处理
+22. 修复：Row取出为nil时，返回默认值
+23. 修复：主键字段没有做蛇形转换的问题
+24. 修复：多个上下文共享事务冲突的问题
+25. 修复：gorm的save方法在没有主键时，会以insert方式执行，与框架的用途冲突。取消insert执行
+- `utils`
+1. 新增：二元操作逻辑 condition.IsTrue
+2. 新增：数学计算工具 operator.GetSum GetTail GetHead
+3. 新增：str.PadLeft 向左填充字符串方法
+4. 新增：http.GetDomain()从URL中获取Domain部份
+5. 调整：增加http状态码判断
+6. 调整：读取文件时，使用不同操作系统的差异符号
+- `webapi`
+1. 新增：webapi组件接入链路追踪
+2. 新增：字段验证器
+3. 新增：webapi.UseApiDoc()开启api doc文档
+4. 新增：HttpData对象，在上下文中可以设置、获取值
+5. 新增：允许设置StatusMessage
+6. 新增：IFilter 路由过滤器接口
+7. 新增：jwt过滤器
+8. 新增：获取真实IP
+9. 新增：HttpResponse.Reject() 拒绝服务
+10. 新增：webapi.PrintRoute打印所有路由信息到控制台
+11. 新增：action.ImageResult 处理图片
+12. 调整：Mvc模式的HttpContext改为嵌入类型
+13. 调整：简化HttpResponse对象
+14. 调整：容器注入实例找不到时，抛出异常
+15. 调整：将解析request.Body、请求参数的解析放到routing中间件调用
+16. 调整：HttpResponse.Body改为[]any类型，不使用[]reflect.Value
+17. 调整：移除routine依赖，改用asyncLocal类型
+18. 调整：使用Cors组件时，插入到中间件第一个
+19. 修复：表单提交匹配dto json tag大小写问题
+- `redis`
+1. 新增：Redis链路追踪
+2. 新增：redis.Register手动注册内部上下文，以实现动态Redis方案
+3. 新增：事务、管理方法
+4. 调整：健康检查时，返回Redis服务端时间
+5. 调整：移除routine依赖，改用asyncLocal类型
+6. 调整：移除redis.Nil的错误类型
+7. 修复：异常时不能写入redis
+- `fSchedule`
+- `eventBus`
+- `elasticSearch`
+- `etcd`
+- `linkTrace`
+- `queue`
+- `rabbit`
+- `tasks`
+
+
+
+
+
+
 
 ## farseer-go `v0.8.0` by 2023.07.27
 - `fs`
