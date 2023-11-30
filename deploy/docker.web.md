@@ -2,7 +2,7 @@
 ## 1、docker中编译
 ```dockerfile
 # 注意，这里的构建上下文，是在git源代码的根目录
-FROM golang:alpine AS build
+FROM golang:1.20.11-alpine AS build
 # 设置github代理
 ENV GOPROXY https://goproxy.cn,direct
 # 进入到项目目录中
