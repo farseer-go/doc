@@ -12,7 +12,11 @@ _比如：_
 func main() {
 	fs.Initialize[webapi.Module]("action演示")
 	webapi.RegisterPOST("/login", login, "username", "password")
-	webapi.UseStaticFiles()
+    webapi.UseCors()        // 使用CORS中间件
+    webapi.PrintRoute()     // 打印所有路由信息到控制台
+    webapi.UseApiDoc()      // 开启api doc文档
+    webapi.UseValidate()    // 使用DTO验证
+    webapi.UseStaticFiles() // 使用静态文件 在根目录./wwwroot中的文件
 	webapi.Run()
 }
 
