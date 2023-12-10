@@ -4,7 +4,8 @@
 # 注意，这里的构建上下文，是在git源代码的根目录
 FROM golang:1.20.11-alpine AS build
 # 设置github代理
-ENV GOPROXY https://goproxy.cn,direct
+RUN go env -w GO111MODULE=on
+RUN go env -w GOPROXY=https://goproxy.cn,direct
 # 进入到项目目录中
 WORKDIR /src
 # 复制go.mod文件
