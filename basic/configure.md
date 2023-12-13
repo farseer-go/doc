@@ -104,5 +104,14 @@ _读取配置_
 // result = :80
 configure.GetString("WebApi.Url")
 ```
-
 代码读取上，还是使用`WebApi.Url`，在环境变量想要覆盖配置，则替换为：`WebApi_Url`
+
+## 6、多环境配置文件
+通过设置环境变量fsenv，可以提供在不同环境下读取对应配置文件的能力：
+
+_环境变量：_
+```dotenv
+fsenv=test
+```
+
+这时读取的本地配置文件名为：./farseer.test.yaml
