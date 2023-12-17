@@ -6,6 +6,17 @@
 
 修订版本号：是针对具体的组件做单独的修订发布，这个发布只针对某个组件，而不是全部组件（不会影响到其它组件的版本号）。
 
+## farseer-go `v0.10.0` by 2023.12.17
+- `fs`
+  1. 新增：通过环境变量fsenv，支持多环境配置文件
+  2. 新增：GetPageList获取collections.PageList的元素
+  3. 调整：dateTime.DateTime类型支持gorm框架
+  4. 调整：apiResponse的ServerAt字段改用dateTime类型
+  5. 调整：dateTime类型，新增部份time.Time类似的方法
+  6. 修复：无法将自定义枚举转数字的问题
+  7. 修复：类型转换问题（枚举转数字）
+  8. 修复：dateTime.DateTime类型的json转换
+
 ## farseer-go `v0.9.0` by 2023.11.22
 - `fs`
   1. 新增：不同操作系统的差异符号
