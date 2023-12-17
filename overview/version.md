@@ -6,7 +6,7 @@
 
 修订版本号：是针对具体的组件做单独的修订发布，这个发布只针对某个组件，而不是全部组件（不会影响到其它组件的版本号）。
 
-## farseer-go `v0.10.0` by 2023.12.17
+## farseer-go `v0.10.0` by 2023.12.18
 - `fs`
   1. 新增：通过环境变量fsenv，支持多环境配置文件
   2. 新增：GetPageList获取collections.PageList的元素
@@ -16,6 +16,25 @@
   6. 修复：无法将自定义枚举转数字的问题
   7. 修复：类型转换问题（枚举转数字）
   8. 修复：dateTime.DateTime类型的json转换
+- `collections`
+  1. 移除：MapToList、MapToArray、MapToPageList方法
+- `mapper`
+  1. mapper 支持 时间 转 string
+  2. 调整：ToPageList方法，移除recordCount入参
+  3. 修复：time.Time类型无法interface时，忽略掉
+- `utils`
+  1. 调整：http忽略https检查
+- `redis`
+  1. 调整：移除了MapToArray方法
+- `webapi`
+  1. 调整：增加404错误日志
+- `cache`、`cacheMemory`、`elasticSearch`、`etcd`、`eventBus`、`fSchedule`、`queue`、`rabbit`、`task`
+  1. 仅升级依赖组件版本号
+- `fsctl`
+  1. 新增：路由生成后的总数量打印
+  2. 修改模板
+- `linkTrace`
+  1. 修复：父级明细ID读取错误
 
 ## farseer-go `v0.9.0` by 2023.11.22
 - `fs`
