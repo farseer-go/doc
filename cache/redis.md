@@ -55,10 +55,6 @@ cache.HashIncrInt("key", "field", 123)
 cache.StringSet("key1", "9883")
 cache.client.StringGet("key1")
 cache.Del("key1")
-// 事务
-cache.Transaction(func(tx redis.Pipeliner) {
-    tx.HSet(ctx, "key", "field", "value")
-})
 ```
 由于方法太多，具体的其它方法，请到查看`redis.IClient`接口
 
@@ -105,4 +101,21 @@ redis.Register(strCompanyId, item.Conn.Redis)
 context.InitRedisContext(item.Id)
 ```
 
-item.Conn.Redis："Server=127.0.0.1:6379,DB=0,Password=123456,ConnectTimeout=600000,SyncTimeout=10000,ResponseTimeout=10000"
+## 8、事务
+```go
+cache := container.Resolve[redis.IClient]("default")
+cache.Transaction(func(){
+    cache.StringSet("key1", "9883")
+    cache.Del("key1")
+})
+```
+开启事务的方式也很简单。在方法`Transaction`内执行的Redis操作，都会处于同一个事务中。
+## 9、管道
+```go
+cache := container.Resolve[redis.IClient]("default")
+cache.Pipeline(func(){
+    cache.StringSet("key1", "9883")
+    cache.Del("key1")
+})
+```
+开启管道的方式也很简单。在方法`Pipeline`内执行的Redis操作，都会处于同一个管道中。
