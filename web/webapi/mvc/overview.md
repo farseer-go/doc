@@ -10,7 +10,6 @@
 ```go
 import (
     "fmt"
-    "fops/interfaces/request"
     "github.com/farseer-go/webapi/controller"
 )
 
