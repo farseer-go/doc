@@ -15,13 +15,19 @@ type IRepository[TDomainObject any] interface {
 	// ToEntity 查询实体
 	ToEntity(id any) TDomainObject
 	// Add 添加实体
-	Add(entity TDomainObject)
+	Add(entity TDomainObject) error
 	// ToList 获取所有列表
 	ToList() collections.List[TDomainObject]
 	// ToPageList 分页列表
 	ToPageList(pageSize, pageIndex int) collections.PageList[TDomainObject]
 	// Count 数量
 	Count() int64
+	// Update 保存数据
+	Update(id any, do TDomainObject) (int64, error)
+	// Delete 删除数据
+	Delete(id any) (int64, error)
+	// IsExists 记录是否存在
+	IsExists(id any) bool
 }
 ```
 

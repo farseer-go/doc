@@ -35,6 +35,12 @@
   2. 修改模板
 - `linkTrace`
   1. 修复：父级明细ID读取错误
+- `data`
+  1. 修改错误日志
+  2. 调整：移除了MapToArray方法
+  3. 修复：事务中发生error错误，没有自动回滚
+  4. 修复：Exprs方法无法更新多字段的问题
+  5. 修复：ExecuteSqlToValue无法获取值的问题
 
 ## farseer-go `v0.9.0` by 2023.11.22
 - `fs`

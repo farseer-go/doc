@@ -21,22 +21,43 @@ type MysqlContext struct { // MysqlContext是你要实现的代码
 	YamlTpl       data.TableSet[model.YamlTplPO]       `data:"name=k8s_yaml_tpl;migrate=InnoDB"`
 }
 ```
-每个model，由`data.TableSet`包裹，`data.TableSet`是用来操作数据库表的相关方法。
 
 - `data:"name=admin"`用来标记数据库的表名
 - `data:"migrate=InnoDB"`用来标记数据库的表引擎，对于InnoDB引擎，可以直接用："migrate"
 
-## 1、CodeFirst模式（自动创建表）
+## 1、data.TableSet
+每个model，由`data.TableSet`包裹，`data.TableSet`是用来操作数据库表的相关方法。
+
+后续，我们要对表进行CRUD时调用的相关方法，就是由TableSet提供的。
+## 2、data.DomainSet
+很多时候，我们的数据库PO与领域层的DomainObject是一一对应的。这时就可以使用data.DomainSet。
+```go
+// MysqlContext 数据库上下文
+type MysqlContext struct {
+	// 手动使用事务时必须定义
+	core.ITransaction
+	// 获取原生ORM框架（不使用TableSet或DomainSet）
+	data.IInternalContext
+	// 定义数据库表 订单 映射TableSet
+	Order data.DomainSet[model.OrderPO, order.DomainObject] `data:"name=farseer_go_order"`
+	// 定义数据库表 商品分类 映射TableSet
+	ProCate data.DomainSet[model.ProCatePO, procate.DomainObject] `data:"name=farseer_go_procate"`
+	// 定义数据库表 产品 映射TableSet
+	Product data.DomainSet[model.ProductPO, product.DomainObject] `data:"name=farseer_go_product"`
+}
+```
+这样我们将PO和DomainObject绑定在一起。绑定后我们提供了一些常用的CRUD方法。详情可参考：[这里](/store/data/repository.md)
+## 3、CodeFirst模式（自动创建表）
 当data标签加上migrate关键词后，data组件将调用gorm的`AutoMigrate`方法来实现表的自动创建。
 
 ?> 标记migrate之后，意味着该表会被自动创建。
 
-### 1.1 指定表引擎
+### 3.1 指定表引擎
 当需要手动指定表引擎时，可以使用如：`migrate=memory`的方式。
 
 在clickhouse数据库，也可用来创建order by 排序健，如：migrate=`MergeTree() ORDER BY (account_name, create_at)`
 
-### 1.2 自定义SQL创建表
+### 3.2 自定义SQL创建表
 当然我们也可以使用自定义SQL来创建表，首先加上`data:"name=mv_order_unsettled;migrate"`标记。
 
 接着在PO实体中，实现接口`IMigratorCreate`：
@@ -63,7 +84,7 @@ func (*OrderUnsettledPO) CreateTable() string {
 ```
 这里为了方便维护，我将sql的脚本写到mv_order_unsettled.sql文件，再通过go:embed导入。
 
-## 2、Model层
+## 4、Model层
 在应用中，我们会定义一系列的model，用来匹配数据库表结构，比如：
 
 _model.AdminPO.go_
@@ -86,7 +107,7 @@ type AdminPO struct {
 }
 ```
 
-## 3、data.NewContext初始化上下文
+## 5、data.NewContext初始化上下文
 
 初始化，非常简单，只需要调用`data.NewContext`函数，并传入`dbName`即可：
 ```go
@@ -101,7 +122,7 @@ func InitMysqlContext() {
 - fops：数据库配置名称，对应./farseer.yaml 中的 Database节点
 - true：传入true表示自动创建表，以此实现code first模式
 
-## 4、获取原生ORM对象
+## 6、获取原生ORM对象
 有时候需要在不绑定model时使用原生orm对象，可以通过在上下文中内嵌`data.IInternalContext`接口实现：
 ```go
 // MysqlContext 数据库上下文
