@@ -5,7 +5,36 @@
 次版本号：每次新功能发布，将同步所有组件的次版本号为同一个版本号，如v0.8.0指所有组件的版本号均升级到这个版本号。
 
 修订版本号：是针对具体的组件做单独的修订发布，这个发布只针对某个组件，而不是全部组件（不会影响到其它组件的版本号）。
-
+## farseer-go `v0.11.0` by 2023.12.25
+- `fs`
+  1. 修复：任意数字转枚举的问题
+  2. 新增：dateTime.Before方法，判断是否比dt时间小（早）
+  3. 调整：框架启动完后执行的函数改为：未初始化完时，加入到列表中，否则立即执行
+  4. 调整：将获取系统资源的功能移到utils组件，以减少fs对第三方依赖的依赖
+- `utils`
+  1. 调整：将获取系统资源的功能移到utils组件，以减少fs对第三方依赖的依赖
+- `webapi`
+  1. 调整：移除fasthttp组件依赖
+  2. 调整：减少第三方组件依赖
+  3. 新增：将Session作为子模块
+- `linkTrace`
+  1. 新增：链路追踪记录写入到clickhouse、elasticsearch
+  2. 新增：链路追踪执行明细记录写入到clickhouse、elasticsearch
+  3. 添加clickhouse驱动，实现消费子模块
+  4. 添加elasticsearch驱动，实现消费子模块
+- `data`
+  1. 新增：WhereIf方法，当conditional==true时，使用条件
+  2. 调整：将除了mysql驱动外的数据库驱动改到子模块中
+  3. 修复：事务的error判断错误，导致无法提交
+  - `rabbit`
+  1. 调整：错误日志的打印逻辑
+  2. 修复：关闭时，需要判断是否为nil
+  - `fSchedule`
+  1. 调整：ClientName改为fs.AppName（原来是hostName)
+  2. 调整：当向调度中心注册之后继续添加任务时，立即重新注册新的任务
+  3. 调整：将获取系统资源的功能移到utils组件，以减少fs对第三方依赖的依赖
+- `cache`、`cacheMemory`、`collections`、`elasticSearch`、`etcd`、`eventBus`、`fsctl`、`mapper`、`queue`、`redis`、`task`
+  1. 仅升级依赖组件版本号
 ## farseer-go `v0.10.0` by 2023.12.18
 - `fs`
   1. 新增：通过环境变量fsenv，支持多环境配置文件
