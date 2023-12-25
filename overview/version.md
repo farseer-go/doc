@@ -26,10 +26,10 @@
   1. 新增：WhereIf方法，当conditional==true时，使用条件
   2. 调整：将除了mysql驱动外的数据库驱动改到子模块中
   3. 修复：事务的error判断错误，导致无法提交
-  - `rabbit`
+- `rabbit`
   1. 调整：错误日志的打印逻辑
   2. 修复：关闭时，需要判断是否为nil
-  - `fSchedule`
+- `fSchedule`
   1. 调整：ClientName改为fs.AppName（原来是hostName)
   2. 调整：当向调度中心注册之后继续添加任务时，立即重新注册新的任务
   3. 调整：将获取系统资源的功能移到utils组件，以减少fs对第三方依赖的依赖
