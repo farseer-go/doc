@@ -268,3 +268,12 @@ arrDto := []TaskDTO{{
 listAny := mapper.ToListAny(arrDto)
 ```
 将`[]TaskDTO` 转 `collections.ListAny`
+
+10、忽略字段
+```go
+type UserVO struct {
+    Id   int64  `mapper:ignore`
+    Name string
+}
+```
+在将其它类型转换成UserVO类型时，UserVO.Id将忽略，不会转换
