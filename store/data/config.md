@@ -24,11 +24,32 @@ Database:
 ## 1、DataType
 数据库类型（不区分大小写）：
 - `mysql`
+  - 是data组件默认支持的驱动，不需要您额外依赖。
 - `postgresql`
+  - 需要依赖：`github.com/farseer-go/data/driver/postgres`包，模块名：`data_postgres.Module`
 - `sqlite`
+  - 需要依赖：`github.com/farseer-go/data/driver/sqlite`包，模块名：`data_sqlite.Module`
 - `sqlserver`
+  - 需要依赖：`github.com/farseer-go/data/driver/sqlserver`包，模块名：`data_sqlserver.Module`
 - `clickhouse`
+  - 需要依赖：`github.com/farseer-go/data/driver/clickhouse`包，模块名：`data_clickhouse.Module`
 
+?> 如果要支持mysql以外的数据库。需要将原本依赖data.Module模块改成上面列出来的模块名。比如下面依赖clickhouse模块：
+```go
+package infrastructure
+
+import (
+  "github.com/farseer-go/data/driver/clickhouse"
+  "github.com/farseer-go/fs/modules"
+)
+
+type Module struct {
+}
+func (module Module) DependsModule() []modules.FarseerModule {
+	// 这些模块都是farseer-go内置的模块
+	return []modules.FarseerModule{data_clickhouse.Module{}}
+}
+```
 ## 2、PoolMaxSize
 连接池最大数量
 
@@ -37,21 +58,21 @@ Database:
 
 ## 4、ConnectionString
 ### 4.1、mysql
-`user`:`pass`@tcp(`127.0.0.1:3306`)/`dbname`?charset=utf8mb4&parseTime=True&loc=Local
+连接字符串：**user:pass@tcp(127.0.0.1:3306)/dbname?charset=utf8mb4&parseTime=True&loc=Local**
 
 ?> 参考 https://github.com/go-sql-driver/mysql#dsn-data-source-name 获取详情
 ### 4.2、PostgreSQL
-user=`user` password=`pass` dbname=`dbname` port=`9920` sslmode=disable TimeZone=Asia/Shanghai
+连接字符串：**user=user password=pass dbname=dbname port=9920 sslmode=disable TimeZone=Asia/Shanghai**
 
 ### 4.3、sqlite
-"xxx.db"
+连接字符串：**xxx.db**
 
 ?> 注意： 您也可以使用 file::memory:?cache=shared 替代文件路径。 这会告诉 SQLite 在系统内存中使用一个临时数据库
 
 ### 4.4、SQL Server
-sqlserver://`user`:`pass`@`localhost:9930`?database=`dbname`
+连接字符串：**sqlserver://user:pass@localhost:9930?database=dbname**
 
 ### 4.5、ClickHouse
-clickhouse://`user`:`123456`@`127.0.0.1:9942`/`dbname`?dial_timeout=10s&read_timeout=20s
+连接字符串：**clickhouse://user:123456@127.0.0.1:9942/dbname?dial_timeout=10s&read_timeout=20s**
 
 ?> 参考：https://github.com/go-gorm/clickhouse
