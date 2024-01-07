@@ -33,9 +33,13 @@
 
 - `领域驱动`：帮助你实现基于DDD的分层架构并构建可维护的代码库。
 
-- `健康检查`：farseer-go会在启动时立即检查您的所有依赖项，如数据库、Redis、MQ，如果连接失败则无法启动。
+- `健康检查`：应用启动后会定向FOPS中心上报当前应用的健康状态。并在[fops](https://github.com/farseers/fops)中提供查询界面。
 
-- `链路追踪`：如果您使用框架中的Orm、Redis、Http、Grpc、ES、MQ、EventBus、Task、fSchedule，将隐式为您实现链路追踪，并提供API请求日志、慢查询。
+- `分布式日志`：通过flog打印日志，你除了在控制台可以看到，也可以在[fops](https://github.com/farseers/fops)中查询。
+
+- `链路追踪`：隐式为您实现链路追踪，并提供API请求日志、慢查询，并在[fops](https://github.com/farseers/fops)中提供查询界面。
+
+!> FOPS是专为farseer-go框架打造的一款运维平台。支持：链路查询、慢SQL、应用日志、健康检查、应用部署（Docker swarm）等能力。
 
 ## 3、集成的组件
 

@@ -2,6 +2,7 @@
     * [介绍](README.md "介绍")
     * [快速开始](overview/quickStart.md "快速开始")
     * [模块依赖](overview/module.md "模块依赖")
+    * [上报FOPS](overview/fops.md "上报FOPS")
     * [整体计划](overview/plan.md "整体计划")
     * [更新记录](overview/version.md "更新记录")
 * **基础组件**
