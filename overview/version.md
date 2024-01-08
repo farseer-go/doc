@@ -33,7 +33,7 @@
   - 新增：collections.NewListFromChan(c) 创建集合，将chan中的数据填充到集合
   - 新增：ContainsPrefix、ContainsSuffix、ContainsAny
   - 修复：使用routine.Go，解决无法链路追踪的问题
-  - 修复：修复lock为nil时，异常
+  - 修复：修复lock为nil时，导致异常
 - `webapi`
   - 调整：增加注入时，对类型检查是否注册过IOC
   - 新增：健康检查接口：webapi.UseHealthCheck()
@@ -59,7 +59,8 @@
   - 新增：向调度中心注册时，增加链路追踪
   - 修复：是否已注册的判断逻辑
 - `cache`、`cacheMemory`、`elasticSearch`、`etcd`、`eventBus`、`fsctl`、`rabbit`、`redis`、`task`、`utils`
-
+  1. 仅升级依赖组件版本号
+  
 ## farseer-go `v0.11.0` by 2023.12.25
 - `fs`
   1. 修复：任意数字转枚举的问题
