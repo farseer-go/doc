@@ -5,6 +5,61 @@
 次版本号：每次新功能发布，将同步所有组件的次版本号为同一个版本号，如v0.8.0指所有组件的版本号均升级到这个版本号。
 
 修订版本号：是针对具体的组件做单独的修订发布，这个发布只针对某个组件，而不是全部组件（不会影响到其它组件的版本号）。
+## farseer-go `v0.12.0` by 2024.1.9
+- `fs`
+  - 新增：http请求时记录出入参、状态头、header
+  - 新增：调度中心使用的链路入口
+  - 新增：dateTime.NewUnixMicro()方法
+  - 新增：container.IsRegisterType()方法，判断类型是否注册过
+  - 新增：types.IsNil 判断值是否为nil
+  - 新增：ThrowRefuseExceptionBool、ThrowRefuseExceptionfBool、ThrowRefuseExceptionError 便捷方法
+  - 新增：parse.Convert，支持切片转切片
+  - 调整：系统启动时增加FopsServer地址打印
+  - 调整：链路追踪的字段名称（入库中字段名称）
+  - 调整：链路追踪改为上传模式
+  - 调整：数据库Scan对time.Time类型解析
+  - 调整：AppId、AppName、AppIp 迁移到core包
+  - 调整：链路追踪添加明细的应用信息
+  - 调整：链路追踪TraceId将int64字段转为string类型
+  - 修复：链路追踪数据库名称无法获取的问题
+- `mapper`
+  - 新增：支持 嵌入字段
+  - 新增：支持 内嵌时间转换
+  - 新增：Map转结构体
+  - 新增：实现指针、非指针互转
+  - 新增：mapper:ignore标记，支持忽略字段的赋值
+  - 修复：获取nil指针报错
+- `collections`
+  - 新增：collections.NewListFromChan(c) 创建集合，将chan中的数据填充到集合
+  - 新增：ContainsPrefix、ContainsSuffix、ContainsAny
+  - 修复：使用routine.Go，解决无法链路追踪的问题
+  - 修复：修复lock为nil时，异常
+- `webapi`
+  - 调整：增加注入时，对类型检查是否注册过IOC
+  - 新增：健康检查接口：webapi.UseHealthCheck()
+  - 优化：减少重复赋值
+- `linkTrace`
+  - 新增：http请求时记录出入参、状态头、header
+  - 新增：Grpc的明细
+  - 调整：链路追踪的"Trace-Id"、"Trace-App-Name"
+  - 调整：Error方法，当err为nil时不操作。
+  - 调整：链路追踪的表字段结构
+  - 调整：TraceContextPO.List改用[]any类型
+  - 调整：注册数据库上下文时，提前检查连接字符串
+  - 调整：链路追踪改为上传模式
+  - 调整：TraceId、AppId改为string类型
+- `data`
+  - 新增：丰富TableSet.WhereXX相关方法（leil贡献）
+  - 新增：OrderIf、DescIf、DescIfElse、AscIf、AscIfElse排序方法
+  - 修复：链路追踪数据库名称无法获取的问题
+  - 修复：在clickhouse数据库中，gorm官方包会出现异常：当batchSize小于lst.Count时。会收到：code: 101的错误
+- `queue`
+  - 调整：队列消费异常时，不修改队列位置
+- `fSchedule`
+  - 新增：向调度中心注册时，增加链路追踪
+  - 修复：是否已注册的判断逻辑
+- `cache`、`cacheMemory`、`elasticSearch`、`etcd`、`eventBus`、`fsctl`、`rabbit`、`redis`、`task`、`utils`
+
 ## farseer-go `v0.11.0` by 2023.12.25
 - `fs`
   1. 修复：任意数字转枚举的问题
@@ -35,6 +90,7 @@
   3. 调整：将获取系统资源的功能移到utils组件，以减少fs对第三方依赖的依赖
 - `cache`、`cacheMemory`、`collections`、`elasticSearch`、`etcd`、`eventBus`、`fsctl`、`mapper`、`queue`、`redis`、`task`
   1. 仅升级依赖组件版本号
+
 ## farseer-go `v0.10.0` by 2023.12.18
 - `fs`
   1. 新增：通过环境变量fsenv，支持多环境配置文件
