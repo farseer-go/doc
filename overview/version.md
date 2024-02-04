@@ -31,7 +31,7 @@
   - 调整：parse.ConvertValue函数，判断defValType为nil的入参
   - 修复：并发事务的线程安全问题
 - `mapper`
-  - 调整：重构整个组件的实现原理
+  - 重构整个组件的实现原理
 - `collections`
   - 新增：Dictionary.New() 初始化（用于反映时使用）
 - `webapi`
