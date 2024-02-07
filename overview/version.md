@@ -7,51 +7,51 @@
 修订版本号：是针对具体的组件做单独的修订发布，这个发布只针对某个组件，而不是全部组件（不会影响到其它组件的版本号）。
 ## farseer-go `v0.13.0` by 2024.2.4
 - `fs`
-  - 新增：Trace-Level链路层级字段
-  - 新增：parse.Convert支持json.Number类型转数字
-  - 新增：types.IsDictionaryByType、IsPageListByType 类型判断方法
-  - 新增：types.GetDictionaryToMap获取Dictionary的map元素
-  - 新增：dateTime.Parse，支持对字符串时间解析
-  - 新增：types.GetListToArrayValue函数
-  - 新增：添加链路明细的注释字段
-  - 新增：高性能的反射包fastReflect
-  - 新增：dateTime类型、Time类型转string
-  - 调整：移除调度中心TaskGroupId
-  - 调整：忽略routine v1.1.3
-  - 调整：链路追踪增加高度中心的Data参数保存
-  - 调整：添加过滤查找异常调用文件的系统组件
-  - 调整：使用新的分布式ID生成器
-  - 调整：异常日志，增加调用上游信息打印
-  - 调整：fops项目启动时，延迟3秒注册自己
-  - 调整：types.IsGoBasicType将dateTime.DateTime判断为true（基础类型）
-  - 调整：parse.ConvertValue函数，如果defValType为any，则直接返回
-  - 调整：提升代码健壮性
-  - 调整：容器初始化，将不再由模块控制
-  - 调整：parse.Convert的性能提升1倍
-  - 调整：parse.ConvertValue函数，判断defValType为nil的入参
-  - 修复：并发事务的线程安全问题
+  1. 新增：Trace-Level链路层级字段
+  2. 新增：parse.Convert支持json.Number类型转数字
+  3. 新增：types.IsDictionaryByType、IsPageListByType 类型判断方法
+  4. 新增：types.GetDictionaryToMap获取Dictionary的map元素
+  5. 新增：dateTime.Parse，支持对字符串时间解析
+  6. 新增：types.GetListToArrayValue函数
+  7. 新增：添加链路明细的注释字段
+  8. 新增：高性能的反射包fastReflect
+  9. 新增：dateTime类型、Time类型转string
+  10. 调整：移除调度中心TaskGroupId
+  11. 调整：忽略routine v1.1.3
+  12. 调整：链路追踪增加高度中心的Data参数保存
+  13. 调整：添加过滤查找异常调用文件的系统组件
+  14. 调整：使用新的分布式ID生成器
+  15. 调整：异常日志，增加调用上游信息打印
+  16. 调整：fops项目启动时，延迟3秒注册自己
+  17. 调整：types.IsGoBasicType将dateTime.DateTime判断为true（基础类型）
+  18. 调整：parse.ConvertValue函数，如果defValType为any，则直接返回
+  19. 调整：提升代码健壮性
+  20. 调整：容器初始化，将不再由模块控制
+  21. 调整：parse.Convert的性能提升1倍
+  22. 调整：parse.ConvertValue函数，判断defValType为nil的入参
+  23. 修复：并发事务的线程安全问题
 - `mapper`
-  - 重构整个组件的实现原理
+  1. 重构整个组件的实现原理
 - `collections`
-  - 新增：Dictionary.New() 初始化（用于反映时使用）
+  1. 新增：Dictionary.New() 初始化（用于反映时使用）
 - `webapi`
-  - 调整：异常时记录到链路，并打印日志
+  1. 调整：异常时记录到链路，并打印日志
   - 修复：多服务时，错误的获取Area变量
   - 修复：接收到int64数字丢失精度的问题
   - 优化部份实现
 - `linkTrace`
-  - 新增：添加链路明细的注释字段
+  1. 新增：添加链路明细的注释字段
   - 调整：链路追踪增加调度中心的Data参数保存
   - 调整：控制3秒执行一次上传链路记录到FOPS中心
   - 调整：结束当前链路时，要清空AsyncLocal
 - `data`
-  - 新增：IMigratorIndex接口，支持更易阅读的索引创建方式
+  1. 新增：IMigratorIndex接口，支持更易阅读的索引创建方式
   - 新增：支持唯一索引
   - 调整：移除缓存执行效率记录代码
   - 调整：禁用mitchellh/osext
   - 修复：并发事务的线程安全问题
 - `fSchedule`
-  - 新增：JOB执行异常时，增加ERROR日志
+  1. 新增：JOB执行异常时，增加ERROR日志
   - 新增：定时10分钟，注册一次任务，防止掉线
   - 调整：移除调度中心TaskGroupId
   - 调整：注册任务时，增加corn格式验证
@@ -64,11 +64,11 @@
   - 调整：修改日志内容
   - 修复：调度中心客户端组件的WebApi服务与应用的WebApi服务冲突
 - `eventBus`
-  - 新增：事件驱动和链路追踪
+  1. 新增：事件驱动和链路追踪
   - 调整：使用新的分布式ID生成器
   - 调整：区分Redis订阅和本地事件订阅
 - `fsctl`
-  - 新增：支持一个API多路由
+  1. 新增：支持一个API多路由
 - `cache`、`cacheMemory`、`elasticSearch`、`etcd`、`rabbit`、`redis`、`task`、`utils`、`queue`
   1. 仅升级依赖组件版本号
   
