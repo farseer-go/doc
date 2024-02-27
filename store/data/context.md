@@ -84,6 +84,44 @@ func (*OrderUnsettledPO) CreateTable() string {
 ```
 这里为了方便维护，我将sql的脚本写到mv_order_unsettled.sql文件，再通过go:embed导入。
 
+### 3.3 自定义索引
+除了支持gorm原生的使用tag来定义索引外，还支持通过`IMigratorIndex`接口来定义
+```go
+package data
+
+type IdxField struct {
+	IsUNIQUE bool   // 唯一索引
+	Fields   string // 多个用逗号分隔
+}
+
+type IMigratorIndex interface {
+	// CreateIndex 创建索引
+	CreateIndex() map[string]IdxField
+}
+```
+只需要在PO对象中（Model)实现该接口：
+```go
+// MessagePO 待发送消息
+type MessagePO struct {
+	Id           int64     `gorm:"primaryKey;autoIncrement;comment:消息ID"`
+	ExchangeName string    `gorm:"size:32;not null;comment:交换器名称"`
+	RoutingKey   string    `gorm:"size:8;not null;comment:路由key"`
+	Msg          string    `gorm:"type:mediumtext;not null;comment:消息内容"`
+	CreateAt     time.Time `gorm:"type:timestamp;size:6;not null;comment:创建时间"`
+}
+
+// 创建索引
+func (*MessagePO) CreateIndex() map[string]data.IdxField {
+	return map[string]data.IdxField{
+		"idx_create_at": {false, "create_at,exchange_name"},
+	}
+}
+```
+当我们的po对象，存在非常多的字段，且需要定义较多的索引时，使用`CreateIndex() map[string]data.IdxField`，更易于维护
+
+- map key：索引名称，示例：idx_create_at
+- map value：data.IdxField结构，其中Fields字段支持多个字段，使用逗号分隔。IsUNIQUE表示是否创建唯一索引
+
 ## 4、Model层
 在应用中，我们会定义一系列的model，用来匹配数据库表结构，比如：
 
