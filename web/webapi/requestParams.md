@@ -77,3 +77,37 @@ type DTO struct {
 更多效验规则，请查看：https://github.com/go-playground/validator
 
 ?>我们做了中文的默认支持，请使用`label` tag来标记字段的中文名字
+
+## 4、DTO入参检查
+如果你的效验逻辑比较复杂，比如需要与数据库匹配。可以使用check.ICheck接口来实现
+```go
+type psRequest struct {
+	PageSize    int `json:"Page_size"`
+	PageIndex   int
+	noExported  string //测试不导出字段
+	CheckResult int
+}
+
+// 测试check
+func (receiver *psRequest) Check() {
+	// 这里可以写你对入参的检查，如判断数据库是否存在等等。
+	receiver.CheckResult++
+}
+
+webapi.RegisterPOST("/dto", func(req psRequest) string {
+    webapi.GetHttpContext().Response.SetMessage(200, "测试成功")
+    return fmt.Sprintf("hello world pageSize=%d，pageIndex=%d，checkResult=%d", req.PageSize, req.PageIndex, req.CheckResult)
+})
+```
+
+当请求http://127.0.0.1:xxx/dto时。webapi会在调用Handle之前执行Check方法。
+
+```go
+package check
+
+// ICheck 当json反序化到dto时，将调用ICheck接口
+type ICheck interface {
+	// Check 自定义检查
+	Check()
+}
+```
