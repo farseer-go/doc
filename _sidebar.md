@@ -100,6 +100,7 @@
   * [搞懂领域驱动设计](practices/5.md "搞懂领域驱动设计")
   * [树遍历代替递归](practices/6.md "树遍历代替递归")
   * [ClickHouse特性](practices/7.md "ClickHouse特性")
+  * [mysql必备特性](practices/9.md "mysql必备特性")
 * **代码优化**
   * [1、提前初始化](optimization/1.md "1、提前初始化")
   * [2、优化time.After](optimization/2.md "2、优化time.After")
