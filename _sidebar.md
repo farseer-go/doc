@@ -102,6 +102,7 @@
   * [ClickHouse特性](practices/7.md "ClickHouse特性")
   * [mysql必备特性](practices/9.md "mysql必备特性")
   * [mysql索引解释](practices/10.md "mysql索引解释")
+  * [OCR识别验证码](practices/11.md "OCR识别验证码")
 * **代码优化**
   * [1、提前初始化](optimization/1.md "1、提前初始化")
   * [2、优化time.After](optimization/2.md "2、优化time.After")
