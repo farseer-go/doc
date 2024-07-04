@@ -10,7 +10,7 @@ LinkTrace:
   PrintLog: true
 ```
 
-当框架启动后，如果检查到`Fops.Server`有配置地址。则定时将`日志`、`健康检查结果`上报到FOPS中心。
+当框架启动后，如果检查到`Fops.Server`有配置地址。则定时将`日志`上报到FOPS中心。
 
 同时如果`LinkTrace.Enable = true`时，将开启链路追踪，并将记录上报到FOPS中心。
 
