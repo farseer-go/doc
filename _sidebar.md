@@ -44,6 +44,7 @@
 * **缓存**
   * [redis](cache/redis.md "redis")
   * [集合缓存](cache/cache.md "集合缓存")
+  * [本地缓存](cache/cacheList.md "本地缓存")
 * **存储**
   * **data数据库ORM**
     * [概述](store/data/overview.md "概述")
