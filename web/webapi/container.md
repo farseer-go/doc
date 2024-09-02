@@ -1,5 +1,5 @@
 # 容器注入
-[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/webapi)
+[中文文档](https://farseer-go.github.io/doc/)、[English Document](https://farseer-go.github.io/doc/#/en-us/)、[github Source](https://github.com/farseer-go/webapi)
 
 webapi支持对已经注册过的接口自动注入，省去我们手动调用`container.Resolve`，此种注入在实际开发中会更方便。
 

@@ -33,7 +33,7 @@ FSchedule将调度、控制权放到服务端，由服务端统一调度。可�
 5. 自动清除历史任务记录
 
 ## 架构设计
-![架构设计](https://farseer-go.gitee.io/fSchedule/images/1.png)
+![架构设计](https://farseer-go.github.io/doc/fSchedule/images/1.png)
 
 FSchedule采用go语言设计，编译出来后就是一个二进制的可执行文件（约6.91mb），所以它非常轻巧，且占用资源非常低。
 

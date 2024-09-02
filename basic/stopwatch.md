@@ -1,5 +1,5 @@
 # stopwatch时间统计
-[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
+[中文文档](https://farseer-go.github.io/doc/)、[English Document](https://farseer-go.github.io/doc/#/en-us/)、[github Source](https://github.com/farseer-go/fs)
 > 包：`"github.com/farseer-go/fs/stopwatch"`
 
 很多时候，我们需要知道一个函数`执行了多长时间`，那么就可以使用stopwatch来`统计时间消耗`。

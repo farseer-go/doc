@@ -1,5 +1,5 @@
 # cache 集合缓存
-[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/cacheMemory)
+[中文文档](https://farseer-go.github.io/doc/)、[English Document](https://farseer-go.github.io/doc/#/en-us/)、[github Source](https://github.com/farseer-go/cacheMemory)
  
 集合缓存支持`将数据集合缓存到进程或Redis`，与直接操作Redis的区别是：集合缓存支持数据库自动同步到Redis或本地。
 

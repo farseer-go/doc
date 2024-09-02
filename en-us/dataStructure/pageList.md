@@ -1,5 +1,5 @@
 # pageList分页
-[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/collections)
+[中文文档](https://farseer-go.github.io/doc/)、[English Document](https://farseer-go.github.io/doc/#/en-us/)、[github Source](https://github.com/farseer-go/collections)
 > 包：`"github.com/farseer-go/collections"`
 
 ![](https://img.shields.io/github/stars/farseer-go?style=social)

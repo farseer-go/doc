@@ -1,5 +1,5 @@
 # 概述
-[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
+[中文文档](https://farseer-go.github.io/doc/)、[English Document](https://farseer-go.github.io/doc/#/en-us/)、[github Source](https://github.com/farseer-go/fs)
 
 ![stars](https://img.shields.io/github/stars/farseer-go?style=social)
 ![license](https://img.shields.io/github/license/farseer-go/fs)
@@ -19,7 +19,7 @@
 
 它有一个[.net core](https://github.com/FarseerNet/Farseer.Net/) 成熟版本，已经使用了10多年，非常棒
 
-![](https://farseer-go.gitee.io/images/farseer-go.png)
+![](https://farseer-go.github.io/doc/images/farseer-go.png)
 
 ?> 不用担心框架会让你依赖过多的包，farseer-go的组件都是独立的包，不使用的包不会下载到您的应用程序中
 

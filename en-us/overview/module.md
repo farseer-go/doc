@@ -1,5 +1,5 @@
 # 内置模块
-[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/fs)
+[中文文档](https://farseer-go.github.io/doc/)、[English Document](https://farseer-go.github.io/doc/#/en-us/)、[github Source](https://github.com/farseer-go/fs)
 
 在您使用框架中的各组件时，大部份组件会要求你显示的依赖模块，用于初始化工作：
 
@@ -63,7 +63,7 @@ func (module StartupModule) DependsModule() []modules.FarseerModule {
 
 ## 实际项目中的模块设计
 
-![](https://farseer-go.gitee.io/images/farseer-go.png)
+![](https://farseer-go.github.io/doc/images/farseer-go.png)
 在这张图中，我们就可以很清晰看到各个模块间的依赖关系，图中使用的是DDD架构。
 
 - startupModule

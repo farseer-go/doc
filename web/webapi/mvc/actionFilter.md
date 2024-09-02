@@ -1,5 +1,5 @@
 # IActionFilter过虑器
-[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/webapi)
+[中文文档](https://farseer-go.github.io/doc/)、[English Document](https://farseer-go.github.io/doc/#/en-us/)、[github Source](https://github.com/farseer-go/webapi)
 
 提供了在执行controller/action前后对请求/响应修改的能力，可以应用于action和控制器上，作用在控制器上将自动被应用到该控制器下所有的action.
 

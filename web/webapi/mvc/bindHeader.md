@@ -1,5 +1,5 @@
 # 隐式绑定Header
-[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/webapi)
+[中文文档](https://farseer-go.github.io/doc/)、[English Document](https://farseer-go.github.io/doc/#/en-us/)、[github Source](https://github.com/farseer-go/webapi)
 
 前面我们看到获取`入参`的时候，都是通过`隐式绑定`的，不需要我们做任何的赋值、json反序列化操作。
 

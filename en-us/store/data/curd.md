@@ -1,5 +1,5 @@
 # CURD操作
-[English Document](https://farseer-go.gitee.io/en-us/)、[中文文档](https://farseer-go.gitee.io/)、[English Document](https://farseer-go.github.io/doc/en-us/)、[github Source](https://github.com/farseer-go/data)
+[中文文档](https://farseer-go.github.io/doc/)、[English Document](https://farseer-go.github.io/doc/#/en-us/)、[github Source](https://github.com/farseer-go/data)
 ## 什么是TableSet
 在上下文的时候，我们都会用data.TableSet做一层包裹：
 ```go
