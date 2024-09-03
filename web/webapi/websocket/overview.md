@@ -16,7 +16,12 @@
 // ./application/resource.go
 // 获取宿主资源使用情况
 // @ws /host/resource
-func ReceiverResource(context *websocket.Context[Request]) {
+func ReceiverResource(context *websocket.Context[Request], manager trace.IManager) {
+	if context.GetHeader("Token") != "123456" {
+        context.Close()
+		return
+    }
+	
 	// 循环5次
 	for i := 0; i < 5; i++ {
 		// 接收消息
@@ -34,13 +39,14 @@ func ReceiverResource(context *websocket.Context[Request]) {
 	context.Close()
 }
 ```
-在第2行中，`@ws`表明这是一个websocket协议的路由。
+在第3行中，`@ws`表明这是一个websocket协议的路由。
 
 websocket在本框架中有如下`约定`：
 1. **Method** 为 `ws` （注：在http中为：get、post、delete、put、update等）
-2. 函数的**入参**必须为：`*websocket.Context[T]`，T为泛型any类型，用于执行`context.Receiver()`接收消息时，自动json反序列化成T对象
-3. 函数不能有出参
-4. 函数必须为导出类型
+2. 函数的**第1个入参**必须为：`*websocket.Context[T]`，T为泛型any类型，用于执行`context.Receiver()`接收消息时，自动json反序列化成T对象
+3. 除了第1个入参类型限制，第2个入参起，支持使用在IOC中已注册的接口，实现自动注入
+4. 函数不能有出参
+5. 函数必须为导出类型
 
 ## 3、路由
 当我们项目中，定义了这么一个函数后。在项目根目录执行：`fsctl -r`命令，则会自动生成一条对应的路由：
@@ -55,7 +61,7 @@ import (
 )
 
 var route = []webapi.Route{
-    {"WS", "/api/host/resource", application.ReceiverResource, "", []context.IFilter{}, []string{"context"}},
+    {"WS", "/api/host/resource", application.ReceiverResource, "", []context.IFilter{}, []string{"context", ""}},
 }
 ```
 > 关于fsctl工具，请查阅[自动路由](web/webapi/minimalApi/autoRoute)
