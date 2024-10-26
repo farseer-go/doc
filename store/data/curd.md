@@ -199,3 +199,34 @@ _获取用户名_
 repository:= data.NewContext[MysqlContext]("fops")
 repository.Admin.Where("Id = ?", id).GetString("user_name")
 ```
+
+## 16、自定义SQL
+上前面的上下文章节中，MysqlContext内嵌了`data.IInternalContext`接口，这样可以实现复杂的SQL
+```go
+type IInternalContext interface {
+	core.ITransaction
+	Original() *gorm.DB
+	// ExecuteSql 执行自定义SQL
+	ExecuteSql(sql string, values ...any) (int64, error)
+	// ExecuteSqlToResult 返回结果(执行自定义SQL)
+	ExecuteSqlToResult(arrayOrEntity any, sql string, values ...any) (int64, error)
+	// ExecuteSqlToValue 返回单个字段值(执行自定义SQL)
+	ExecuteSqlToValue(field any, sql string, values ...any) (int64, error)
+}
+```
+示例：
+```go
+// 获取实例
+repository:= data.NewContext[MysqlContext]("fops")
+
+// 更新数据
+repository.ExecuteSql("update xxx set a = 1 where b = ?", 1)
+
+// 获取订单ID > 0 的列表
+var array []model.OrderPO
+_, _ = repository.ExecuteSqlToResult(&array, "select * from order where id > ?", 100)
+
+// 获取数量
+var orderCount int64
+_, _ = repository.ExecuteSqlToResult(&orderCount, "select count(0) from order where id > ?", 100)
+```

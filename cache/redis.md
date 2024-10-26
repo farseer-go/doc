@@ -112,10 +112,35 @@ cache.Transaction(func(){
 开启事务的方式也很简单。在方法`Transaction`内执行的Redis操作，都会处于同一个事务中。
 ## 9、管道
 ```go
-cache := container.Resolve[redis.IClient]("default")
-cache.Pipeline(func(){
-    cache.StringSet("key1", "9883")
-    cache.Del("key1")
+redisClient := container.Resolve[redis.IClient]("default")
+redisClient.Pipeline(func(){
+    redisClient.StringSet("key1", "9883")
+    redisClient.Del("key1")
 })
 ```
 开启管道的方式也很简单。在方法`Pipeline`内执行的Redis操作，都会处于同一个管道中。
+
+## 10、批量读取数据
+批量读取数据并填充到map
+```go
+	redisClient := container.Resolve[redis.IClient]("default")
+	cmdResult, _ := redisClient.Pipeline(func() {
+		lstKey.Foreach(func(key *string) {
+			redisClient.HashGetAll(*key)
+		})
+	})
+	var m map[string]string
+	cmdResult.Fill(&m)
+```
+
+批量读取数据并填充到List
+```go
+	redisClient := container.Resolve[redis.IClient]("default")
+	cmdResult, _ := redisClient.Pipeline(func() {
+		lstKey.Foreach(func(key *string) {
+			redisClient.HashGetAll(*key)
+		})
+	})
+	var lst collections.List[string]
+	cmdResult.Fill(&lst)
+```
