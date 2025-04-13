@@ -79,10 +79,6 @@
   * [http客户端](other/utils/http.md "http客户端")
   * [str字符串处理](other/utils/str.md "str字符串处理")
   * [times时间处理](other/utils/times.md "times时间处理")
-* **星云平台**
-  * [介绍](devops/overview.md "介绍")
-  * [架构设计](devops/architecture.md "架构设计")
-  * [版本](devops/version.md "版本")
 * **调度中心**
   * [介绍](fSchedule/overview.md "介绍")
   * 客户端
@@ -107,6 +103,7 @@
   * [mysql索引解释](practices/10.md "mysql索引解释")
   * [OCR识别验证码](practices/11.md "OCR识别验证码")
   * [mysql的json索引](practices/12.md "mysql的json索引")
+  * [go代码分析](practices/13.md "go代码分析")
 * **代码优化**
   * [1、提前初始化](optimization/1.md "1、提前初始化")
   * [2、优化time.After](optimization/2.md "2、优化time.After")
