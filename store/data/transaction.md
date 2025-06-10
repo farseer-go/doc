@@ -15,13 +15,29 @@ transaction.Transaction(func() {
 ```
 配合`webapi`组件，可以更简单：
 ```go
-func Buy(productId int64, transaction core.ITransaction) {
-    // 开启数据库事务
-    transaction.Transaction(func() {
-        // 发布下单事件
-        _ = buyOrderEvent.Publish(&productDO)
-    })
+// Buy 购买商品
+// productRepository：商品仓储，webapi自动注入实例
+// stockRepository：库存仓储，webapi自动注入实例
+// @post product/{action}
+// @filter Jwt Auth
+// @di transaction default
+// @di buyOrderEvent buyOrder
+// @message 下单成功
+func Buy(productId int64, productRepository product.Repository, stockRepository stock.Repository, transaction core.ITransaction, buyOrderEvent core.IEvent) {
+	// 减库存，剩余库存>0 ，扣减成功
+	stockVal := stockRepository.Set(productId, -1)
+	if stockVal > -1 {
+		// 把商品信息查出来
+		productDO := productRepository.ToEntity(productId)
+		// 开启数据库事务
+		transaction.Transaction(func() {
+			// 发布下单事件
+			_ = buyOrderEvent.Publish(&productDO)
+		})
+	}
 }
+
+注意`@di transaction default` 指定了default这个ioc名称。需跟farseer.yml 中的Database.default名称一致。
 ```
 
 使用接口方式可以看到`与数据库仓储完全解耦`了，这里并没有对data组件的依赖，也没有对`数据库的直接依赖`。
