@@ -16,8 +16,6 @@ FSchedule:
     JobName2:
       Key3: "value3"
       Key4: "value4"
-  ClientIp: ""      # 调度中心访问本机的IP地址，默认情况下不需要填写
-  ClientPort: 8888  # 调度中心访问本机的端口地址，必须填写
   Server:
     Token: ""       # 与调度中心通信的Token（未实现）
     Address:        # 调度中心服务端地址（支持多个）
@@ -52,13 +50,13 @@ func job1(jobContext *fSchedule.JobContext) bool {
 // cron：任务计划时间（间隔时间）
 // startAt：任务开始时间，单位：时间戳，秒（在这个时间之后才会开始）
 // job：任务执行的函数本体
-func AddJob(isEnable bool, name, caption string, ver int, cron string, startAt int64, job JobFunc)
+func AddJob(isEnable bool, name, caption string, ver int, cronString string, jobFunc JobFunc, ops ...options)
 ```
 
 示例：
 ```go
 func (module Module) PostInitialize() {
-    fSchedule.AddJob(true, "Hello"+strconv.Itoa(i), "测试HelloJob"+strconv.Itoa(i), 1, "0/1 * * * * ?", 1674571566, job1)
+    fSchedule.AddJob(true, "Hello1", "测试HelloJob1", 1, "0/1 * * * * ?", job1)
 }
 ```
 `fSchedule.AddJob`向服务端注册任务。需要放到模块中`PostInitialize`方法执行（框架启动时执行一次即可）
@@ -89,7 +87,7 @@ func (module startupModule) DependsModule() []modules.FarseerModule {
 }
 func (module startupModule) PostInitialize() {
 	// 在这里注册任务
-    fSchedule.AddJob(true, "Hello1", "测试HelloJob1", 1, "0/1 * * * * ?", 1674571566, job1)
+    fSchedule.AddJob(true, "Hello1", "测试HelloJob1", 1, "0/1 * * * * ?", job1)
 }
 
 // 主函数
