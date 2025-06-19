@@ -40,7 +40,7 @@ func main() {
 ## 3、Jwt过滤器
 Jwt过滤器是框架内置的过滤器，用于对前后端分离的项目，做到鉴权认证
 
-使用前需要进行简单的配置：
+### 3.1、farseer.yml配置文件
 ```yaml
 WebApi:
   Url: ":888"
@@ -51,21 +51,65 @@ WebApi:
     InvalidStatusCode: 403            # token无效时的状态码
     InvalidMessage: "您没有权限访问"     # token无效时的提示信息
 ```
+
+### 3.2、登陆接口颁发token
 ```go
-    fs.Initialize[webapi.Module]("demo")
-    // 颁发Token给到前端
-    webapi.RegisterRoutes(webapi.Route{Url: "/jwt/build", Action: func() {
-        claims := make(map[string]any)
-        claims["farseer-go"] = "v0.8.0"
-        webapi.GetHttpContext().Jwt.Build(claims) // 会写到http head中
-    }}.POST())
-
-    // 使用Jwt鉴权
-    webapi.RegisterRoutes(webapi.Route{Url: "/jwt/validate", Action: func() string {
-        return "hello"
-    }}.POST().UseJwt())
-
-    webapi.Run()
+// 登陆
+// @post /user/passport/Login
+func Login(req request.LoginRequest, accountLoginRepository accountLogin.Repository) response.LoginResponse {
+	httpContext := webapi.GetHttpContext()
+	login := accountLoginRepository.ToEntityByAccountName(req.LoginName)
+	// 验证
+	err := login.CheckLogin(req.LoginPwd)
+	exception.ThrowWebExceptionError(403, err)
+	claims := map[string]any{
+		"LoginName":  login.LoginName,
+		"ClusterIds": login.ClusterIds.ToString(","),
+		"DateTime":   time.Now(),
+	}
+	domain.SetLoginAccount(claims) // 登陆事件 用到
+	token, _ := httpContext.Jwt.Build(claims)
+	return response.LoginResponse{LoginName: login.LoginName, Token: token}
+}
 ```
 
-token验证失败将返回：403 您没有权限访问
+
+### 3.3、自定义jwt过滤器
+```go
+// 账号JWT验证 位置：application.Jwt
+type Jwt struct {
+}
+
+func (receiver Jwt) OnActionExecuting(httpContext *context.HttpContext) {
+	traceHand := container.Resolve[trace.IManager]().TraceHand("验证jwt")
+	if !httpContext.Jwt.Valid() {
+		exception.ThrowWebExceptionf(context.InvalidStatusCode, context.InvalidMessage)
+	}
+
+	claims := httpContext.Jwt.GetClaims()
+
+	// 获取登陆账号
+	loginName := parse.ToString(claims["LoginName"])
+	exception.ThrowWebExceptionBool(len(loginName) == 0, 207, "登录状态失效")
+
+	// 当前登陆账户
+	domain.SetLoginAccount(claims)
+
+	traceHand.End(nil)
+}
+
+func (receiver Jwt) OnActionExecuted(httpContext *context.HttpContext) {
+}
+```
+
+### 3.4、接口api附加上jwt过滤器
+```go
+// @summary 添加应用
+// @post add
+// @filter application.Jwt
+func Add(req request.AddRequest, appsRepository apps.Repository) {
+	// 这里是您的接口业务内容....
+}
+```
+
+> 可以看到注解，使用了：@filter application.Jwt，当token验证失败将返回：403 您没有权限访问
