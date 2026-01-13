@@ -8,7 +8,7 @@
 _./farseer.yaml_
 ```yaml
 Database:
-  default: "DataType=mysql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fSchedule_demo?charset=utf8&parseTime=True&loc=Local"
+  default: "DataType=mysql,PoolMaxSize=5,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fSchedule_demo?charset=utf8&parseTime=True&loc=Local"
 Redis:
   default: "Server=127.0.0.1:6379,DB=15,Password=123456,ConnectTimeout=600000,SyncTimeout=10000,ResponseTimeout=10000"
 ElasticSearch:
@@ -62,7 +62,7 @@ configure.GetString("Database.default")
 ```
 _运行结果：_
 
-?> "DataType=mysql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fSchedule_demo?charset=utf8&parseTime=True&loc=Local"
+?> "DataType=mysql,PoolMaxSize=5,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fSchedule_demo?charset=utf8&parseTime=True&loc=Local"
 
 读取FSchedule.ReservedTaskCount配置：
 ```go

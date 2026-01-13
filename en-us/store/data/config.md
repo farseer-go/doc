@@ -4,7 +4,7 @@
 _./farseer.yaml_
 ```yaml
 Database:
-  fops: "DataType=MySql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(mysql:3306)/fops?charset=utf8&parseTime=True&loc=Local"
+  fops: "DataType=MySql,PoolMaxSize=5,PoolMinSize=1,ConnectionString=root:123456@tcp(mysql:3306)/fops?charset=utf8&parseTime=True&loc=Local"
 ```
 
 数据库的配置，根节点`Database`是框架定义的，如果你的应用需要多种数据库配置，可以自行添加：
@@ -12,9 +12,9 @@ Database:
 _./farseer.yaml_
 ```yaml
 Database:
-  db1: "DataType=MySql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(mysql:3306)/fops?charset=utf8&parseTime=True&loc=Local"
-  db2: "DataType=MySql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(mysql:3306)/fops?charset=utf8&parseTime=True&loc=Local"
-  db3: "DataType=MySql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(mysql:3306)/fops?charset=utf8&parseTime=True&loc=Local"
+  db1: "DataType=MySql,PoolMaxSize=5,PoolMinSize=1,ConnectionString=root:123456@tcp(mysql:3306)/fops?charset=utf8&parseTime=True&loc=Local"
+  db2: "DataType=MySql,PoolMaxSize=5,PoolMinSize=1,ConnectionString=root:123456@tcp(mysql:3306)/fops?charset=utf8&parseTime=True&loc=Local"
+  db3: "DataType=MySql,PoolMaxSize=5,PoolMinSize=1,ConnectionString=root:123456@tcp(mysql:3306)/fops?charset=utf8&parseTime=True&loc=Local"
 ```
 
 `db1、db2、db3`允许自行定义，在使用data组件时，需要传入这个`db1、db2、db3`名称

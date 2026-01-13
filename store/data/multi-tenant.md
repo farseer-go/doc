@@ -6,7 +6,7 @@
 首先你要在farseer.yaml中定义固定的库，用来获取多租户的连接字符串。
 ```yaml
 Database:
-  default: "DataType=mysql,PoolMaxSize=50,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/company?charset=utf8&parseTime=True&loc=Local"
+  default: "DataType=mysql,PoolMaxSize=5,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/company?charset=utf8&parseTime=True&loc=Local"
 ```
 跟之前一样，有一个对应的上下文：
 ```go

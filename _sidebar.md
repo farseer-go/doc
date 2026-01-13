@@ -105,6 +105,7 @@
   * [OCR识别验证码](practices/11.md "OCR识别验证码")
   * [mysql的json索引](practices/12.md "mysql的json索引")
   * [go代码分析](practices/13.md "go代码分析")
+  * [使用ClaudeCode](practices/14.md "使用ClaudeCode")
 * **代码优化**
   * [1、提前初始化](optimization/1.md "1、提前初始化")
   * [2、优化time.After](optimization/2.md "2、优化time.After")
