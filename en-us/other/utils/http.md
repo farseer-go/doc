@@ -5,7 +5,7 @@
 
 ## `NewClient` 创建http客户端
 ```go
-_, _ = NewClient("https://www.fsgit.cc").Body(nil).Head(nil).Post()
+_, _ = NewClient("https://www.fsgit.com").Body(nil).Head(nil).Post()
 ```
 ## `Head` 设置头部
 ```go
