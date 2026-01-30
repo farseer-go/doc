@@ -11,7 +11,7 @@ fSchedule是为跨语言而设计的调度中心，因此支持使用http协议�
 
 ### 1.1、客户端注册
 
-**URL**：`http://调度中心地址/api/registry`
+**URL**：`ws://调度中心地址/api/registry`
 
 > 客户端启动后向服务端主动注册，以告客户端准备就绪，可接受任务的调度。
 
@@ -50,7 +50,7 @@ fSchedule是为跨语言而设计的调度中心，因此支持使用http协议�
 
 ### 1.2、客户端下线
 
-**URL**：`http://调度中心地址/api/logout`
+**URL**：`ws://调度中心地址/api/logout`
 
 > 客户端向服务端发送下线通知，下线后的客户端不再接收调度请求
 
@@ -72,7 +72,7 @@ fSchedule是为跨语言而设计的调度中心，因此支持使用http协议�
 
 ### 1.3、客户端回调
 
-**URL**：`http://调度中心地址/api/taskReport`
+**URL**：`ws://调度中心地址/api/taskReport`
 
 > 当客户端处理完任务后，需要回调此接口，告知服务端任务已处理完毕
 
@@ -108,7 +108,7 @@ fSchedule是为跨语言而设计的调度中心，因此支持使用http协议�
 
 **客户端请求Body**：
 
-**URL**：`http://调度中心地址/api/logReport`
+**URL**：`ws://调度中心地址/api/logReport`
 
 ```json
 {
