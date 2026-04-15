@@ -5,7 +5,7 @@
 > 模块：`fSchedule.Module`
 
 ## 1、配置调度中心地址
-**./farseer.yaml**
+**./config.yaml**
 ```yaml
 FSchedule:
   Debug:

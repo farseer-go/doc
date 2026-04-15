@@ -2,10 +2,10 @@
 [中文文档](https://farseer-go.github.io/doc/)、[English Document](https://farseer-go.github.io/doc/#/en-us/)、[github Source](https://github.com/farseer-go/fs)
 > 包：`"github.com/farseer-go/fs/configure"`
 
-使用`farseer-go`框架，可以让你有一个统一的配置管理，我们将所有组件的配置统一写在`farseer.yaml`中。
+使用`farseer-go`框架，可以让你有一个统一的配置管理，我们将所有组件的配置统一写在`config.yaml`中。
 
 ## 1、配置示例
-_./farseer.yaml_
+_./config.yaml_
 ```yaml
 Database:
   default: "DataType=mysql,PoolMaxSize=5,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/fSchedule_demo?charset=utf8&parseTime=True&loc=Local"
@@ -27,9 +27,9 @@ Log:
     queue: true
     fSchedule: true
 ```
-!> 配置文件：`./farseer.yaml` （位置在应用程序根目录中）
+!> 配置文件：`./config.yaml` （位置在应用程序根目录中）
 
-使用组件时，你只要负责在`./farseer.yaml`进行配置，组件会根据你写的配置进行实例化。
+使用组件时，你只要负责在`./config.yaml`进行配置，组件会根据你写的配置进行实例化。
 
 ?> 各组件的配置，会在每个组件说明文档中详细描述
 
@@ -93,7 +93,7 @@ _环境变量_
 WebApi_Url = :80
 ```
 
-_./farseer.yaml_
+_./config.yaml_
 ```yaml
 WebApi:
   Url: ":888"

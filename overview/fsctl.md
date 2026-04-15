@@ -86,7 +86,7 @@ func main() {
 	webapi.UseApiResponse()
 	// 使用静态文件 在根目录./wwwroot中的文件
 	webapi.UseStaticFiles()
-	// 运行web服务，端口配置在：farseer.yaml Webapi.Url 配置节点
+	// 运行web服务，端口配置在：config.yaml Webapi.Url 配置节点
 	webapi.Run()
 }
 ```

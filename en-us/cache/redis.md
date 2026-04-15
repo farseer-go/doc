@@ -32,7 +32,7 @@ _SetProfilesInRedis定义_
 func SetProfilesInRedis[TEntity any](key string, redisConfigName string, uniqueField string, redisExpiry time.Duration)
 ```
 - `key`：这批数据的key，用于区分不同数据集合。
-- `redisConfigName`：redis的配置key，在./farseer.yaml 的 Redis.XXX 节点
+- `redisConfigName`：redis的配置key，在./config.yaml 的 Redis.XXX 节点
 - `uniqueField`：数据集合中，用于区分Item的唯一值的字段名称
 - `redisExpiry`：缓存失效时间
 
@@ -41,7 +41,7 @@ _使用演示_
 fs.Initialize[cacheMemory.Module]("进程缓存演示")
 cache.SetProfilesInRedis[po]("test","default", "Name", 0)
 ```
-- 第2个参数：对应./farseer.yaml 的 `Redis.default` 节点
+- 第2个参数：对应./config.yaml 的 `Redis.default` 节点
 - 第3个参数：对应po结构的Name字段名称
 - 第4个参数：0代表不失效
 

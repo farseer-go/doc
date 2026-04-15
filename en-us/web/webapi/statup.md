@@ -81,7 +81,7 @@ params实际只支持一个入参，支持的格式为:
 - webapi.Run(`"127.0.0.1:80"`)
 
 ### 2、配置文件
-_./farseer.yaml_
+_./config.yaml_
 ```yaml
 WebApi:
   Url: ":8888"

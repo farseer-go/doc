@@ -70,6 +70,6 @@ return Content("aaaa")
 相当于：`return "aaaa"` 的效果。
 ## 4、FileContent 输出指定文件径路的内容
 ```go
-return FileContent("/farseer.yaml")
+return FileContent("/config.yaml")
 ```
 比如这里，我们把根目录的配置文件的内容输出到网页中

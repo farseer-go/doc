@@ -57,7 +57,7 @@ defer traceHand.End(nil)
 这段代码，会记录当前函数执行的耗时统计。
 
 ## 4、配置
-_./farseer.yaml_
+_./config.yaml_
 ```yaml
 LinkTrace:
   Enable: true      # 记录链路日志到ES

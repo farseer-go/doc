@@ -157,7 +157,7 @@ func InitMysqlContext() {
 ```
 
 **参数说明：**
-- fops：数据库配置名称，对应./farseer.yaml 中的 Database节点
+- fops：数据库配置名称，对应./config.yaml 中的 Database节点
 - true：传入true表示自动创建表，以此实现code first模式
 
 ## 6、获取原生ORM对象

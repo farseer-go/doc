@@ -28,7 +28,7 @@ FROM alpine:latest AS base
 WORKDIR /app
 COPY --from=build /app .
 # 复制配置（没有配置需要注释掉）
-COPY --from=build /src/farseer.yaml .
+COPY --from=build /src/config.yaml .
 # 复制视图（没有视图需要注释掉）
 COPY --from=build /src/views ./views
 # 复制静态资源（没有静态资源需要注释掉）
@@ -50,7 +50,7 @@ FROM alpine:latest AS base
 WORKDIR /app
 COPY ./main .
 # 复制配置
-COPY ./farseer.yaml .
+COPY ./config.yaml .
 # 复制视图
 COPY ./views ./views
 # 复制静态资源

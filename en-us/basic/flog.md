@@ -14,7 +14,7 @@ _运行结果：_
 
 !> 推荐大家使用flog日志实现应用的日志打印，我们将在`未来的版本`中会加入`分布式日志`能力，如果你使用了flog打印的日志，到时只需要修改配置就可实现自动采集日志
 
-## ./farseer.yaml配置
+## ./config.yaml配置
 ```yaml
 Log:
   LogLevel: "Information" // 低于info级别不打印
@@ -27,7 +27,7 @@ Log:
     queue: true           // 打印queue组件的日志
     fSchedule: true             // 打印fSchedule组件的日志
 ```
-?> 通过配置文件`./farseer.yaml`，可以用来控制在生产环境、开发环境、测试环境间的日志打印频率
+?> 通过配置文件`./config.yaml`，可以用来控制在生产环境、开发环境、测试环境间的日志打印频率
 
 Log.LogLevel控制日志打印的最低级别，级别从低到高：
 - Trace 

@@ -1,9 +1,9 @@
 # 多租户
-数据库连接字符串配置到farseer.yaml通常是因为数据库数量是固定的。
+数据库连接字符串配置到config.yaml通常是因为数据库数量是固定的。
 
 但在多租户场景下，数据库的连接字符串是存到表记录的。这个时候要注册数据库的实例的方法为：
 
-首先你要在farseer.yaml中定义固定的库，用来获取多租户的连接字符串。
+首先你要在config.yaml中定义固定的库，用来获取多租户的连接字符串。
 ```yaml
 Database:
   default: "DataType=mysql,PoolMaxSize=5,PoolMinSize=1,ConnectionString=root:123456@tcp(127.0.0.1:3306)/company?charset=utf8&parseTime=True&loc=Local"

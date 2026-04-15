@@ -29,7 +29,7 @@ etcd是比较流行的分布式组件之一，另外还有Zookeeper、Eureka、N
 - `优雅的使用`：将常用的操作，整合到几个方法中，更加简单使用。
 
 ## 配置
-_./farseer.yaml_
+_./config.yaml_
 ```yaml
 Etcd:
   default1: "Server=127.0.0.1:2379|127.0.0.1:2379,DialTimeout=5000,Username=test,Password=test"
@@ -62,7 +62,7 @@ putRsp, err := client.Put("/test/a1", "1")
 ```
 通过`container.Resolve`容器取出`etcd.IClient`接口的实现。
 
-参数值`default1`，是在`./farseer.yaml`中配置节点，意味着使用default1的配置服务端
+参数值`default1`，是在`./config.yaml`中配置节点，意味着使用default1的配置服务端
 
 `KEY`："/test/a1"，`Value`："1"
 

@@ -1,7 +1,7 @@
 # 配置
 [中文文档](https://farseer-go.github.io/doc/)、[English Document](https://farseer-go.github.io/doc/#/en-us/)、[github Source](https://github.com/farseer-go/data)
 
-_./farseer.yaml_
+_./config.yaml_
 ```yaml
 Database:
   fops: "DataType=MySql,PoolMaxSize=5,PoolMinSize=1,ConnectionString=root:123456@tcp(mysql:3306)/fops?charset=utf8&parseTime=True&loc=Local"
@@ -9,7 +9,7 @@ Database:
 
 数据库的配置，根节点`Database`是框架定义的，如果你的应用需要多种数据库配置，可以自行添加：
 
-_./farseer.yaml_
+_./config.yaml_
 ```yaml
 Database:
   db1: "DataType=MySql,PoolMaxSize=5,PoolMinSize=1,ConnectionString=root:123456@tcp(mysql:3306)/fops?charset=utf8&parseTime=True&loc=Local"

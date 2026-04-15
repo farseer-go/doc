@@ -18,7 +18,7 @@
 Redis与数据库一样，几乎是项目的标配。在farseer-go框架使用redis组件也是非常简单。
 
 ## 2、配置
-_./farseer.yaml_
+_./config.yaml_
 ```yaml
 Redis:
   default: "Server=192.168.1.8:6379,DB=1,Password=123456,ConnectTimeout=600000,SyncTimeout=10000,ResponseTimeout=10000"
@@ -32,7 +32,7 @@ Redis:
 var RedisContext *redisContext
 
 type redisContext struct {
-	redis.IClient `inject:"default"` // 使用farseer.yaml的Redis.default配置节点，并自动注入
+	redis.IClient `inject:"default"` // 使用config.yaml的Redis.default配置节点，并自动注入
 }
 
 // InitRedisContext 初始化上下文

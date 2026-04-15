@@ -49,7 +49,7 @@ chmod +x fschedule-server
 ./fschedule-server
 ```
 
-> 在应用程序根目录中有`farseer.yaml`配置文件，配置方式参考环境变量说明
+> 在应用程序根目录中有`config.yaml`配置文件，配置方式参考环境变量说明
 
 ## 4、mac
 需要`go 1.20+`
@@ -61,4 +61,4 @@ GOOS=darwin GOARCH=amd64 CGO_ENABLED=0 go build -o fschedule-server -ldflags="-w
 chmod +x fschedule-server
 ./fschedule-server
 ```
-> 在应用程序根目录中有`farseer.yaml`配置文件，配置方式参考环境变量说明
+> 在应用程序根目录中有`config.yaml`配置文件，配置方式参考环境变量说明
