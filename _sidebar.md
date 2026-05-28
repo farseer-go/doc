@@ -106,7 +106,6 @@
   * [mysql的json索引](practices/12.md "mysql的json索引")
   * [go代码分析](practices/13.md "go代码分析")
   * [ClaudeCode安装](practices/14.md "ClaudeCode安装")
-  * [Openrouter安装](practices/15.md "Openrouter安装")
 * **代码优化**
   * [1、提前初始化](optimization/1.md "1、提前初始化")
   * [2、优化time.After](optimization/2.md "2、优化time.After")
