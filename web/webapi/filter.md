@@ -81,7 +81,7 @@ type Jwt struct {
 }
 
 func (receiver Jwt) OnActionExecuting(httpContext *context.HttpContext) {
-	traceHand := container.Resolve[trace.IManager]().TraceHand("验证jwt")
+	traceHand := trace.Manager().TraceHand("验证jwt")
 	if !httpContext.Jwt.Valid() {
 		exception.ThrowWebExceptionf(context.InvalidStatusCode, context.InvalidMessage)
 	}
